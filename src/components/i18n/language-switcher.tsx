@@ -1,7 +1,13 @@
+/**
+ * @author WMXPY
+ * @namespace Components_I18N
+ * @description Language Switcher
+ */
 
 import * as React from "react";
 
 export const LanguageSwitcher: React.FC = () => {
+
     return (
         <div>
             <select>
