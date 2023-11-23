@@ -1,4 +1,9 @@
-const Home = () => {
+/**
+ * @author WMXPY
+ * @description Page
+ */
+
+export default function Home() {
   const buildDate = Date.now();
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     dateStyle: "long",
@@ -12,7 +17,5 @@ const Home = () => {
         <a href="/ssr">View a server-side rendered page.</a>
       </p>
     </main>
-  )
+  );
 };
-
-export default Home;
