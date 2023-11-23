@@ -16,11 +16,11 @@ export class DependencyDataNotFoundGithubError extends DependencyDataNotFoundErr
     ): DependencyDataNotFoundGithubError {
 
         return new DependencyDataNotFoundGithubError([
-            `Github Data Not Found from:`,
+            "Github Data Not Found from:",
             `Owner: ${owner}`,
             `Repo: ${repo}`,
             `Branch: ${branch}`,
-            `Paths: ${paths.join('/')}`,
+            `Paths: ${paths.join("/")}`,
         ].join(" "));
     }
 

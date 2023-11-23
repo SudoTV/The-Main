@@ -13,6 +13,13 @@
         "exports": "always-multiline"
       }
     ],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
     "semi": [
       "error",
       "always"

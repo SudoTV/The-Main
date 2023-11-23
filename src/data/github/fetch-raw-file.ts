@@ -15,7 +15,7 @@ export const fetchGithubRawFile = async (
 ): Promise<string> => {
 
     const response: Response = await fetch(
-        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${paths.join('/')}`,
+        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${paths.join("/")}`,
     );
 
     if (response.status !== HTTP_RESPONSE_CODE.OK) {

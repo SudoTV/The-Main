@@ -3,19 +3,19 @@
  * @description Layout
  */
 
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
   subsets: [
-    'latin',
+    "latin",
   ],
 });
 
 export const metadata: Metadata = {
-  title: 'SudoTV the Main',
-  description: 'SudoTV the Main',
+  title: "SudoTV the Main",
+  description: "SudoTV the Main",
 };
 
 export default function RootLayout({
