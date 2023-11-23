@@ -4,7 +4,7 @@
  * @description Fetch Raw File
  */
 
-import { DependencyDataNotFoundError } from "@/error/dependency/data/not-found";
+import { DependencyDataNotFoundGithubError } from "@/error/dependency/data/not-found/github";
 import { HTTP_RESPONSE_CODE } from "@sudoo/magic";
 
 export const fetchGithubRawFile = async (
@@ -20,8 +20,11 @@ export const fetchGithubRawFile = async (
 
     if (response.status !== HTTP_RESPONSE_CODE.OK) {
 
-        throw DependencyDataNotFoundError.create(
-            `Cannot find file: ${paths.join('/')}`,
+        throw DependencyDataNotFoundGithubError.create(
+            owner,
+            repo,
+            branch,
+            paths,
         );
     }
 
