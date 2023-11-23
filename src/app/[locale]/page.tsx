@@ -17,13 +17,14 @@ export default function Home(props: Props) {
         dateStyle: "long",
         timeStyle: "long",
     }).format(buildDate);
-    return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>Static page</h1>
-            <p>This page is static. It was built on {formattedDate}.</p>
-            <p>
-                <a href="/ssr">View a server-side rendered page.</a>
-            </p>
-        </main>
-    );
+
+    return (<main
+        className="flex min-h-screen flex-col items-center justify-between p-24"
+    >
+        <h1>Static page</h1>
+        <p>This page is static. It was built on {formattedDate}.</p>
+        <p>
+            <a href="/ssr">View a server-side rendered page.</a>
+        </p>
+    </main>);
 };
