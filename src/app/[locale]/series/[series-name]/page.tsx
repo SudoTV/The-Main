@@ -7,6 +7,7 @@
 type Props = {
 
     readonly params: {
+        readonly locale: string;
         readonly "series-name": string;
     };
 };
@@ -24,6 +25,7 @@ export default async function Page(props: Props) {
             <h1>Static page</h1>
             <p>This page is static. It was built on {formattedDate}.</p>
             <p>{props.params["series-name"]}</p>
+            <p>{props.params.locale}</p>
         </main>
     );
 };

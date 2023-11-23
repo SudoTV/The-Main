@@ -3,7 +3,14 @@
  * @description Page
  */
 
-export default function Home() {
+type Props = {
+
+    readonly params: {
+        readonly locale: string;
+    };
+};
+
+export default function Home(props: Props) {
 
     const buildDate = Date.now();
     const formattedDate = new Intl.DateTimeFormat("en-US", {
