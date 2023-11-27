@@ -14,4 +14,5 @@ export const i18nConfiguration = {
     ],
 };
 
-export type Locale = (typeof i18n)["locales"][number];
+export type AVAILABLE_LOCALES =
+    (typeof i18nConfiguration)["locales"][number];

@@ -6,8 +6,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
-import { LOCALE } from "@sudoo/locale";
-import { i18n } from "../i18n/config";
 
 const inter = Inter({
     subsets: [
@@ -22,17 +20,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: {
     children: React.ReactNode,
-    params: any,
 }) {
 
-    console.log(props);
     return (<html lang="en">
         <body className={inter.className}>
             {props.children}
         </body>
     </html>);
-}
-
-export async function generateStaticParams() {
-    return i18n.locales.map((locale) => ({ lang: locale }));
 }
