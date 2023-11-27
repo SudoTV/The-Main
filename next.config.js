@@ -25,13 +25,15 @@ const nextConfig = {
         const rewriteList = [];
         for (const acceptedLocale of ACCEPTED_LOCALES) {
             rewriteList.push({
-                source: `/${acceptedLocale}`,
+                source: `/${acceptedLocale}/`,
                 destination: "/",
             }, {
                 source: `/${acceptedLocale}/:path*`,
                 destination: "/:path*",
             });
         }
+
+        console.log(rewriteList);
         return rewriteList;
     },
 };
