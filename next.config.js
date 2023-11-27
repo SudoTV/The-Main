@@ -23,15 +23,15 @@ const nextConfig = {
     async rewrites() {
 
         const rewriteList = [];
-        for (const acceptedLocale of ACCEPTED_LOCALES) {
-            rewriteList.push({
-                source: `/${acceptedLocale}/`,
-                destination: "/",
-            }, {
-                source: `/${acceptedLocale}/:path*`,
-                destination: "/:path*",
-            });
-        }
+        // for (const acceptedLocale of ACCEPTED_LOCALES) {
+        //     rewriteList.push({
+        //         source: `/${acceptedLocale}/`,
+        //         destination: "/",
+        //     }, {
+        //         source: `/${acceptedLocale}/:path*`,
+        //         destination: "/:path*",
+        //     });
+        // }
 
         console.log(rewriteList);
         return rewriteList;

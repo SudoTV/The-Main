@@ -42,7 +42,8 @@ export async function middleware(request: NextRequest) {
     if (request.nextUrl.locale === ENTRY_LOCALE) {
 
         const locale: string =
-            request.cookies.get("NEXT_LOCALE")?.value || getDefaultLocale(request.headers);
+            request.cookies.get("NEXT_LOCALE")?.value
+            || getDefaultLocale(request.headers);
 
         return NextResponse.redirect(
             new URL(
