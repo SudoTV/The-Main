@@ -13,12 +13,10 @@ export default function Home() {
         timeStyle: "long",
     }).format(buildDate);
 
-    console.log(headers());
-
     return (<main
         className="flex min-h-screen flex-col items-center justify-between p-24"
     >
-        <h1>Static page</h1>
+        <h1>Static page Lang</h1>
         <p>This page is static. It was built on {formattedDate}.</p>
         <p>
             <a href="/ssr">View a server-side rendered page.</a>

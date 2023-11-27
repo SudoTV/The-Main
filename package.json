@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.2",
     "@sudoo/locale": "^1.0.1",
     "@sudoo/magic": "^1.9.0",
     "@sudoo/uuid": "^1.1.0",
     "i18next": "^23.7.6",
+    "negotiator": "^0.6.3",
     "next": "14.0.3",
     "next-i18next": "^15.0.0",
     "react": "^18",
@@ -20,6 +22,7 @@
     "react-i18next": "^13.5.0"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

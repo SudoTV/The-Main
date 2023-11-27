@@ -3,53 +3,57 @@
  * @description Middleware
  */
 
+import { match as matchLocale } from "@formatjs/intl-localematcher";
 import { LOCALE } from "@sudoo/locale";
+import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { i18n } from "./i18n/config";
 
-const PUBLIC_FILE = /\.(.*)$/;
+function getLocale(request: NextRequest): string | undefined {
 
-const ACCEPTED_LOCALES: LOCALE[] = [
-    LOCALE.ENGLISH_UNITED_STATES,
-    LOCALE.CHINESE_SIMPLIFIED,
-];
+  const negotiatorHeaders: Record<string, string> = {};
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-const DEFAULT_LOCALE: LOCALE = LOCALE.ENGLISH_UNITED_STATES;
-const ENTRY_LOCALE: string = "$default";
+  const locales: LOCALE[] = i18n.locales;
 
-const getDefaultLocale = (headers: Headers): string => {
+  let languages = new Negotiator({
+    headers: negotiatorHeaders,
+  }).languages(
+    locales,
+  );
 
-    const acceptLocale: string | undefined =
-        headers.get("accept-language")?.split(",")[0];
-
-    if (typeof acceptLocale !== "string") {
-        return DEFAULT_LOCALE;
-    }
-
-    if (ACCEPTED_LOCALES.includes(acceptLocale as LOCALE)) {
-        return acceptLocale;
-    }
-
-    return DEFAULT_LOCALE;
-};
-
-export async function middleware(request: NextRequest) {
-
-    if (PUBLIC_FILE.test(request.nextUrl.pathname)) {
-        return;
-    }
-
-    if (request.nextUrl.locale === ENTRY_LOCALE) {
-
-        const locale: string =
-            request.cookies.get("NEXT_LOCALE")?.value
-            || getDefaultLocale(request.headers);
-
-        return NextResponse.redirect(
-            new URL(
-                `/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`,
-                request.url,
-            ),
-        );
-    }
+  const locale = matchLocale(languages, locales, i18n.defaultLocale);
+  return locale;
 }
+
+export function middleware(request: NextRequest) {
+
+  const pathname: string = request.nextUrl.pathname;
+  const search: string = request.nextUrl.search;
+
+  const pathnameIsMissingLocale = i18n.locales.every(
+    (locale) => {
+      return !pathname.startsWith(`/${locale}/`)
+        && pathname !== `/${locale}`;
+    },
+  );
+
+  if (pathnameIsMissingLocale) {
+
+    const locale = getLocale(request);
+
+    return NextResponse.redirect(
+      new URL(
+        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}${search}`,
+        request.url,
+      ),
+    );
+  }
+}
+
+export const config = {
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+  ],
+};
