@@ -3,7 +3,7 @@
  * @description Not Found
  */
 
-import { GetServerSideProps } from "next";
+import { headers } from "next/headers";
 
 export default function NotFound(props: any) {
 
@@ -13,7 +13,13 @@ export default function NotFound(props: any) {
         timeStyle: "long",
     }).format(buildDate);
 
-    console.log(props);
+    const headersList = headers();
+
+    const domain = headersList.get("host") || "";
+    const fullUrl = headersList.get("referer") || "";
+    const [, pathname] = fullUrl.match(new RegExp(`https?:\/\/${domain}(.*)`)) || [];
+
+    console.log(pathname);
 
     return (<main
         className="flex min-h-screen flex-col items-center justify-between p-24"
@@ -21,13 +27,4 @@ export default function NotFound(props: any) {
         <h1>NOT FOUND</h1>
         <p>This page is static. It was built on {formattedDate}.</p>
     </main>);
-};
-
-
-export const getServerSideProps: GetServerSideProps = async (context: any) => {
-
-    console.log(context, 1);
-    return {
-        props: { a: 10 },
-    };
 };
