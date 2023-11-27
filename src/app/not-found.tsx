@@ -3,6 +3,8 @@
  * @description Not Found
  */
 
+import { GetServerSideProps } from "next";
+
 export default function NotFound(props: any) {
 
     const buildDate = Date.now();
@@ -19,4 +21,13 @@ export default function NotFound(props: any) {
         <h1>NOT FOUND</h1>
         <p>This page is static. It was built on {formattedDate}.</p>
     </main>);
+};
+
+
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+
+    console.log(context, 1);
+    return {
+        props: { a: 10 },
+    };
 };
