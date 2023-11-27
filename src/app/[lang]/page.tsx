@@ -5,7 +5,7 @@
 
 import { headers } from "next/headers";
 
-export default function Home() {
+export default function Home(props: any) {
 
     const buildDate = Date.now();
     const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -13,7 +13,7 @@ export default function Home() {
         timeStyle: "long",
     }).format(buildDate);
 
-    console.log(headers());
+    console.log(headers(), props);
 
     return (<main
         className="flex min-h-screen flex-col items-center justify-between p-24"
