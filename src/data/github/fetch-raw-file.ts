@@ -4,8 +4,8 @@
  * @description Fetch Raw File
  */
 
-import { DependencyDataNotFoundGithubError } from "@/error/dependency/data/not-found/github";
 import { HTTP_RESPONSE_CODE } from "@sudoo/magic";
+import { DependencyDataNotFoundGithubError } from "../../error/dependency/data/not-found/github";
 
 export const fetchGithubRawFile = async (
     owner: string,
