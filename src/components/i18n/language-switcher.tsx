@@ -3,17 +3,66 @@
  * @namespace Components_I18N
  * @description Language Switcher
  */
+"use client";
 
+import { IETF_LOCALE, verifyIETFLocale } from "@sudoo/locale";
+import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
+import { DEFAULT_LOCALE } from "../../i18n/config";
+import { findLocaleFromUrl } from "../../i18n/find-locale-from-url";
 
-export const LanguageSwitcher: React.FC = () => {
+const redirectedPathName = (pathName: string, locale: IETF_LOCALE) => {
+
+    if (!pathName) {
+        return "/";
+    };
+
+    const segments = pathName.split("/");
+    segments[1] = locale;
+
+    return segments.join("/");
+};
+
+export const LocaleSwitcher: React.FC = () => {
+
+    const pathName = usePathname();
+    const router = useRouter();
+
+    const locale = findLocaleFromUrl(pathName);
+    const currentLocale = locale.getOrDefault(DEFAULT_LOCALE);
 
     return (
-        <div>
-            <select>
-                <option value='en'>English</option>
-                <option value='es'>Español</option>
-            </select>
-        </div>
+        <select
+            title="Language-Select"
+            className="mb-2 text-sm rounded-lg w-full p-2"
+            value={currentLocale}
+            onChange={(event) => {
+                const newLocale: string = event.target.value;
+                if (!verifyIETFLocale(newLocale)) {
+                    return;
+                }
+
+                router.replace(
+                    redirectedPathName(pathName, newLocale),
+                    {
+                        locale,
+                    },
+                );
+
+                document.body.style.userSelect = "none";
+                document.body.style.pointerEvents = "none";
+
+                // Refresh the page after the locale is changed
+                setTimeout(() => {
+                    router.refresh();
+
+                    document.body.style.userSelect = "auto";
+                    document.body.style.pointerEvents = "auto";
+                }, 100);
+            }}
+        >
+            <option value={IETF_LOCALE.CHINESE_SIMPLIFIED}>简体中文</option>
+            <option value={IETF_LOCALE.ENGLISH_UNITED_STATES}>English</option>
+        </select>
     );
 };
