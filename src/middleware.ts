@@ -4,7 +4,7 @@
  */
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import { LOCALE } from "@sudoo/locale";
+import { IETF_LOCALE } from "@sudoo/locale";
 import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
@@ -15,7 +15,7 @@ function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  const locales: LOCALE[] = i18nConfiguration.locales;
+  const locales: IETF_LOCALE[] = i18nConfiguration.locales;
 
   let languages = new Negotiator({
     headers: negotiatorHeaders,
@@ -33,7 +33,7 @@ export function middleware(request: NextRequest) {
   const search: string = request.nextUrl.search;
 
   const pathnameIsMissingLocale = i18nConfiguration.locales.every(
-    (locale: LOCALE) => {
+    (locale: IETF_LOCALE) => {
 
       return !pathname.startsWith(`/${locale}/`)
         && pathname !== `/${locale}`;
@@ -44,13 +44,20 @@ export function middleware(request: NextRequest) {
 
     const locale = getLocale(request);
 
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}${search}`,
-        request.url,
-      ),
-    );
+    return NextResponse.redirect(new URL(
+      `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}${search}`,
+      request.url,
+    ));
   }
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-url", request.url);
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
 export const config = {
