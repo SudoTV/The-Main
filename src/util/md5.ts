@@ -4,12 +4,13 @@
  * @description MD5
  */
 
-import * as Crypto from "crypto";
+export const digestMD5String = async (content: string): Promise<string> => {
 
-export const digestMD5String = (content: string): string => {
+    const encoder: TextEncoder = new TextEncoder();
+    const decoder: TextDecoder = new TextDecoder("utf-8");
 
-    const hash: Crypto.Hash = Crypto.createHash("md5");
-    hash.update(content);
+    const encodedContext = encoder.encode(content);
+    const hash: ArrayBuffer = await crypto.subtle.digest("SHA-1", encodedContext);
 
-    return hash.digest("hex");
+    return decoder.decode(hash);
 };

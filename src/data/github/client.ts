@@ -21,7 +21,7 @@ const CACHE_EXPIRE: number = 60 * 5; // 5 minutes
 
 export const githubGraphql = async <T>(query: string): Promise<T> => {
 
-    const queryHash: string = digestMD5String(query);
+    const queryHash: string = await digestMD5String(query);
 
     const cached: T | undefined = cache.get(queryHash);
     if (typeof cached !== "undefined") {
