@@ -6,8 +6,6 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { useLocale } from "../i18n/use-locale";
 
-export const runtime = "edge";
-
 export default function NotFound() {
 
     const buildDate = Date.now();
