@@ -32,8 +32,7 @@ jobs:
           architecture: ${{ matrix.architecture }}
       - name: Install Dependencies
         run: |
-          npm install @sudoo/build-cli -g
-          sudoo-build install
+          yarn
       - name: Lint
         run: |
           yarn lint
