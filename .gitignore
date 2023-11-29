@@ -40,3 +40,6 @@ coverage
 
 # nyc test coverage
 .nyc_output
+
+# Commands
+commands.txt
