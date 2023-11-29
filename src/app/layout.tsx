@@ -13,6 +13,8 @@ import { useLocale } from "../i18n/use-locale";
 import "../styles/code.css";
 import "../styles/globals.css";
 
+export const runtime = "edge";
+
 export async function generateMetadata(): Promise<Metadata> {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
