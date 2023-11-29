@@ -4,6 +4,8 @@
  */
 "use client";
 
+export const runtime = "edge";
+
 export default function Error() {
 
     const buildDate = Date.now();
