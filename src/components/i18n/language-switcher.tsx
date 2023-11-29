@@ -31,7 +31,7 @@ export const LocaleSwitcher: React.FC = () => {
     const pathName = usePathname();
     const router = useRouter();
 
-    const locale = findLocaleFromUrl(pathName);
+    const locale = findLocaleFromUrl(pathName ?? "");
     const currentLocale = locale.getOrDefault(DEFAULT_LOCALE);
 
     return (
@@ -46,7 +46,7 @@ export const LocaleSwitcher: React.FC = () => {
                 }
 
                 router.replace(
-                    redirectedPathName(pathName, newLocale),
+                    redirectedPathName(pathName ?? "", newLocale),
                     {
                         locale,
                     },
