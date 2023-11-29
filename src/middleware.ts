@@ -5,12 +5,28 @@
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import { IETF_LOCALE } from "@sudoo/locale";
+import { Optional } from "@sudoo/optional";
 import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { i18nConfiguration } from "./i18n/config";
+import { SUPPORTED_LOCALES, i18nConfiguration } from "./i18n/config";
+
+const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 
 function getLocale(request: NextRequest): string | undefined {
+
+  const preferredLocaleCookie: Optional<string> =
+    Optional.ofUndefinable(
+      request.cookies.get(PREFERRED_LOCALE_COOKIE)?.value,
+    );
+
+  if (preferredLocaleCookie.exists
+    && SUPPORTED_LOCALES.includes(
+      preferredLocaleCookie.getOrThrow() as IETF_LOCALE,
+    )
+  ) {
+    return preferredLocaleCookie.getOrThrow();
+  }
 
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
@@ -28,6 +44,7 @@ function getLocale(request: NextRequest): string | undefined {
 }
 
 export function middleware(request: NextRequest) {
+
 
   const pathname: string = request.nextUrl.pathname;
   const search: string = request.nextUrl.search;
