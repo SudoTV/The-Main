@@ -6,13 +6,13 @@
 
 import { graphql } from "@octokit/graphql";
 import NodeCache from "node-cache";
-import { GITHUB_API_TOKEN } from "../../util/environment";
+import { GRAPHQL_GITHUB_API_TOKEN } from "../../util/environment";
 import { logger } from "../../util/log";
 import { digestMD5String } from "../../util/md5";
 
 export const graphqlWithAuth = graphql.defaults({
     headers: {
-        authorization: `token ${GITHUB_API_TOKEN.getOrThrow()}`,
+        authorization: `token ${GRAPHQL_GITHUB_API_TOKEN.getOrThrow()}`,
     },
 });
 

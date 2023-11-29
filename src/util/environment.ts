@@ -6,5 +6,5 @@
 
 import { Optional } from "@sudoo/optional";
 
-export const GITHUB_API_TOKEN: Optional<string> =
-    Optional.ofUndefinable(process.env.GITHUB_API_TOKEN);
+export const GRAPHQL_GITHUB_API_TOKEN: Optional<string> =
+    Optional.ofUndefinable(process.env.GRAPHQL_GITHUB_API_TOKEN);
