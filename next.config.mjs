@@ -1,14 +1,18 @@
 // @ts-check
 
-/** @type {import('next').NextConfig} */
-const { IETF_LOCALE } = require("@sudoo/locale");
+import createMDX from "@next/mdx";
+import { IETF_LOCALE } from "@sudoo/locale";
+import remarkGfm from "remark-gfm";
 
 const ACCEPTED_LOCALES = [
     IETF_LOCALE.ENGLISH_UNITED_STATES,
     IETF_LOCALE.CHINESE_SIMPLIFIED,
 ];
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+
+    pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
     trailingSlash: true,
     async rewrites() {
 
@@ -26,4 +30,11 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig;
+const withMDX = createMDX({
+    extension: /\.mdx?$/,
+    options: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [],
+    },
+});
+export default withMDX(nextConfig);
