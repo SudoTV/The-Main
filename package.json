@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "mkdir .vercel; npx vercel build; rm -rf .vercel/output/functions/_error*; npx @cloudflare/next-on-pages@1 --skip-build;",
     "start": "next start",
     "lint": "next lint"
   },
