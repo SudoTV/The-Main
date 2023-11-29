@@ -52,6 +52,10 @@
     "ts-node": "^10",
     "typescript": "^5"
   },
+  "browser": {
+    "crypto": false,
+    "stream": false
+  },
   "nyc": {
     "extension": [
       ".ts"
