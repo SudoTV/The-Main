@@ -5,6 +5,7 @@
 */
 
 import { IETF_LOCALE } from "@sudoo/locale";
+import Link from "next/link";
 import * as React from "react";
 import { footerInternationalization } from "../../dictionary/footer/_intl";
 import { FOOTER_PROFILE } from "../../dictionary/footer/_profile";
@@ -21,50 +22,63 @@ export const LayoutFooter: React.FC = () => {
             <div className="mx-auto w-full max-w-screen-xl">
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                            {format.get(FOOTER_PROFILE.WE)}
+                        </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-4">
-                                <a href="#" className=" hover:underline">About</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Careers</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Brand Center</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Blog</a>
+                                <Link
+                                    href="/about"
+                                    className=" hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.ABOUT)}
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
+                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                            {format.get(FOOTER_PROFILE.HELP_CENTER)}
+                        </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Discord Server</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Twitter</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Facebook</a>
-                            </li>
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Contact Us</a>
+                                <Link
+                                    href="#"
+                                    className="hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.CONTACT_US)}
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                            {format.get(FOOTER_PROFILE.LEGAL)}
+                        </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Privacy Policy</a>
+                                <Link
+                                    href="/privacy"
+                                    className="hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.PRIVACY_POLICY)}
+                                </Link>
                             </li>
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Licensing</a>
+                                <Link
+                                    href="/reprint"
+                                    className="hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.REPRINT)}
+                                </Link>
                             </li>
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                                <Link
+                                    href="/terms-of-service"
+                                    className="hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.TERMS_OF_SERVICE)}
+                                </Link>
                             </li>
                         </ul>
                     </div>

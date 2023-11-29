@@ -6,10 +6,13 @@
 "use client";
 
 import { IETF_LOCALE, verifyIETFLocale } from "@sudoo/locale";
+import { setCookie } from "cookies-next";
 import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 import { DEFAULT_LOCALE } from "../../i18n/config";
 import { findLocaleFromUrl } from "../../i18n/find-locale-from-url";
+
+const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 
 const redirectedPathName = (pathName: string, locale: IETF_LOCALE) => {
 
@@ -51,6 +54,10 @@ export const LocaleSwitcher: React.FC = () => {
 
                 document.body.style.userSelect = "none";
                 document.body.style.pointerEvents = "none";
+
+                setCookie(PREFERRED_LOCALE_COOKIE, newLocale, {
+                    sameSite: "lax",
+                });
 
                 // Refresh the page after the locale is changed
                 setTimeout(() => {
