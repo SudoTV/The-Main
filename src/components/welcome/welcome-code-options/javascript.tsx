@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_Welcome_Options
-* @description Java
+* @description JavaScript
 */
 
 import * as React from "react";
@@ -11,40 +11,37 @@ import { useLocale } from "../../../i18n/use-locale";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 
-export const WelcomeCodeJava: React.FC = () => {
+export const WelcomeCodeJavaScript: React.FC = () => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
         <code>
-            {"public class SudoTV {"}
+            {'"use strict";'}
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{"public static void main(String[] args) {"}
+            {'import { ViewManager } from "@sudotv/the-main";'}
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
+            <br />
+            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
             <br />
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`System.out.println("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
+                {`console.log("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
             </CodeAlertButton>
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{"}"}
             <br />
             <br />
             <CodeLink
                 href="/series"
             >
-                &nbsp;&nbsp;&nbsp;&nbsp;{"public sudoTVSeries() {"}
+                {"const sudoTVSeries = () => {"}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'ViewManager.open("SudoTV Series");'}
+                &nbsp;&nbsp;&nbsp;&nbsp;{'ViewManager.open("SudoTV Series");'}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;{"}"}
+                {"}"}
             </CodeLink>
-            <br />
-            {"}"}
         </code>
     );
 };
