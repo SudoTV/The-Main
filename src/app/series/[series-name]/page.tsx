@@ -5,6 +5,7 @@
  */
 
 import { LocaleSwitcher } from "../../../components/i18n/language-switcher";
+import { getGithubFile } from "../../../data/github/get-file";
 
 type Props = {
 
@@ -21,6 +22,8 @@ export default async function Page(props: Props) {
         dateStyle: "long",
         timeStyle: "long",
     }).format(buildDate);
+
+    await getGithubFile("SudoTV", "SudoTV-Series-DB", "main", ["docs", "README.md"]);
 
     return (<main
         className="flex min-h-screen flex-col items-center justify-between p-24"
