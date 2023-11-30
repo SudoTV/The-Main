@@ -5,7 +5,7 @@
  */
 
 import { InternationalizationEntity, UrlEntity } from "../common";
-import { SoftwareEngineeringSeriesEpisodeEntity } from "./episode";
+import { SoftwareEngineeringSeriesEpisodeEntity } from "./software-engineering-episode";
 
 export enum SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM {
 

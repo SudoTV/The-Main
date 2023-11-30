@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Data_Definition_Series
- * @description Episode
+ * @description Software Engineering Episode
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
