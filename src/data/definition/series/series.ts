@@ -4,40 +4,19 @@
  * @description Series
  */
 
-import { InternationalizationEntity, UrlEntity } from "../common";
-import { SeriesEpisodeEntity } from "./episode";
+import { SoftwareEngineeringSeriesEntity } from "./software-engineering";
 
-export enum SERIES_REPOSITORY_PLATFORM {
+export enum SERIES_TYPE {
 
-    GITHUB = "GITHUB",
+    SOFTWARE_ENGINEERING = "SOFTWARE_ENGINEERING",
 }
 
-export enum SERIES_STATUS {
+export type SeriesEntitySwitch<T extends SERIES_TYPE> =
+    T extends SERIES_TYPE.SOFTWARE_ENGINEERING ? SoftwareEngineeringSeriesEntity :
+    never;
 
-    UPDATING = "UPDATING",
-    PAUSED = "PAUSED",
-    FINALE = "FINALE",
-}
-
-export type SeriesRepositoryEntity = {
-
-    readonly platform: SERIES_REPOSITORY_PLATFORM;
-    readonly owner: string;
-    readonly repository: string;
-};
-
-export type SeriesEntity = {
+export type SeriesEntity<T extends SERIES_TYPE> = {
 
     readonly identifier: string;
-
-    readonly repository: SeriesRepositoryEntity;
-    readonly forum: UrlEntity;
-
-    readonly original: boolean;
-    readonly status: SERIES_STATUS;
-
-    readonly title: InternationalizationEntity;
-    readonly description: InternationalizationEntity;
-
-    readonly episodes: SeriesEpisodeEntity[];
-};
+    readonly type: T;
+} & SeriesEntitySwitch<T>;
