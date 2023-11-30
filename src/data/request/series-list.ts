@@ -5,11 +5,11 @@
  */
 
 import { parse } from "yaml";
-import { SeriesEntity } from "../definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "../definition/series/series";
 import { getGithubFile } from "../github/get-file";
 import { getGithubFolder } from "../github/get-folder";
 
-export const requestSeriesList = async (): Promise<SeriesEntity[]> => {
+export const requestSeriesList = async (): Promise<Array<SeriesEntity<SERIES_TYPE>>> => {
 
     const folderFiles = await getGithubFolder(
         "SudoTV",
@@ -18,7 +18,7 @@ export const requestSeriesList = async (): Promise<SeriesEntity[]> => {
         ["series"],
     );
 
-    const seriesResult: SeriesEntity[] = [];
+    const seriesResult: Array<SeriesEntity<SERIES_TYPE>> = [];
     for (const file of folderFiles) {
 
         const seriesRawMetadata: string = await getGithubFile(
@@ -28,7 +28,7 @@ export const requestSeriesList = async (): Promise<SeriesEntity[]> => {
             ["series", file.name, "metadata.yml"],
         );
 
-        const series: SeriesEntity = parse(seriesRawMetadata);
+        const series: SeriesEntity<SERIES_TYPE> = parse(seriesRawMetadata);
         seriesResult.push(series);
     }
 
