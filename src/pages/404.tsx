@@ -3,6 +3,9 @@
  * @description 404
  */
 
+import "../styles/code.css";
+import "../styles/globals.css";
+
 export default function Custom404() {
 
     return (<main

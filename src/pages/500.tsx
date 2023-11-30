@@ -3,6 +3,9 @@
  * @description 500
  */
 
+import "../styles/code.css";
+import "../styles/globals.css";
+
 export default function Custom500() {
 
     return (<main
