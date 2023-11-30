@@ -4,7 +4,7 @@
  * @description Page
  */
 
-import { LocaleSwitcher } from "../../../components/i18n/language-switcher";
+import { LocaleSwitcher } from "../../../components/preference/language-switcher";
 import { getGithubFile } from "../../../data/github/get-file";
 
 type Props = {
