@@ -7,7 +7,9 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import Link from "next/link";
 import * as React from "react";
+import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
+import { SiDiscord } from "react-icons/si";
 import { footerInternationalization } from "../../dictionary/footer/_intl";
 import { FOOTER_PROFILE } from "../../dictionary/footer/_profile";
 import { useLocale } from "../../i18n/use-locale";
@@ -38,13 +40,29 @@ export const LayoutFooter: React.FC = () => {
                             </li>
                             <li className="mb-2">
                                 <div
-                                    className="w-full flex"
+                                    className="w-full flex gap-2"
                                 >
                                     <Link
                                         href="https://github.com/SudoTV"
                                         className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
                                     >
                                         <IoLogoGithub
+                                            size={24}
+                                        />
+                                    </Link>
+                                    <Link
+                                        href="https://github.com/SudoTV"
+                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                                    >
+                                        <SiDiscord
+                                            size={24}
+                                        />
+                                    </Link>
+                                    <Link
+                                        href="https://github.com/SudoTV"
+                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                                    >
+                                        <FaTelegramPlane
                                             size={24}
                                         />
                                     </Link>
