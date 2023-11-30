@@ -4,7 +4,7 @@
  * @description Page
  */
 
-import { SeriesCard } from "../../components/series/series-card";
+import { SeriesCard } from "../../components/series/series-card/series-card";
 import { requestSeriesList } from "../../data/request/series-list";
 import { useLocale } from "../../i18n/use-locale";
 

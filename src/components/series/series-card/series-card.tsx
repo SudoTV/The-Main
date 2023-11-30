@@ -1,6 +1,6 @@
 /**
 * @author WMXPY
-* @namespace Components_Series
+* @namespace Components_Series_SeriesCard
 * @description Series Card
 */
 
@@ -8,10 +8,10 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { FaBilibili } from "react-icons/fa6";
 import { IoDocumentText } from "react-icons/io5";
-import { seriesInternationalization } from "../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../dictionary/series/_profile";
-import { useLocale } from "../../i18n/use-locale";
-import { CardLinkButton } from "../common/card-link-button";
+import { seriesInternationalization } from "../../../dictionary/series/_intl";
+import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
+import { useLocale } from "../../../i18n/use-locale";
+import { CardLinkButton } from "../../common/card-link-button";
 
 export const SeriesCard: React.FC = () => {
 
