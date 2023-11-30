@@ -15,22 +15,22 @@ export const requestSeriesList = async (): Promise<SeriesEntity[]> => {
         "SudoTV",
         "SudoTV-Series-DB",
         "main",
-        ["docs"],
+        ["series"],
     );
 
+    const seriesResult: SeriesEntity[] = [];
     for (const file of folderFiles) {
-        console.log(file);
 
-        const seriesFile: string = await getGithubFile(
+        const seriesRawMetadata: string = await getGithubFile(
             "SudoTV",
             "SudoTV-Series-DB",
             "main",
-            ["docs", file.name],
+            ["series", file.name, "metadata.yml"],
         );
 
-        const series: SeriesEntity = parse(seriesFile);
-        console.log(series);
+        const series: SeriesEntity = parse(seriesRawMetadata);
+        seriesResult.push(series);
     }
 
-    return [];
+    return seriesResult;
 };
