@@ -18,30 +18,46 @@ export const WelcomeCodeJava: React.FC = () => {
 
     return (
         <code>
+            {"package tv.sudo.the-main;"}
+            <br />
+            <br />
+            {"import static tv.sudo.view-manager.ViewManager;"}
+            <br />
+            <br />
             {"public class SudoTV {"}
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{"public static void main(String[] args) {"}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {"public static void main(String[] args) {"}
             <br />
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`System.out.println("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {`System.out.println("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
             </CodeAlertButton>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{"}"}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {"}"}
             <br />
             <br />
             <CodeLink
                 href="/series"
             >
-                &nbsp;&nbsp;&nbsp;&nbsp;{"public sudoTVSeries() {"}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'ViewManager.open("SudoTV Series");'}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {"public sudoTVSeries() {"}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;{"}"}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {`ViewManager.open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {"}"}
             </CodeLink>
             <br />
             {"}"}

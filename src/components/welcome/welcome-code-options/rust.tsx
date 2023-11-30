@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_Welcome_Options
-* @description R
+* @description Rust
 */
 
 import * as React from "react";
@@ -11,34 +11,39 @@ import { useLocale } from "../../../i18n/use-locale";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 
-export const WelcomeCodeR: React.FC = () => {
+export const WelcomeCodeRust: React.FC = () => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
         <code>
-            {"library(sudotv-the-main)"}
+            {"use sudotv-the-main::openView;"}
             <br />
             <br />
-            {`# ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
+            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
             <br />
+            {"fn main() {"}
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                {`print("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}")`}
+                {`println!("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)})";`}
             </CodeAlertButton>
+            <br />
+            {"}"}
             <br />
             <br />
             <CodeLink
                 href="/series"
             >
-                {`# ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
                 <br />
-                {"sudoTVSeries <- function() {"}
+                {"fn sudoTVSeries() {"}
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                {`ViewManager->open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
+                {`openView("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
                 <br />
                 {"}"}
             </CodeLink>

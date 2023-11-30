@@ -33,9 +33,12 @@ export const WelcomeCodePython: React.FC = () => {
             <CodeLink
                 href="/series"
             >
+                {`# ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                <br />
                 {"def sudoTVSeries():"}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;{'ViewManager.open("SudoTV Series")'}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {`ViewManager.open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
             </CodeLink>
         </code>
     );

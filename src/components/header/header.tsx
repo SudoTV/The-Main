@@ -6,26 +6,40 @@
 
 import Link from "next/link";
 import * as React from "react";
+import { IoLogoGithub } from "react-icons/io5";
 
 export const LayoutHeader: React.FC = () => {
 
     return (
         <header>
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <Link href="/">
-                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">SudoTV</span>
+            <nav
+                className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+            >
+                <div
+                    className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+                >
+                    <Link
+                        href="/"
+                        className="flex items-center"
+                    >
+                        <span
+                            className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+                        >
+                            SudoTV
+                        </span>
                     </Link>
-                    <div className="w-full lg:flex lg:w-auto lg:order-1">
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <a href="#">GitHub</a>
-                            </li>
-                            <li>
-                                <a href="#">BiliBili</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {/* <div
+                        className="flex items-center lg:order-2"
+                    >
+                        <Link
+                            href="https://github.com/SudoTV"
+                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                        >
+                            <IoLogoGithub
+                                size={24}
+                            />
+                        </Link>
+                    </div> */}
                 </div>
             </nav>
         </header>

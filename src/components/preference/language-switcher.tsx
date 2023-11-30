@@ -65,7 +65,7 @@ export const LocaleSwitcher: React.FC = () => {
 
                     document.body.style.userSelect = "auto";
                     document.body.style.pointerEvents = "auto";
-                }, 100);
+                }, 200);
             }}
         >
             <option value={IETF_LOCALE.CHINESE_SIMPLIFIED}>简体中文</option>

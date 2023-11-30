@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_MDX
-* @description H2
+* @description H6
 */
 
 import * as React from "react";
@@ -12,20 +12,20 @@ const getAnchor = (text: string): string => {
         .replace(/[ ]/g, "-");
 };
 
-export type MDX_H2Props = {
+export type MDX_H6Props = {
 
     readonly children?: any;
 };
 
-export const MDX_H2: React.FC<MDX_H2Props> = (props: MDX_H2Props) => {
+export const MDX_H6: React.FC<MDX_H6Props> = (props: MDX_H6Props) => {
 
     const anchor = getAnchor(props.children);
     const link = `#${anchor}`;
 
     return (
-        <h2
+        <h6
             id={anchor}
-            className="text-xl font-semibold my-2"
+            className="text-base font-bold my-2"
         >
             <a
                 href={link}
@@ -35,6 +35,6 @@ export const MDX_H2: React.FC<MDX_H2Props> = (props: MDX_H2Props) => {
             </a>
             &nbsp;
             {props.children}
-        </h2>
+        </h6>
     );
 };

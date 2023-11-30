@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_Welcome_Options
-* @description R
+* @description C
 */
 
 import * as React from "react";
@@ -11,34 +11,44 @@ import { useLocale } from "../../../i18n/use-locale";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 
-export const WelcomeCodeR: React.FC = () => {
+export const WelcomeCodeC: React.FC = () => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
         <code>
-            {"library(sudotv-the-main)"}
+            {"#include <stdio.h>"}
+            <br />
+            {"#include <sudotv-the-main.h>"}
             <br />
             <br />
-            {`# ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
+            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
             <br />
+            {"int main() {"}
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                {`print("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}")`}
+                {`printf("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
             </CodeAlertButton>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {"return 0;"}
+            <br />
+            {"}"}
             <br />
             <br />
             <CodeLink
                 href="/series"
             >
-                {`# ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
                 <br />
-                {"sudoTVSeries <- function() {"}
+                {"void sudoTVSeries() {"}
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                {`ViewManager->open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
+                {`openView("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
                 <br />
                 {"}"}
             </CodeLink>

@@ -7,10 +7,12 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import Link from "next/link";
 import * as React from "react";
+import { IoLogoGithub } from "react-icons/io5";
 import { footerInternationalization } from "../../dictionary/footer/_intl";
 import { FOOTER_PROFILE } from "../../dictionary/footer/_profile";
 import { useLocale } from "../../i18n/use-locale";
-import { LocaleSwitcher } from "../i18n/language-switcher";
+import { LocaleSwitcher } from "../preference/language-switcher";
+import { ThemeSwitch } from "../preference/theme-switch";
 
 export const LayoutFooter: React.FC = () => {
 
@@ -22,17 +24,31 @@ export const LayoutFooter: React.FC = () => {
             <div className="mx-auto w-full max-w-screen-xl">
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                            {format.get(FOOTER_PROFILE.WE)}
+                        <h2 className="mb-6 text-sm font-semibold text-gray-900 dark:text-white">
+                            {">"} SudoTV © 2020-2024
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
-                            <li className="mb-4">
+                            <li className="mb-2">
                                 <Link
                                     href="/about"
                                     className=" hover:underline"
                                 >
-                                    {format.get(FOOTER_PROFILE.ABOUT)}
+                                    {format.get(FOOTER_PROFILE.ABOUT_US)}
                                 </Link>
+                            </li>
+                            <li className="mb-2">
+                                <div
+                                    className="w-full flex"
+                                >
+                                    <Link
+                                        href="https://github.com/SudoTV"
+                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                                    >
+                                        <IoLogoGithub
+                                            size={24}
+                                        />
+                                    </Link>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -47,6 +63,14 @@ export const LayoutFooter: React.FC = () => {
                                     className="hover:underline"
                                 >
                                     {format.get(FOOTER_PROFILE.CONTACT_US)}
+                                </Link>
+                            </li>
+                            <li className="mb-4">
+                                <Link
+                                    href="/reprint"
+                                    className="hover:underline"
+                                >
+                                    {format.get(FOOTER_PROFILE.REPRINT)}
                                 </Link>
                             </li>
                         </ul>
@@ -66,14 +90,6 @@ export const LayoutFooter: React.FC = () => {
                             </li>
                             <li className="mb-4">
                                 <Link
-                                    href="/reprint"
-                                    className="hover:underline"
-                                >
-                                    {format.get(FOOTER_PROFILE.REPRINT)}
-                                </Link>
-                            </li>
-                            <li className="mb-4">
-                                <Link
                                     href="/terms-of-service"
                                     className="hover:underline"
                                 >
@@ -84,11 +100,14 @@ export const LayoutFooter: React.FC = () => {
                     </div>
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                            {format.get(FOOTER_PROFILE.LANGUAGE)}
+                            {format.get(FOOTER_PROFILE.PREFERENCES)}
                         </h2>
                         <ul className="text-gray-800">
-                            <li className="mb-4">
+                            <li>
                                 <LocaleSwitcher />
+                            </li>
+                            <li className="mb-2">
+                                <ThemeSwitch />
                             </li>
                         </ul>
                     </div>
