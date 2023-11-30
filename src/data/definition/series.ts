@@ -56,7 +56,7 @@ export type SeriesEpisodeEntity = {
     readonly title: InternationalizationEntity;
     readonly practice: SeriesEpisodePracticeEntity;
     readonly git: SeriesEpisodeGitEntity;
-    readonly videos: InternationalizationEntity<SeriesEpisodeVideoEntity>;
+    readonly videos: InternationalizationEntity<SeriesEpisodeVideoEntity[]>;
 };
 
 export type SeriesEntity = {
@@ -64,7 +64,7 @@ export type SeriesEntity = {
     readonly identifier: string;
 
     readonly repository: SeriesRepositoryEntity;
-    readonly "forum-url": UrlEntity;
+    readonly forum: UrlEntity;
 
     readonly original: boolean;
     readonly status: SERIES_STATUS;
@@ -72,5 +72,5 @@ export type SeriesEntity = {
     readonly title: InternationalizationEntity;
     readonly description: InternationalizationEntity;
 
-    readonly episodes: string[];
+    readonly episodes: SeriesEpisodeEntity[];
 };
