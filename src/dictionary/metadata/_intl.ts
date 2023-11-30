@@ -7,9 +7,9 @@
 import { SudooInternationalization } from "@sudoo/internationalization";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { DEFAULT_LOCALE } from "../../i18n/config";
+import { METADATA_PROFILE } from "./_profile";
 import { profile_metadata_en_US } from "./en-US";
 import { profile_metadata_zh_CN } from "./zh-CN";
-import { METADATA_PROFILE } from "./_profile";
 
 export const metadataInternationalization: SudooInternationalization<METADATA_PROFILE> =
     SudooInternationalization
