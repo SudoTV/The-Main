@@ -5,7 +5,7 @@
  */
 
 import { parse } from "yaml";
-import { SeriesEntity } from "../definition/series";
+import { SeriesEntity } from "../definition/series/series";
 import { getGithubFile } from "../github/get-file";
 import { getGithubFolder } from "../github/get-folder";
 

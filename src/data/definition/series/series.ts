@@ -1,11 +1,11 @@
 /**
  * @author WMXPY
- * @namespace Data_Definition
+ * @namespace Data_Definition_Series
  * @description Series
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import { InternationalizationEntity, UrlEntity } from "./common";
+import { InternationalizationEntity, UrlEntity } from "../common";
 
 export enum SERIES_REPOSITORY_PLATFORM {
 
