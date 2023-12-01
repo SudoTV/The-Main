@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Dictionary_Footer
- * @description English United States
+ * @description Chinese Simplified
  */
 
 import { PROFILE } from "@sudoo/internationalization";

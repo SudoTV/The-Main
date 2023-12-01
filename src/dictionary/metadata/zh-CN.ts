@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Dictionary_Metadata
- * @description English United States
+ * @description Chinese Simplified
  */
 
 import { PROFILE } from "@sudoo/internationalization";
@@ -32,4 +32,13 @@ export const profile_metadata_zh_CN: PROFILE<METADATA_PROFILE> = {
 
     [METADATA_PROFILE.SERIES_TITLE]: "剧集",
     [METADATA_PROFILE.SERIES_DESCRIPTION]: "剧集",
+
+    [METADATA_PROFILE.SERIES_SERIES_TITLE_1]: "{} 剧集",
+    [METADATA_PROFILE.SERIES_SERIES_DESCRIPTION_1]: "{} 剧集",
+
+    [METADATA_PROFILE.SERIES_SERIES_EPISODES_TITLE_1]: "{} 剧集列表",
+    [METADATA_PROFILE.SERIES_SERIES_EPISODES_DESCRIPTION_1]: "{} 剧集列表",
+
+    [METADATA_PROFILE.SERIES_SERIES_EPISODES_EPISODE_TITLE_2]: "第 {} 集 - {} 剧集",
+    [METADATA_PROFILE.SERIES_SERIES_EPISODES_EPISODE_DESCRIPTION_2]: "第 {} 集 - {} 剧集",
 };
