@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Privacy
+ * @namespace Series_SeriesName
  * @description Layout
  */
 

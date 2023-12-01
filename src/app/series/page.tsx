@@ -5,17 +5,15 @@
  */
 
 import { SeriesCard } from "../../components/series/series-card/series-card";
+import { SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
 import { requestSeriesList } from "../../data/request/series-list";
-import { useLocale } from "../../i18n/use-locale";
 
 type Props = {
 };
 
-export default async function Page(props: Props) {
+export default async function Page(_props: Props) {
 
-    const locale = useLocale();
-
-    console.log(await requestSeriesList());
+    const series: Array<SeriesEntity<SERIES_TYPE>> = await requestSeriesList();
 
     return (<main
         className="flex flex-col items-start justify-between p-6 mx-auto w-full max-w-screen-xl"
@@ -35,10 +33,12 @@ export default async function Page(props: Props) {
         <div
             className="w-full flex flex-col gap-3"
         >
-            <SeriesCard />
-            <SeriesCard />
-            <SeriesCard />
+            {series.map((each: SeriesEntity<SERIES_TYPE>) => {
+                return (<SeriesCard
+                    key={each.identifier}
+                    series={each}
+                />);
+            })}
         </div>
-
     </main>);
 };

@@ -1,14 +1,14 @@
 /**
  * @author WMXPY
- * @namespace Series
+ * @namespace Series_SeriesName_Episodes
  * @description Layout
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import type { Metadata } from "next";
-import { metadataInternationalization } from "../../dictionary/metadata/_intl";
-import { METADATA_PROFILE } from "../../dictionary/metadata/_profile";
-import { useLocale } from "../../i18n/use-locale";
+import { metadataInternationalization } from "../../../../dictionary/metadata/_intl";
+import { METADATA_PROFILE } from "../../../../dictionary/metadata/_profile";
+import { useLocale } from "../../../../i18n/use-locale";
 
 export async function generateMetadata(): Promise<Metadata> {
 

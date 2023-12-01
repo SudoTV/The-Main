@@ -15,7 +15,7 @@ export const MDX_P: React.FC<MDX_PProps> = (props: MDX_PProps) => {
 
     return (
         <p
-            className="my-3"
+            className="my-3 leading-7"
         >
             {props.children}
         </p>
