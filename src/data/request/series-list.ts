@@ -4,12 +4,13 @@
  * @description Series List
  */
 
-import { parse } from "yaml";
+import { load } from "js-yaml";
 import { SERIES_TYPE, SeriesEntity } from "../definition/series/series";
 import { getGithubFile } from "../github/get-file";
 import { getGithubFolder } from "../github/get-folder";
 
-export const requestSeriesList = async (): Promise<Array<SeriesEntity<SERIES_TYPE>>> => {
+export const requestSeriesList = async (
+): Promise<Array<SeriesEntity<SERIES_TYPE>>> => {
 
     const folderFiles = await getGithubFolder(
         "SudoTV",
@@ -18,17 +19,22 @@ export const requestSeriesList = async (): Promise<Array<SeriesEntity<SERIES_TYP
         ["series"],
     );
 
-    const seriesResult: Array<SeriesEntity<SERIES_TYPE>> = [];
+    const pendingRequests: Array<Promise<string>> = [];
     for (const file of folderFiles) {
 
-        const seriesRawMetadata: string = await getGithubFile(
+        pendingRequests.push(getGithubFile(
             "SudoTV",
             "SudoTV-Series-DB",
             "main",
             ["series", file.name, "metadata.yml"],
-        );
+        ));
+    }
 
-        const series: SeriesEntity<SERIES_TYPE> = parse(seriesRawMetadata);
+    const seriesRawMetadataList: string[] = await Promise.all(pendingRequests);
+
+    const seriesResult: Array<SeriesEntity<SERIES_TYPE>> = [];
+    for (const seriesRawMetadata of seriesRawMetadataList) {
+        const series: SeriesEntity<SERIES_TYPE> = load(seriesRawMetadata) as SeriesEntity<SERIES_TYPE>;
         seriesResult.push(series);
     }
 

@@ -11,8 +11,5 @@ export type UrlEntity = {
     readonly url: string;
 };
 
-export type InternationalizationEntity<T = string> = {
-
-    readonly [IETF_LOCALE.ENGLISH_UNITED_STATES]: T;
-    readonly [IETF_LOCALE.CHINESE_SIMPLIFIED]: T;
-};
+export type InternationalizationEntity<T = string> =
+    Partial<Record<IETF_LOCALE, T>>;
