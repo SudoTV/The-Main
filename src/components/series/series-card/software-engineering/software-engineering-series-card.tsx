@@ -12,6 +12,7 @@ import { SOFTWARE_ENGINEERING_SERIES_STATUS } from "../../../../data/definition/
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../i18n/use-locale";
+import { HrefConfig } from "../../../../util/href";
 import { RedirectionCard } from "../../../common/redirection-card";
 import { SeriesCardSoftwareEngineeringEpisodeContent } from "./episode-content";
 
@@ -69,12 +70,13 @@ export const SeriesCardSoftwareEngineering: React.FC<SeriesCardSoftwareEngineeri
 
     return (
         <RedirectionCard
+            full
             leadTitle={<Prefix
                 series={series}
                 locale={locale}
             />}
             title={series.title[locale]}
-            titleHref={`/series/${series.identifier}`}
+            titleHref={HrefConfig.withinSite(locale, "series", series.identifier)}
             subtitle={series.description[locale]}
             suffix={<SeriesCardSoftwareEngineeringEpisodeContent
                 series={series}
