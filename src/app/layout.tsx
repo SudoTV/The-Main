@@ -10,7 +10,6 @@ import { LayoutHeader } from "../components/header/header";
 import { metadataInternationalization } from "../dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "../dictionary/metadata/_profile";
 import { useLocale } from "../i18n/use-locale";
-import "../styles/code.css";
 import "../styles/globals.css";
 
 export const runtime = "edge";

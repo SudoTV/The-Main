@@ -5,8 +5,6 @@
  */
 
 import { RedirectionCard } from "../../components/common/redirection-card";
-import { MDX_H2 } from "../../components/mdx/h2";
-import EnglishUnitedStates from "../../dictionary/privacy/privacy/en-US.mdx";
 import { reprintInternationalization } from "../../dictionary/reprint/_intl";
 import { REPRINT_PROFILE } from "../../dictionary/reprint/_profile";
 import { useLocale } from "../../i18n/use-locale";
@@ -41,19 +39,19 @@ export default async function Page(props: Props) {
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT)}
           titleHref="/reprint/series"
-          description={format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT_DESCRIPTION)}
+          subtitle={format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT_DESCRIPTION)}
         />
         <RedirectionCard
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SITE_CONTENT_AND_SOURCE_CODE)}
           titleHref="/reprint/sites"
-          description={format.get(REPRINT_PROFILE.SITE_CONTENT_AND_SOURCE_CODE_DESCRIPTION)}
+          subtitle={format.get(REPRINT_PROFILE.SITE_CONTENT_AND_SOURCE_CODE_DESCRIPTION)}
         />
         <RedirectionCard
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SERIES_VIDEOS)}
           titleHref="/reprint/videos"
-          description={format.get(REPRINT_PROFILE.SERIES_VIDEOS_DESCRIPTION)}
+          subtitle={format.get(REPRINT_PROFILE.SERIES_VIDEOS_DESCRIPTION)}
         />
       </section>
       <p
