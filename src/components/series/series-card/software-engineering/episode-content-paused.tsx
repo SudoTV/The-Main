@@ -7,8 +7,8 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
 import * as React from "react";
+import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
-import { SoftwareEngineeringSeriesEpisodeEntity } from "../../../../data/definition/series/software-engineering-episode";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../data/definition/video/video-platform";
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
@@ -19,7 +19,7 @@ import { VideoVideoButton } from "../../../video/video-button/video-button";
 
 type EpisodeProps = {
 
-    readonly episode: SoftwareEngineeringSeriesEpisodeEntity;
+    readonly episode: EpisodeEntity<EPISODE_TYPE>;
     readonly locale: IETF_LOCALE;
 };
 
@@ -59,12 +59,12 @@ export const SeriesCardSoftwareEngineeringEpisodeContentPaused: React.FC<SeriesC
     const locale: IETF_LOCALE = useLocale();
     const format = seriesInternationalization.format(locale);
 
-    const latestEpisode: Optional<SoftwareEngineeringSeriesEpisodeEntity> =
+    const latestEpisode: Optional<EpisodeEntity<EPISODE_TYPE>> =
         Optional.ofUndefinable(
             props.series.episodes
                 .sort((
-                    a: SoftwareEngineeringSeriesEpisodeEntity,
-                    b: SoftwareEngineeringSeriesEpisodeEntity,
+                    a: EpisodeEntity<EPISODE_TYPE>,
+                    b: EpisodeEntity<EPISODE_TYPE>,
                 ) => {
                     return b["release-date"].getTime() - a["release-date"].getTime();
                 })

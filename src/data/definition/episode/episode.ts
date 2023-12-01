@@ -5,23 +5,25 @@
  */
 
 import { InternationalizationEntity } from "../common";
-import { PracticeEntity } from "../practice/practice";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../video/video-platform";
+import { EpisodeEntitySwitchCoding } from "./coding";
 
-export type SoftwareEngineeringSeriesEpisodeGitEntity = {
+export enum EPISODE_TYPE {
 
-    readonly "before-tag": string;
-    readonly "after-tag": string;
-};
+    CODING = "CODING",
+}
 
-export type SoftwareEngineeringSeriesEpisodeEntity = {
+export type EpisodeEntity<T extends EPISODE_TYPE> = {
 
     readonly identifier: string;
+    readonly type: T;
     readonly "release-date": Date;
     readonly title: InternationalizationEntity;
-    readonly practices: PracticeEntity[];
-    readonly git: SoftwareEngineeringSeriesEpisodeGitEntity;
     readonly videos: InternationalizationEntity<
         Array<VideoPlatformEntity<VIDEO_PLATFORM_TYPE>>
     >;
-};
+} & EpisodeEntitySwitch<T>;
+
+export type EpisodeEntitySwitch<T extends EPISODE_TYPE> =
+    T extends EPISODE_TYPE.CODING ? EpisodeEntitySwitchCoding :
+    never;

@@ -5,7 +5,7 @@
  */
 
 import { InternationalizationEntity, UrlEntity } from "../common";
-import { SoftwareEngineeringSeriesEpisodeEntity } from "./software-engineering-episode";
+import { EPISODE_TYPE, EpisodeEntity } from "../episode/episode";
 
 export enum SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM {
 
@@ -39,5 +39,5 @@ export type SoftwareEngineeringSeriesEntity = {
     readonly title: InternationalizationEntity;
     readonly description: InternationalizationEntity;
 
-    readonly episodes: SoftwareEngineeringSeriesEpisodeEntity[];
+    readonly episodes: Array<EpisodeEntity<EPISODE_TYPE>>;
 };
