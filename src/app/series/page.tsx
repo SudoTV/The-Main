@@ -5,6 +5,9 @@
  */
 
 import { SeriesCard } from "../../components/series/series-card/series-card";
+import { Description1 } from "../../components/typography/description-1";
+import { Header1 } from "../../components/typography/header-1";
+import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
 import { SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
 import { requestSeriesList } from "../../data/request/series-list";
 import { seriesInternationalization } from "../../dictionary/series/_intl";
@@ -21,22 +24,16 @@ export default async function Page(_props: Props) {
 
     const series: Array<SeriesEntity<SERIES_TYPE>> = await requestSeriesList();
 
-    return (<main
-        className="flex flex-col items-start justify-between p-6 mx-auto w-full max-w-screen-xl"
-    >
+    return (<MainPageWrapper>
         <div
             className="w-full"
         >
-            <h1
-                className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white"
-            >
+            <Header1>
                 {seriesFormat.get(SERIES_PROFILE.SERIES_TITLE)}
-            </h1>
-            <p
-                className="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400"
-            >
+            </Header1>
+            <Description1>
                 {seriesFormat.get(SERIES_PROFILE.SERIES_DESCRIPTION)}
-            </p>
+            </Description1>
         </div>
         <div
             className="w-full flex flex-col gap-3"
@@ -48,5 +45,5 @@ export default async function Page(_props: Props) {
                 />);
             })}
         </div>
-    </main>);
+    </MainPageWrapper>);
 };
