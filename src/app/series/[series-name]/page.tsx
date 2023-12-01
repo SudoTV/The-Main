@@ -5,6 +5,7 @@
  */
 
 import { LocaleSwitcher } from "../../../components/preference/language-switcher";
+import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
 import { getGithubFile } from "../../../data/github/get-file";
 
 type Props = {
@@ -25,13 +26,11 @@ export default async function Page(props: Props) {
 
     await getGithubFile("SudoTV", "SudoTV-Series-DB", "main", ["docs", "README.md"]);
 
-    return (<main
-        className="flex min-h-screen flex-col items-center justify-between p-24"
-    >
+    return (<MainPageWrapper>
         <h1>Static page</h1>
         <p>This page is static. It was built on {formattedDate}.</p>
         <p>{props.params["series-name"]}</p>
         <p>{props.params.locale}</p>
         <LocaleSwitcher />
-    </main>);
+    </MainPageWrapper>);
 };
