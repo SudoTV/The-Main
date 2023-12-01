@@ -16,5 +16,7 @@ export const profile_series_zh_CN: PROFILE<SERIES_PROFILE> = {
     [SERIES_PROFILE.TRANSCRIPT]: "脚本",
     [SERIES_PROFILE.UPDATED_AT_1]: "更新于{}",
     [SERIES_PROFILE.UPDATING]: "更新中",
+    [SERIES_PROFILE.SERIES_TITLE]: "剧集",
+    [SERIES_PROFILE.SERIES_DESCRIPTION]: "来看看我们有什么？",
     [SERIES_PROFILE.VIEW]: "查看",
 };
