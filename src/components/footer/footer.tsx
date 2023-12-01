@@ -117,11 +117,11 @@ export const LayoutFooter: React.FC = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                        <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                             {format.get(FOOTER_PROFILE.PREFERENCES)}
                         </h2>
                         <ul className="text-gray-800">
-                            <li>
+                            <li className="mb-1">
                                 <LocaleSwitcher />
                             </li>
                             <li className="mb-2">
