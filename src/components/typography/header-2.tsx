@@ -1,38 +1,35 @@
 /**
 * @author WMXPY
 * @namespace Components_Typography
-* @description Header 1
+* @description Header 2
 */
 
 import * as React from "react";
 
-export type Header1Props = {
+export type Header2Props = {
 
     readonly children?: any;
 
     readonly noMargin?: boolean;
 };
 
-export const Header1: React.FC<Header1Props> = (props: Header1Props) => {
+export const Header2: React.FC<Header2Props> = (props: Header2Props) => {
 
     const classes: string[] = [
-        "text-4xl",
-        "font-extrabold",
-        "tracking-tight",
-        "leading-none",
-        "text-gray-900",
-        "dark:text-white",
+        "text-2xl",
+        "font-semibold",
+        "lg:text-3xl",
     ];
 
     if (!props.noMargin) {
-        classes.push("mb-4");
+        classes.push("mb-3");
     }
 
     return (
-        <h1
+        <h2
             className={classes.join(" ")}
         >
             {props.children}
-        </h1>
+        </h2>
     );
 };
