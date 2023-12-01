@@ -8,6 +8,7 @@ import { RedirectionCard } from "../../components/common/redirection-card";
 import { reprintInternationalization } from "../../dictionary/reprint/_intl";
 import { REPRINT_PROFILE } from "../../dictionary/reprint/_profile";
 import { useLocale } from "../../i18n/use-locale";
+import { HrefConfig } from "../../util/href";
 import { SIZE } from "../../util/size";
 
 type Props = {
@@ -36,21 +37,24 @@ export default async function Page(props: Props) {
         className="flex flex-col gap-4 my-4"
       >
         <RedirectionCard
+          full
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT)}
-          titleHref="/reprint/series"
+          titleHref={HrefConfig.withinSite(locale, "reprint", "series")}
           subtitle={format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT_DESCRIPTION)}
         />
         <RedirectionCard
+          full
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SITE_CONTENT_AND_SOURCE_CODE)}
-          titleHref="/reprint/sites"
+          titleHref={HrefConfig.withinSite(locale, "reprint", "sites")}
           subtitle={format.get(REPRINT_PROFILE.SITE_CONTENT_AND_SOURCE_CODE_DESCRIPTION)}
         />
         <RedirectionCard
+          full
           size={SIZE.SMALL}
           title={format.get(REPRINT_PROFILE.SERIES_VIDEOS)}
-          titleHref="/reprint/videos"
+          titleHref={HrefConfig.withinSite(locale, "reprint", "videos")}
           subtitle={format.get(REPRINT_PROFILE.SERIES_VIDEOS_DESCRIPTION)}
         />
       </section>
