@@ -19,6 +19,7 @@ export type EpisodeEntity<T extends EPISODE_TYPE> = {
     readonly type: T;
     readonly "release-date": Date;
     readonly title: InternationalizationEntity;
+    readonly description: InternationalizationEntity;
     readonly videos: InternationalizationEntity<
         Array<VideoPlatformEntity<VIDEO_PLATFORM_TYPE>>
     >;
