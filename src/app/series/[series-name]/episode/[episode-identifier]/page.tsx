@@ -4,8 +4,21 @@
  * @description Page
  */
 
-import { LocaleSwitcher } from "../../../../../components/preference/language-switcher";
-import { getGithubFile } from "../../../../../data/github/get-file";
+import { RedirectionCard } from "../../../../../components/common/redirection-card";
+import { Description1 } from "../../../../../components/typography/description-1";
+import { Header1 } from "../../../../../components/typography/header-1";
+import { Header2 } from "../../../../../components/typography/header-2";
+import { MainPageWrapper } from "../../../../../components/typography/main-page-wrapper";
+import { Section } from "../../../../../components/typography/section";
+import { VideoVideoCard } from "../../../../../components/video/video-card/video-card";
+import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../../data/definition/video/video-platform";
+import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
+import { seriesInternationalization } from "../../../../../dictionary/series/_intl";
+import { SERIES_PROFILE } from "../../../../../dictionary/series/_profile";
+import { useLocale } from "../../../../../i18n/use-locale";
+import { HrefConfig } from "../../../../../util/href";
+import { logger } from "../../../../../util/log";
+import { SIZE } from "../../../../../util/size";
 
 type Props = {
 
@@ -18,22 +31,94 @@ type Props = {
 
 export default async function Page(props: Props) {
 
-    const buildDate = Date.now();
-    const formattedDate = new Intl.DateTimeFormat("en-US", {
-        dateStyle: "long",
-        timeStyle: "long",
-    }).format(buildDate);
+    const locale = useLocale();
+    const format = seriesInternationalization.format(locale);
 
-    await getGithubFile("SudoTV", "SudoTV-Series-DB", "main", ["docs", "README.md"]);
+    const series = await requestSeriesMetadata(props.params["series-name"]);
+    const episode = series.episodes.find((each) => each.identifier === props.params["episode-identifier"]);
 
-    return (<main
-        className="flex min-h-screen flex-col items-center justify-between p-24"
-    >
-        <h1>Static page</h1>
-        <p>This page is static. It was built on {formattedDate}.</p>
-        <p>{props.params["series-name"]}</p>
-        <p>{props.params["episode-identifier"]}</p>
-        <p>{props.params.locale}</p>
-        <LocaleSwitcher />
-    </main>);
+    if (!episode) {
+
+        logger.error("Episode Not Found", props.params["series-name"], props.params["episode-identifier"]);
+        return "NOT FOUND";
+    }
+
+    const videos = episode.videos[locale] as Array<VideoPlatformEntity<VIDEO_PLATFORM_TYPE>>;
+
+    return (<MainPageWrapper>
+        <Section>
+            {series.original
+                ? <Description1
+                    noMargin
+                >
+                    {format.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
+                </Description1>
+                : null}
+            <Header1>
+                {episode.title[locale]}
+            </Header1>
+            <Description1>
+                {series.title[locale]} - {episode.identifier}
+            </Description1>
+        </Section>
+        <Section
+            marginTop
+            className="flex flex-col gap-4"
+        >
+            <Header2
+                noMargin
+            >
+                {format.get(SERIES_PROFILE.WATCH_VIDEOS)}
+            </Header2>
+            {videos.map((video: VideoPlatformEntity<VIDEO_PLATFORM_TYPE>, index: number) => {
+                return (<VideoVideoCard
+                    key={index}
+                    video={video}
+                />);
+            })}
+        </Section>
+        <Section
+            marginTop
+            className="flex flex-col gap-4"
+        >
+            <Header2
+                noMargin
+            >
+                {format.get(SERIES_PROFILE.GET_HANDS_ON)}
+            </Header2>
+            <RedirectionCard
+                full
+                size={SIZE.SMALL}
+                title={format.get(SERIES_PROFILE.LEARN_THE_BASICS)}
+                subtitle={format.get(SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION)}
+            />
+            <RedirectionCard
+                full
+                size={SIZE.SMALL}
+                title={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
+                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "prepare-environment")}
+                subtitle={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
+            />
+            <RedirectionCard
+                full
+                size={SIZE.SMALL}
+                title={format.get(SERIES_PROFILE.DEEP_DIVE)}
+                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "deep-dive")}
+                subtitle={format.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
+            />
+        </Section>
+        <Section
+            marginTop
+        >
+            <Header2>
+                {format.get(SERIES_PROFILE.TRANSCRIPT)}
+            </Header2>
+            <RedirectionCard
+                full
+                title={format.get(SERIES_PROFILE.VIEW_TRANSCRIPT)}
+                size={SIZE.SMALL}
+                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "transcript")}
+            />
+        </Section>
+    </MainPageWrapper>);
 };
