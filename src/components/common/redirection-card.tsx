@@ -6,15 +6,18 @@
 
 import Link from "next/link";
 import * as React from "react";
+import { BiLinkExternal } from "react-icons/bi";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { HrefConfig } from "../../util/href";
 import { SIZE } from "../../util/size";
+import { IconType } from "react-icons";
 
 export type RedirectionCardProps = {
 
     readonly leadTitle?: React.ReactNode;
 
     readonly title: React.ReactNode;
-    readonly titleHref?: string;
+    readonly titleHref?: HrefConfig;
 
     readonly subtitle?: React.ReactNode;
 
@@ -22,6 +25,11 @@ export type RedirectionCardProps = {
 
     readonly prefix?: React.ReactNode;
     readonly suffix?: React.ReactNode;
+
+    readonly backgroundIcon?: IconType;
+
+    readonly full?: boolean;
+    readonly className?: string;
 };
 
 const getPaddingDefault = (size: SIZE): string => {
@@ -64,6 +72,16 @@ const getSubtitleTextSize = (size: SIZE): string => {
     return "text-lg";
 };
 
+const getBackgroundIconSize = (size: SIZE): number => {
+
+    switch (size) {
+        case SIZE.SMALL: return 128;
+        case SIZE.MEDIUM: return 192;
+        case SIZE.LARGE: return 256;
+    }
+    return 256;
+};
+
 export const RedirectionCard: React.FC<RedirectionCardProps> = (props: RedirectionCardProps) => {
 
     const size: SIZE = props.size ?? SIZE.MEDIUM;
@@ -74,53 +92,101 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
     const titleTextSize: string = getTitleTextSize(size);
     const subtitleTextSize: string = getSubtitleTextSize(size);
 
+    const backgroundIconSize: number = getBackgroundIconSize(size);
+
+    const cardClasses: string[] = [
+        "relative",
+        "flex",
+        "flex-col",
+        "sm:flex-row",
+        "gap-5",
+        "justify-between",
+        paddingDefault,
+        "bg-white",
+        "border",
+        "border-gray-200",
+        "rounded-sm",
+        paddingSmall,
+        "dark:bg-gray-800",
+        "dark:border-gray-700",
+    ];
+
+    if (props.full) {
+        cardClasses.push("w-full");
+    }
+
+    if (props.className) {
+        cardClasses.push(props.className);
+    }
+
     return (
         <div
-            className={`w-full flex flex-col sm:flex-row gap-5 justify-between ${paddingDefault} bg-white border border-gray-200 rounded-sm ${paddingSmall} dark:bg-gray-800 dark:border-gray-700`}
+            className={cardClasses.join(" ")}
         >
-            {props.prefix
-                ? <div
-                    className="flex flex-col items-start"
-                >
-                    {props.prefix}
-                </div>
-                : null}
-            <div>
-                {props.leadTitle
+            <div
+                className="z-20"
+            >
+                {props.prefix
                     ? <div
-                        className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
+                        className="flex flex-col items-start"
                     >
-                        {props.leadTitle}
+                        {props.prefix}
                     </div>
                     : null}
-                <h5
-                    className={`${titleTextSize} font-bold text-gray-900 dark:text-white`}
-                >
-                    {props.titleHref
-                        ? <Link
-                            href={props.titleHref}
-                            className="inline-flex hover:underline items-center gap-2 text-blue-500 dark:text-blue-300"
+                <div>
+                    {props.leadTitle
+                        ? <div
+                            className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
                         >
-                            {props.title}
-                            <IoArrowForwardOutline
-                                size={24}
-                            />
-                        </Link>
-                        : props.title}
-                </h5>
-                {props.subtitle
-                    ? <div
-                        className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
+                            {props.leadTitle}
+                        </div>
+                        : null}
+                    <h5
+                        className={`${titleTextSize} font-bold text-gray-900 dark:text-white`}
                     >
-                        {props.subtitle}
+                        {props.titleHref
+                            ? <Link
+                                href={props.titleHref.href}
+                                rel={props.titleHref.external ? "noopener noreferrer" : undefined}
+                                target={props.titleHref.external ? "_blank" : undefined}
+                                className="inline-flex hover:underline items-center gap-2 text-blue-500 dark:text-blue-300"
+                            >
+                                {props.title}
+                                {props.titleHref.external
+                                    ? <BiLinkExternal
+                                        size={24}
+                                    />
+                                    : <IoArrowForwardOutline
+                                        size={24}
+                                    />}
+                            </Link>
+                            : props.title}
+                    </h5>
+                    {props.subtitle
+                        ? <div
+                            className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
+                        >
+                            {props.subtitle}
+                        </div>
+                        : null}
+                </div>
+                {props.suffix
+                    ? <div
+                        className="flex flex-col items-start sm:items-end self-end"
+                    >
+                        {props.suffix}
                     </div>
                     : null}
+
             </div>
-            {props.suffix
+            {props.backgroundIcon
                 ? <div
-                    className="flex flex-col items-start sm:items-end self-end"
+                    className="absolute top-0 left-0 z-10 w-full h-full overflow-hidden"
                 >
-                    {props.suffix}
+                    <props.backgroundIcon
+                        size={backgroundIconSize}
+                        className="-rotate-12 text-gray-200 dark:text-gray-700 pointer-events-none"
+                    />
                 </div>
                 : null}
         </div>
