@@ -34,17 +34,17 @@ export const CardLinkButton: React.FC<CardButtonProps> = (props: CardButtonProps
                 className="text-left rtl:text-right"
             >
                 {props.prefix
-                    ? <div className="mb-1 text-xs">
+                    ? <div className="text-xs">
                         {props.prefix}
                     </div>
                     : null}
                 <div
-                    className="-mt-1 text-sm font-semibold"
+                    className="text-sm font-semibold"
                 >
                     {props.title}
                 </div>
                 {props.suffix
-                    ? <div className="mt-1 text-xs">
+                    ? <div className="text-xs">
                         {props.suffix}
                     </div>
                     : null}

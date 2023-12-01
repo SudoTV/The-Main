@@ -6,15 +6,17 @@
 
 import Link from "next/link";
 import * as React from "react";
-import { SIZE } from "../../util/size";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { SIZE } from "../../util/size";
 
 export type RedirectionCardProps = {
 
-    readonly title: string;
+    readonly leadTitle?: React.ReactNode;
+
+    readonly title: React.ReactNode;
     readonly titleHref?: string;
 
-    readonly description?: string;
+    readonly subtitle?: React.ReactNode;
 
     readonly size?: SIZE;
 
@@ -52,7 +54,7 @@ const getTitleTextSize = (size: SIZE): string => {
     return "text-3xl";
 };
 
-const getDescriptionTextSize = (size: SIZE): string => {
+const getSubtitleTextSize = (size: SIZE): string => {
 
     switch (size) {
         case SIZE.SMALL: return "text-base";
@@ -70,11 +72,11 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
     const paddingSmall: string = getPaddingSmall(size);
 
     const titleTextSize: string = getTitleTextSize(size);
-    const descriptionTextSize: string = getDescriptionTextSize(size);
+    const subtitleTextSize: string = getSubtitleTextSize(size);
 
     return (
         <div
-            className={`w-full flex flex-col sm:flex-row justify-between ${paddingDefault} bg-white border border-gray-200 rounded-sm ${paddingSmall} dark:bg-gray-800 dark:border-gray-700`}
+            className={`w-full flex flex-col sm:flex-row gap-5 justify-between ${paddingDefault} bg-white border border-gray-200 rounded-sm ${paddingSmall} dark:bg-gray-800 dark:border-gray-700`}
         >
             {props.prefix
                 ? <div
@@ -84,6 +86,13 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
                 </div>
                 : null}
             <div>
+                {props.leadTitle
+                    ? <div
+                        className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
+                    >
+                        {props.leadTitle}
+                    </div>
+                    : null}
                 <h5
                     className={`${titleTextSize} font-bold text-gray-900 dark:text-white`}
                 >
@@ -99,17 +108,17 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
                         </Link>
                         : props.title}
                 </h5>
-                {props.description
-                    ? <p
-                        className={`text-base text-gray-500 sm:${descriptionTextSize} dark:text-gray-400`}
+                {props.subtitle
+                    ? <div
+                        className={`text-base text-gray-500 sm:${subtitleTextSize} dark:text-gray-400`}
                     >
-                        {props.description}
-                    </p>
+                        {props.subtitle}
+                    </div>
                     : null}
             </div>
             {props.suffix
                 ? <div
-                    className="flex flex-col items-start sm:items-end"
+                    className="flex flex-col items-start sm:items-end self-end"
                 >
                     {props.suffix}
                 </div>
