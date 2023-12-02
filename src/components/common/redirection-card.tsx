@@ -6,11 +6,11 @@
 
 import Link from "next/link";
 import * as React from "react";
+import { IconType } from "react-icons";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { HrefConfig } from "../../util/href";
 import { SIZE } from "../../util/size";
-import { IconType } from "react-icons";
 
 export type RedirectionCardProps = {
 
@@ -96,11 +96,7 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
 
     const cardClasses: string[] = [
         "relative",
-        "flex",
-        "flex-col",
-        "sm:flex-row",
-        "gap-5",
-        "justify-between",
+
         paddingDefault,
         "bg-white",
         "border",
@@ -124,7 +120,7 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
             className={cardClasses.join(" ")}
         >
             <div
-                className="z-20"
+                className="w-full z-20 flex flex-col sm:flex-row gap-5 justify-between"
             >
                 {props.prefix
                     ? <div
