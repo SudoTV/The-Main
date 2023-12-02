@@ -29,7 +29,7 @@ export const SeriesResourceCards: React.FC<SeriesResourceCardsProps> = (
 
         case SERIES_TYPE.SOFTWARE_ENGINEERING:
             return (<div
-                className="flex w-full gap-4"
+                className="flex w-full gap-4 flex-col sm:flex-row"
             >
                 <SeriesResourceCardSoftwareEngineeringRepository
                     series={props.series}
