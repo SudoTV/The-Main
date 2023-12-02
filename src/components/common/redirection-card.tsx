@@ -96,7 +96,6 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
 
     const cardClasses: string[] = [
         "relative",
-
         paddingDefault,
         "bg-white",
         "border",
@@ -120,7 +119,7 @@ export const RedirectionCard: React.FC<RedirectionCardProps> = (props: Redirecti
             className={cardClasses.join(" ")}
         >
             <div
-                className="w-full z-20 flex flex-col sm:flex-row gap-5 justify-between"
+                className="relative z-20 w-full flex flex-col sm:flex-row gap-5 justify-between"
             >
                 {props.prefix
                     ? <div
