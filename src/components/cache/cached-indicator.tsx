@@ -21,6 +21,9 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
     const format = cacheInternationalization.format(props.locale);
 
     const divClasses: string[] = [
+        "flex",
+        "justify-start",
+        "items-center",
         "text-gray-400",
         "dark:text-gray-500",
         "text-sm",
@@ -32,21 +35,42 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
             return (<div
                 className={divClasses.join(" ")}
             >
-                {format.get(CACHE_PROFILE.THIS_PAGE_IS_FULLY_CACHED)}
+                <span
+                    className="flex w-3 h-3 me-2 bg-green-300 rounded-full"
+                />
+                <span
+                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                >
+                    {format.get(CACHE_PROFILE.THIS_PAGE_IS_FULLY_CACHED)}
+                </span>
             </div>);
         }
         case CACHED_TYPE.PARTIAL: {
             return (<div
                 className={divClasses.join(" ")}
             >
-                {format.get(CACHE_PROFILE.THIS_PAGE_IS_PARTIALLY_CACHED)}
+                <span
+                    className="flex w-3 h-3 me-2 bg-blue-300 rounded-full"
+                />
+                <span
+                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                >
+                    {format.get(CACHE_PROFILE.THIS_PAGE_IS_PARTIALLY_CACHED)}
+                </span>
             </div>);
         }
         case CACHED_TYPE.NONE: {
             return (<div
                 className={divClasses.join(" ")}
             >
-                {format.get(CACHE_PROFILE.THIS_PAGE_IS_NOT_CACHED)}
+                <span
+                    className="flex w-3 h-3 me-2 bg-yellow-300 rounded-full"
+                />
+                <span
+                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                >
+                    {format.get(CACHE_PROFILE.THIS_PAGE_IS_NOT_CACHED)}
+                </span>
             </div>);
         }
     }
