@@ -4,6 +4,7 @@
  * @description Page
  */
 
+import { CachedIndicator } from "../../../components/cache/cached-indicator";
 import { SeriesEpisodeCard } from "../../../components/series/episode/episode-card";
 import { SeriesResourceCards } from "../../../components/series/resource-card/resource-cards";
 import { Description1 } from "../../../components/typography/description-1";
@@ -11,6 +12,8 @@ import { Header1 } from "../../../components/typography/header-1";
 import { Header2 } from "../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
 import { Section } from "../../../components/typography/section";
+import { CacheableResponse } from "../../../data/cache/definition";
+import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
@@ -29,7 +32,8 @@ export default async function Page(props: Props) {
     const locale = useLocale();
     const format = seriesInternationalization.format(locale);
 
-    const series = await requestSeriesMetadata(props.params["series-name"]);
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+        await requestSeriesMetadata(props.params["series-name"]);
 
     return (<MainPageWrapper>
         <Section>
@@ -72,5 +76,13 @@ export default async function Page(props: Props) {
                 })}
             </div>
         </Section>
+        <div
+            className="w-full mt-2"
+        >
+            <CachedIndicator
+                cacheableResponse={series}
+                locale={locale}
+            />
+        </div>
     </MainPageWrapper>);
 };

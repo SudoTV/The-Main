@@ -4,6 +4,7 @@
  * @description Page
  */
 
+import { CachedIndicator } from "../../../../../../components/cache/cached-indicator";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { requestSeriesEpisodeTranscript } from "../../../../../../data/request/series-episode-transcript";
@@ -39,6 +40,14 @@ export default async function Page(props: Props) {
                     {parsedMarkdown.reactNodes}
                 </div>
             </MarkdownWrapper>
+            <div
+                className="w-full mt-2"
+            >
+                <CachedIndicator
+                    cacheableResponse={rawMarkdown}
+                    locale={locale}
+                />
+            </div>
         </div>
     );
 };
