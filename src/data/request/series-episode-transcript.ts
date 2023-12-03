@@ -5,7 +5,7 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import { CacheableResponse } from "../cache/definition";
+import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { getGithubFile } from "../github/get-file";
 
 export const requestSeriesEpisodeTranscript = async (
@@ -21,5 +21,19 @@ export const requestSeriesEpisodeTranscript = async (
         ["series", seriesName, "transcripts", episodeName, `${locale}.md`],
     );
 
-    return episodeTranscript;
+    if (episodeTranscript.cached === CACHED_TYPE.NONE) {
+        return {
+            cached: CACHED_TYPE.NONE,
+            cachedComponents: [],
+            data: episodeTranscript.data,
+        };
+    }
+
+    return {
+        cached: episodeTranscript.cached,
+        cachedComponents: [{
+            identifier: "episode",
+        }],
+        data: episodeTranscript.data,
+    };
 };

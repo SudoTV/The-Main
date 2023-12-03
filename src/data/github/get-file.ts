@@ -4,7 +4,7 @@
  * @description Get File
  */
 
-import { CacheableResponse } from "../cache/definition";
+import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { githubGraphql } from "./client";
 
 export type GetGithubFileGraphQLResponse = {
@@ -36,8 +36,19 @@ export const getGithubFile = async (
         }
     `);
 
+    if (response.cached === CACHED_TYPE.NONE) {
+        return {
+            cached: CACHED_TYPE.NONE,
+            cachedComponents: [],
+            data: response.data.repository.object.text,
+        };
+    }
+
     return {
         cached: response.cached,
+        cachedComponents: [{
+            identifier: "file",
+        }],
         data: response.data.repository.object.text,
     };
 };

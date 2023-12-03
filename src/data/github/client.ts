@@ -9,7 +9,7 @@ import NodeCache from "node-cache";
 import { GRAPHQL_GITHUB_API_TOKEN } from "../../util/environment";
 import { logger } from "../../util/log";
 import { digestMD5String } from "../../util/md5";
-import { CacheableResponse } from "../cache/definition";
+import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 
 export const graphqlWithAuth = graphql.defaults({
     headers: {
@@ -30,7 +30,10 @@ export const githubGraphql = async <T>(query: string): Promise<CacheableResponse
         logger.info(`[Github] Query cache hit: ${queryHash}`);
 
         return {
-            cached: true,
+            cached: CACHED_TYPE.FULL,
+            cachedComponents: [{
+                identifier: "query",
+            }],
             data: cached,
         };
     }
@@ -41,7 +44,8 @@ export const githubGraphql = async <T>(query: string): Promise<CacheableResponse
     cache.set(queryHash, response, CACHE_EXPIRE);
 
     return {
-        cached: false,
+        cached: CACHED_TYPE.NONE,
+        cachedComponents: [],
         data: response,
     };
 };

@@ -4,7 +4,7 @@
  * @description Get Folder
  */
 
-import { CacheableResponse } from "../cache/definition";
+import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { githubGraphql } from "./client";
 
 export type GetGithubFolderGraphQLResponseEntry = {
@@ -43,8 +43,19 @@ export const getGithubFolder = async (
         }
     `);
 
+    if (response.cached === CACHED_TYPE.NONE) {
+        return {
+            cached: CACHED_TYPE.NONE,
+            cachedComponents: [],
+            data: response.data.repository.object.entries,
+        };
+    }
+
     return {
         cached: response.cached,
+        cachedComponents: [{
+            identifier: "folder",
+        }],
         data: response.data.repository.object.entries,
     };
 };

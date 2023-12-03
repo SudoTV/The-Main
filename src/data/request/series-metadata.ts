@@ -5,14 +5,15 @@
  */
 
 import { load } from "js-yaml";
+import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { SERIES_TYPE, SeriesEntity } from "../definition/series/series";
 import { getGithubFile } from "../github/get-file";
 
 export const requestSeriesMetadata = async (
     seriesName: string,
-): Promise<SeriesEntity<SERIES_TYPE>> => {
+): Promise<CacheableResponse<SeriesEntity<SERIES_TYPE>>> => {
 
-    const seriesMetadata: string = await getGithubFile(
+    const seriesMetadata: CacheableResponse<string> = await getGithubFile(
         "SudoTV",
         "SudoTV-Series-DB",
         "main",
@@ -20,7 +21,21 @@ export const requestSeriesMetadata = async (
     );
 
     const series: SeriesEntity<SERIES_TYPE> =
-        load(seriesMetadata) as SeriesEntity<SERIES_TYPE>;
+        load(seriesMetadata.data) as SeriesEntity<SERIES_TYPE>;
 
-    return series;
+    if (seriesMetadata.cached === CACHED_TYPE.NONE) {
+        return {
+            cached: CACHED_TYPE.NONE,
+            cachedComponents: [],
+            data: series,
+        };
+    }
+
+    return {
+        cached: seriesMetadata.cached,
+        cachedComponents: [{
+            identifier: "series",
+        }],
+        data: series,
+    };
 };

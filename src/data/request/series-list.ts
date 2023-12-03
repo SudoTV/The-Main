@@ -5,7 +5,7 @@
  */
 
 import { load } from "js-yaml";
-import { CacheableResponse } from "../cache/definition";
+import { CACHED_TYPE, CacheableResponse, CachedComponent } from "../cache/definition";
 import { SERIES_TYPE, SeriesEntity } from "../definition/series/series";
 import { getGithubFile } from "../github/get-file";
 import { getGithubFolder } from "../github/get-folder";
@@ -13,12 +13,26 @@ import { getGithubFolder } from "../github/get-folder";
 export const requestSeriesList = async (
 ): Promise<CacheableResponse<Array<SeriesEntity<SERIES_TYPE>>>> => {
 
+    const cachedComponents: CachedComponent[] = [];
+    const noneCachedComponents: CachedComponent[] = [];
+
     const folderFiles = await getGithubFolder(
         "SudoTV",
         "SudoTV-Series-DB",
         "main",
         ["series"],
     );
+
+    if (folderFiles.cached === CACHED_TYPE.FULL
+        || folderFiles.cached === CACHED_TYPE.PARTIAL) {
+        cachedComponents.push({
+            identifier: "series-list",
+        });
+    } else {
+        noneCachedComponents.push({
+            identifier: "series-list",
+        });
+    }
 
     const pendingRequests: Array<Promise<CacheableResponse<string>>> = [];
     for (const file of folderFiles.data) {
@@ -39,11 +53,28 @@ export const requestSeriesList = async (
         const series: SeriesEntity<SERIES_TYPE> = load(
             seriesRawMetadata.data,
         ) as SeriesEntity<SERIES_TYPE>;
+
+        if (seriesRawMetadata.cached === CACHED_TYPE.FULL
+            || seriesRawMetadata.cached === CACHED_TYPE.PARTIAL) {
+            cachedComponents.push({
+                identifier: `series:${series.identifier}`,
+            });
+        } else {
+            noneCachedComponents.push({
+                identifier: `series:${series.identifier}`,
+            });
+        }
+
         seriesResult.push(series);
     }
 
     return {
-        cached: false,
+        cached: noneCachedComponents.length === 0
+            ? CACHED_TYPE.FULL
+            : cachedComponents.length === 0
+                ? CACHED_TYPE.NONE
+                : CACHED_TYPE.PARTIAL,
+        cachedComponents,
         data: seriesResult,
     };
 };
