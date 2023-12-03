@@ -6,16 +6,18 @@
 
 import { LocaleSwitcher } from "../../../../components/preference/language-switcher";
 import { getGithubFile } from "../../../../data/github/get-file";
+import { useLocale } from "../../../../i18n/use-locale";
 
 type Props = {
 
     readonly params: {
-        readonly locale: string;
         readonly "series-name": string;
     };
 };
 
 export default async function Page(props: Props) {
+
+    const locale = useLocale();
 
     const buildDate = Date.now();
     const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -32,7 +34,7 @@ export default async function Page(props: Props) {
         <p>This page is static. It was built on {formattedDate}.</p>
         <p>{props.params["series-name"]}</p>
         <p>Episode</p>
-        <p>{props.params.locale}</p>
+        <p>{locale}</p>
         <LocaleSwitcher />
     </main>);
 };
