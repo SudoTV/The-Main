@@ -4,6 +4,7 @@
  * @description Page
  */
 
+import { CachedIndicator } from "../../components/cache/cached-indicator";
 import { SeriesCard } from "../../components/series/series-card/series-card";
 import { Description1 } from "../../components/typography/description-1";
 import { Header1 } from "../../components/typography/header-1";
@@ -48,11 +49,12 @@ export default async function Page(_props: Props) {
             })}
         </div>
         <div
-            className="w-full"
+            className="w-full mt-2"
         >
-            <Description1>
-                {series.cachedComponents.map(item => item.identifier).join(" ")}
-            </Description1>
+            <CachedIndicator
+                cacheableResponse={series}
+                locale={locale}
+            />
         </div>
     </MainPageWrapper>);
 };

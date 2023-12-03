@@ -1,0 +1,14 @@
+/**
+ * @author WMXPY
+ * @namespace Dictionary_Cache
+ * @description Profile
+ */
+
+export enum CACHE_PROFILE {
+
+    THIS_PAGE_IS_FULLY_CACHED = "THIS_PAGE_IS_FULLY_CACHED",
+    THIS_PAGE_IS_PARTIALLY_CACHED = "THIS_PAGE_IS_PARTIALLY_CACHED",
+    THIS_PAGE_IS_NOT_CACHED = "THIS_PAGE_IS_NOT_CACHED",
+
+    CACHED_COMPONENTS = "CACHED_COMPONENTS",
+}
