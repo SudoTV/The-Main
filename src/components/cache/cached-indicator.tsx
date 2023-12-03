@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { CACHED_TYPE, CacheableResponse } from "../../data/cache/definition";
+import { CACHED_TYPE, CacheableResponse, CachedComponent } from "../../data/cache/definition";
 import { cacheInternationalization } from "../../dictionary/cache/_intl";
 import { CACHE_PROFILE } from "../../dictionary/cache/_profile";
 
@@ -29,6 +29,14 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
         "text-sm",
     ];
 
+    const cachedComponentsText: string = props
+        .cacheableResponse
+        .cachedComponents
+        .map((component: CachedComponent) => {
+            return component.identifier;
+        })
+        .join(", ");
+
     switch (props.cacheableResponse.cached) {
 
         case CACHED_TYPE.FULL: {
@@ -39,7 +47,7 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
                     className="flex w-3 h-3 me-2 bg-green-300 rounded-full"
                 />
                 <span
-                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                    title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_FULLY_CACHED)}
                 </span>
@@ -53,7 +61,7 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
                     className="flex w-3 h-3 me-2 bg-blue-300 rounded-full"
                 />
                 <span
-                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                    title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_PARTIALLY_CACHED)}
                 </span>
@@ -67,7 +75,7 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
                     className="flex w-3 h-3 me-2 bg-yellow-300 rounded-full"
                 />
                 <span
-                    title={props.cacheableResponse.cachedComponents.join(", ")}
+                    title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_NOT_CACHED)}
                 </span>
