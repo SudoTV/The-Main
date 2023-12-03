@@ -12,7 +12,7 @@ export type MarkdownWrapperProps = {
 export const MarkdownWrapper: React.FC<MarkdownWrapperProps> = (props: MarkdownWrapperProps) => {
 
     return (<main
-        className="p-6 mx-auto w-full max-w-screen-xl text-left rtl:text-right"
+        className="text-left rtl:text-right"
     >
         {props.children}
     </main>);

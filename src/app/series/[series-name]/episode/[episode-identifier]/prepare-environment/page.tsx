@@ -6,6 +6,7 @@
 
 import { CachedIndicator } from "../../../../../../components/cache/cached-indicator";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
+import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { requestSeriesEpisodeTranscript } from "../../../../../../data/request/series-episode-transcript";
 import { useLocale } from "../../../../../../i18n/use-locale";
@@ -34,7 +35,7 @@ export default async function Page(props: Props) {
     const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown.data);
 
     return (
-        <div>
+        <MainPageWrapper>
             <MarkdownWrapper>
                 <div>
                     {parsedMarkdown.reactNodes}
@@ -48,6 +49,6 @@ export default async function Page(props: Props) {
                     locale={locale}
                 />
             </div>
-        </div>
+        </MainPageWrapper>
     );
 };
