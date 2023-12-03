@@ -3,6 +3,7 @@
  * @description 404
  */
 
+import { IETF_LOCALE } from "@sudoo/locale";
 import { LayoutFooter } from "../components/footer/footer";
 import { LayoutHeader } from "../components/header/header";
 import "../styles/globals.css";
@@ -14,6 +15,8 @@ export default function Custom404() {
     >
         <LayoutHeader />
         <h1>404 - Not Found</h1>
-        <LayoutFooter />
+        <LayoutFooter
+            locale={IETF_LOCALE.ENGLISH_UNITED_STATES}
+        />
     </main>);
 };

@@ -38,7 +38,9 @@ export default function RootLayout(props: {
             <section className="mb-auto">
                 {props.children}
             </section>
-            <LayoutFooter />
+            <LayoutFooter
+                locale={locale}
+            />
         </body>
     </html>);
 }

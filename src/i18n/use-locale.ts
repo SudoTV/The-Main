@@ -7,11 +7,12 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
 import { headers } from "next/headers";
+import { cache } from "react";
 import { logger } from "../util/log";
 import { DEFAULT_LOCALE } from "./config";
 import { findLocaleFromHeaders } from "./find-locale-from-headers";
 
-export const useLocale = (): IETF_LOCALE => {
+export const useLocale = cache((): IETF_LOCALE => {
 
     const headerList: Headers = headers();
 
@@ -23,4 +24,4 @@ export const useLocale = (): IETF_LOCALE => {
 
     logger.warning("No Locale Found from headers, Use Default");
     return DEFAULT_LOCALE;
-};
+});

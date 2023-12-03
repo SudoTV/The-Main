@@ -3,6 +3,7 @@
  * @description 500
  */
 
+import { IETF_LOCALE } from "@sudoo/locale";
 import { LayoutFooter } from "../components/footer/footer";
 import { LayoutHeader } from "../components/header/header";
 import "../styles/globals.css";
@@ -14,6 +15,8 @@ export default function Custom500() {
     >
         <LayoutHeader />
         <h1>500 - Server Error</h1>
-        <LayoutFooter />
+        <LayoutFooter
+            locale={IETF_LOCALE.ENGLISH_UNITED_STATES}
+        />
     </main>);
 };

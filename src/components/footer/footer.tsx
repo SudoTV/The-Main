@@ -12,14 +12,19 @@ import { IoLogoGithub } from "react-icons/io5";
 import { SiDiscord } from "react-icons/si";
 import { footerInternationalization } from "../../dictionary/footer/_intl";
 import { FOOTER_PROFILE } from "../../dictionary/footer/_profile";
-import { useLocale } from "../../i18n/use-locale";
 import { LocaleSwitcher } from "../preference/language-switcher";
 import { ThemeSwitch } from "../preference/theme-switch";
 
-export const LayoutFooter: React.FC = () => {
+export type LayoutFooterProps = {
 
-    const locale: IETF_LOCALE = useLocale();
-    const format = footerInternationalization.format(locale);
+    readonly locale: IETF_LOCALE;
+};
+
+export const LayoutFooter: React.FC<LayoutFooterProps> = (
+    props: LayoutFooterProps,
+) => {
+
+    const format = footerInternationalization.format(props.locale);
 
     return (
         <footer>
