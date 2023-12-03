@@ -23,7 +23,7 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
     const divClasses: string[] = [
         "text-gray-400",
         "dark:text-gray-500",
-        "text-xs",
+        "text-sm",
     ];
 
     switch (props.cacheableResponse.cached) {
