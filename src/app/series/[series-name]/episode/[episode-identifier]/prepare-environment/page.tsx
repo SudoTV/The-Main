@@ -5,6 +5,7 @@
  */
 
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
+import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { requestSeriesEpisodeTranscript } from "../../../../../../data/request/series-episode-transcript";
 import { useLocale } from "../../../../../../i18n/use-locale";
 import { ParseMarkdownResult, parseMarkdown } from "../../../../../../util/parse-markdown";
@@ -22,13 +23,14 @@ export default async function Page(props: Props) {
 
     const locale = useLocale();
 
-    const rawMarkdown: string = await requestSeriesEpisodeTranscript(
-        props.params["series-name"],
-        props.params["episode-identifier"],
-        locale,
-    );
+    const rawMarkdown: CacheableResponse<string> =
+        await requestSeriesEpisodeTranscript(
+            props.params["series-name"],
+            props.params["episode-identifier"],
+            locale,
+        );
 
-    const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown);
+    const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown.data);
 
     return (
         <div>

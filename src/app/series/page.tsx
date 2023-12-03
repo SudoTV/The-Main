@@ -8,6 +8,7 @@ import { SeriesCard } from "../../components/series/series-card/series-card";
 import { Description1 } from "../../components/typography/description-1";
 import { Header1 } from "../../components/typography/header-1";
 import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
+import { CacheableResponse } from "../../data/cache/definition";
 import { SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
 import { requestSeriesList } from "../../data/request/series-list";
 import { seriesInternationalization } from "../../dictionary/series/_intl";
@@ -22,7 +23,8 @@ export default async function Page(_props: Props) {
     const locale = useLocale();
     const seriesFormat = seriesInternationalization.format(locale);
 
-    const series: Array<SeriesEntity<SERIES_TYPE>> = await requestSeriesList();
+    const series: CacheableResponse<Array<SeriesEntity<SERIES_TYPE>>> =
+        await requestSeriesList();
 
     return (<MainPageWrapper>
         <div
@@ -38,12 +40,19 @@ export default async function Page(_props: Props) {
         <div
             className="w-full flex flex-col gap-3"
         >
-            {series.map((each: SeriesEntity<SERIES_TYPE>) => {
+            {series.data.map((each: SeriesEntity<SERIES_TYPE>) => {
                 return (<SeriesCard
                     key={each.identifier}
                     series={each}
                 />);
             })}
+        </div>
+        <div
+            className="w-full"
+        >
+            <Description1>
+                {series.cachedComponents.map(item => item.identifier).join(" ")}
+            </Description1>
         </div>
     </MainPageWrapper>);
 };

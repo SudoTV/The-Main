@@ -33,7 +33,7 @@ export default async function Page(props: Props) {
 
     return (<MainPageWrapper>
         <Section>
-            {series.original
+            {series.data.original
                 ? <Description1
                     noMargin
                 >
@@ -41,17 +41,17 @@ export default async function Page(props: Props) {
                 </Description1>
                 : null}
             <Header1>
-                {series.title[locale]}
+                {series.data.title[locale]}
             </Header1>
             <Description1>
-                {series.description[locale]}
+                {series.data.description[locale]}
             </Description1>
         </Section>
         <Section
             className="flex"
         >
             <SeriesResourceCards
-                series={series}
+                series={series.data}
             />
         </Section>
         <Section
@@ -63,10 +63,10 @@ export default async function Page(props: Props) {
             <div
                 className="flex flex-col gap-4"
             >
-                {series.episodes.map((episode) => {
+                {series.data.episodes.map((episode) => {
                     return (<SeriesEpisodeCard
                         key={episode.identifier}
-                        seriesIdentifier={series.identifier}
+                        seriesIdentifier={series.data.identifier}
                         episode={episode}
                     />);
                 })}

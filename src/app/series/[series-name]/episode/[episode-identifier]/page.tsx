@@ -11,6 +11,9 @@ import { Header2 } from "../../../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../../../components/typography/main-page-wrapper";
 import { Section } from "../../../../../components/typography/section";
 import { VideoVideoCard } from "../../../../../components/video/video-card/video-card";
+import { CacheableResponse } from "../../../../../data/cache/definition";
+import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "../../../../../data/definition/series/series";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../../data/definition/video/video-platform";
 import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../../../dictionary/series/_intl";
@@ -34,8 +37,13 @@ export default async function Page(props: Props) {
     const locale = useLocale();
     const format = seriesInternationalization.format(locale);
 
-    const series = await requestSeriesMetadata(props.params["series-name"]);
-    const episode = series.episodes.find((each) => each.identifier === props.params["episode-identifier"]);
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+        await requestSeriesMetadata(props.params["series-name"]);
+
+    const episode: EpisodeEntity<EPISODE_TYPE> | undefined =
+        series.data.episodes.find((each) => {
+            return each.identifier === props.params["episode-identifier"];
+        });
 
     if (!episode) {
 
@@ -47,7 +55,7 @@ export default async function Page(props: Props) {
 
     return (<MainPageWrapper>
         <Section>
-            {series.original
+            {series.data.original
                 ? <Description1
                     noMargin
                 >
@@ -58,7 +66,7 @@ export default async function Page(props: Props) {
                 {episode.title[locale]}
             </Header1>
             <Description1>
-                {series.title[locale]} - {episode.identifier}
+                {series.data.title[locale]} - {episode.identifier}
             </Description1>
         </Section>
         <Section
@@ -96,14 +104,14 @@ export default async function Page(props: Props) {
                 full
                 size={SIZE.SMALL}
                 title={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
-                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "prepare-environment")}
+                titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "prepare-environment")}
                 subtitle={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
             />
             <RedirectionCard
                 full
                 size={SIZE.SMALL}
                 title={format.get(SERIES_PROFILE.DEEP_DIVE)}
-                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "deep-dive")}
+                titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "deep-dive")}
                 subtitle={format.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
             />
         </Section>
@@ -117,7 +125,14 @@ export default async function Page(props: Props) {
                 full
                 title={format.get(SERIES_PROFILE.VIEW_TRANSCRIPT)}
                 size={SIZE.SMALL}
-                titleHref={HrefConfig.withinSite(locale, "series", series.identifier, "episode", episode.identifier, "transcript")}
+                titleHref={HrefConfig.withinSite(
+                    locale,
+                    "series",
+                    series.data.identifier,
+                    "episode",
+                    episode.identifier,
+                    "transcript",
+                )}
             />
         </Section>
     </MainPageWrapper>);
