@@ -4,6 +4,7 @@
  * @description Get File
  */
 
+import { CacheableResponse } from "../cache/definition";
 import { githubGraphql } from "./client";
 
 export type GetGithubFileGraphQLResponse = {
@@ -20,9 +21,10 @@ export const getGithubFile = async (
     repo: string,
     branch: string,
     paths: string[],
-): Promise<string> => {
+): Promise<CacheableResponse<string>> => {
 
-    const response: GetGithubFileGraphQLResponse = await githubGraphql(`
+    const response: CacheableResponse<GetGithubFileGraphQLResponse> =
+        await githubGraphql(`
         query {
             repository(owner: "${owner}", name: "${repo}") {
                 object(expression: "${branch}:${paths.join("/")}") {
@@ -34,5 +36,8 @@ export const getGithubFile = async (
         }
     `);
 
-    return response.repository.object.text;
+    return {
+        cached: response.cached,
+        data: response.data.repository.object.text,
+    };
 };
