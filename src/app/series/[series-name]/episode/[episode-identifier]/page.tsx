@@ -27,7 +27,6 @@ import { SIZE } from "../../../../../util/size";
 type Props = {
 
     readonly params: {
-        readonly locale: string;
         readonly "series-name": string;
         readonly "episode-identifier": string;
     };

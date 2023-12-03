@@ -29,9 +29,17 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const locale: IETF_LOCALE = useLocale();
     const profile = metadataInternationalization.format(locale);
 
+    const seriesTitle: string = series.data.title[locale] as string;
+
     return {
-        title: profile.get(METADATA_PROFILE.SERIES_TITLE) + series.data.identifier,
-        description: profile.get(METADATA_PROFILE.SERIES_DESCRIPTION),
+        title: profile.get(
+            METADATA_PROFILE.SERIES_SERIES_TITLE_1,
+            seriesTitle,
+        ),
+        description: profile.get(
+            METADATA_PROFILE.SERIES_SERIES_DESCRIPTION_1,
+            seriesTitle,
+        ),
     };
 };
 
