@@ -22,7 +22,6 @@ import { useLocale } from "../../../i18n/use-locale";
 type Props = {
 
     readonly params: {
-        readonly locale: string;
         readonly "series-name": string;
     };
 };

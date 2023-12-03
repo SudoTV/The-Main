@@ -26,11 +26,11 @@ export const LayoutFooter: React.FC = () => {
             <div className="mx-auto w-full max-w-screen-xl">
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 dark:text-white">
+                        <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 dark:text-white">
                             SudoTV © 2020-2024
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
-                            <li className="mb-2">
+                            <li className="mb-1 sm:mb-2">
                                 <Link
                                     href="/about"
                                     className=" hover:underline"
@@ -38,7 +38,7 @@ export const LayoutFooter: React.FC = () => {
                                     {format.get(FOOTER_PROFILE.ABOUT_US)}
                                 </Link>
                             </li>
-                            <li className="mb-2">
+                            <li className="mb-1 sm:mb-2">
                                 <div
                                     className="w-full flex gap-2"
                                 >
@@ -71,7 +71,7 @@ export const LayoutFooter: React.FC = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                        <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                             {format.get(FOOTER_PROFILE.HELP_CENTER)}
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
@@ -94,7 +94,7 @@ export const LayoutFooter: React.FC = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                        <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                             {format.get(FOOTER_PROFILE.LEGAL)}
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
@@ -124,7 +124,7 @@ export const LayoutFooter: React.FC = () => {
                             <li className="mb-1">
                                 <LocaleSwitcher />
                             </li>
-                            <li className="mb-2">
+                            <li className="mb-1 sm:mb-2">
                                 <ThemeSwitch />
                             </li>
                         </ul>
