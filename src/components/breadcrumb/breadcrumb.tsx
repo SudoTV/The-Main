@@ -58,12 +58,18 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (props: BreadcrumbProps) =>
                             size={16}
                         />
                     </div>
-                    <HrefLink
-                        href={element.href}
-                        className="text-medium font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-                    >
-                        <span>{element.name}</span>
-                    </HrefLink>
+                    {isLast
+                        ? <span
+                            className="text-medium font-medium text-gray-700  dark:text-gray-400"
+                        >
+                            {element.name}
+                        </span>
+                        : <HrefLink
+                            href={element.href}
+                            className="text-medium font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+                        >
+                            <span>{element.name}</span>
+                        </HrefLink>}
                 </li>);
             })}
         </ol>
