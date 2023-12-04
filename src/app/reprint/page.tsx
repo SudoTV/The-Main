@@ -5,6 +5,7 @@
  */
 
 import { RedirectionCard } from "../../components/common/redirection-card";
+import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
 import { reprintInternationalization } from "../../dictionary/reprint/_intl";
 import { REPRINT_PROFILE } from "../../dictionary/reprint/_profile";
 import { useLocale } from "../../i18n/use-locale";
@@ -19,8 +20,14 @@ export default async function Page(props: Props) {
   const locale = useLocale();
   const format = reprintInternationalization.format(locale);
 
-  return (<main
-    className="p-6 mx-auto w-full max-w-screen-xl text-left rtl:text-right"
+  return (<MainPageWrapper
+    locale={locale}
+    breadcrumbElements={[
+      {
+        name: format.get(REPRINT_PROFILE.REPRINT),
+        href: HrefConfig.withinSite(locale, "reprint"),
+      },
+    ]}
   >
     <article>
       <h2
@@ -64,5 +71,5 @@ export default async function Page(props: Props) {
         {format.get(REPRINT_PROFILE.REPRINT_INDEX_EXTRA)}
       </p>
     </article>
-  </main>);
+  </MainPageWrapper>);
 };

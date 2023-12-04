@@ -12,6 +12,8 @@ import { IoLogoGithub } from "react-icons/io5";
 import { SiDiscord } from "react-icons/si";
 import { footerInternationalization } from "../../dictionary/footer/_intl";
 import { FOOTER_PROFILE } from "../../dictionary/footer/_profile";
+import { HrefConfig } from "../../util/href";
+import { HrefLink } from "../common/href-link";
 import { LocaleSwitcher } from "../preference/language-switcher";
 import { ThemeSwitch } from "../preference/theme-switch";
 
@@ -34,7 +36,7 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
                         <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 dark:text-white">
-                            SudoTV © 2020-2024
+                            SudoTV © 2017-2024
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-1 sm:mb-2">
@@ -91,12 +93,14 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                                 </Link>
                             </li>
                             <li className="mb-4">
-                                <Link
-                                    href="/reprint"
-                                    className="hover:underline"
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "reprint",
+                                    )}
                                 >
                                     {format.get(FOOTER_PROFILE.REPRINT)}
-                                </Link>
+                                </HrefLink>
                             </li>
                         </ul>
                     </div>
@@ -106,20 +110,24 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-4">
-                                <Link
-                                    href="/privacy"
-                                    className="hover:underline"
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "privacy",
+                                    )}
                                 >
                                     {format.get(FOOTER_PROFILE.PRIVACY_POLICY)}
-                                </Link>
+                                </HrefLink>
                             </li>
                             <li className="mb-4">
-                                <Link
-                                    href="/terms-of-service"
-                                    className="hover:underline"
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "terms",
+                                    )}
                                 >
                                     {format.get(FOOTER_PROFILE.TERMS_OF_SERVICE)}
-                                </Link>
+                                </HrefLink>
                             </li>
                         </ul>
                     </div>
