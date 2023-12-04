@@ -4,7 +4,6 @@
  * @description Page
  */
 
-import { CachedIndicator } from "../../../../../../components/cache/cached-indicator";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
@@ -37,20 +36,11 @@ export default async function Page(props: Props) {
     return (
         <MainPageWrapper
             locale={locale}
+            cacheableResponse={rawMarkdown}
         >
             <MarkdownWrapper>
-                <div>
-                    {parsedMarkdown.reactNodes}
-                </div>
+                {parsedMarkdown.reactNodes}
             </MarkdownWrapper>
-            <div
-                className="w-full mt-2"
-            >
-                <CachedIndicator
-                    cacheableResponse={rawMarkdown}
-                    locale={locale}
-                />
-            </div>
         </MainPageWrapper>
     );
 };

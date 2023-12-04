@@ -4,7 +4,6 @@
  * @description Page
  */
 
-import { CachedIndicator } from "../../components/cache/cached-indicator";
 import { SeriesCard } from "../../components/series/series-card/series-card";
 import { Description1 } from "../../components/typography/description-1";
 import { Header1 } from "../../components/typography/header-1";
@@ -39,6 +38,7 @@ export default async function Page(_props: Props) {
                 href: HrefConfig.withinSite(locale, "series"),
             },
         ]}
+        cacheableResponse={series}
     >
         <div
             className="w-full"
@@ -59,14 +59,6 @@ export default async function Page(_props: Props) {
                     series={each}
                 />);
             })}
-        </div>
-        <div
-            className="w-full mt-2"
-        >
-            <CachedIndicator
-                cacheableResponse={series}
-                locale={locale}
-            />
         </div>
     </MainPageWrapper>);
 };
