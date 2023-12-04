@@ -6,9 +6,6 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { metadataInternationalization } from "../../dictionary/metadata/_intl";
-import { METADATA_PROFILE } from "../../dictionary/metadata/_profile";
-import { HrefConfig } from "../../util/href";
 import { Breadcrumb, BreadcrumbElement } from "../breadcrumb/breadcrumb";
 
 export type MainPageWrapperProps = {

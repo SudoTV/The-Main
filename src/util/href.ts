@@ -13,6 +13,10 @@ export class HrefConfig {
         ...href: string[]
     ): HrefConfig {
 
+        if (href.length === 0) {
+            return new HrefConfig(false, `/${locale}/`);
+        }
+
         return new HrefConfig(false, `/${locale}/${href.join("/")}/`);
     }
 

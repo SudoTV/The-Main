@@ -17,6 +17,8 @@ import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/epis
 import { SERIES_TYPE, SeriesEntity } from "../../../../../data/definition/series/series";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../../data/definition/video/video-platform";
 import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
+import { metadataInternationalization } from "../../../../../dictionary/metadata/_intl";
+import { METADATA_PROFILE } from "../../../../../dictionary/metadata/_profile";
 import { seriesInternationalization } from "../../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../../i18n/use-locale";
@@ -35,7 +37,8 @@ type Props = {
 export default async function Page(props: Props) {
 
     const locale = useLocale();
-    const format = seriesInternationalization.format(locale);
+    const seriesFormat = seriesInternationalization.format(locale);
+    const metadataFormat = metadataInternationalization.format(locale);
 
     const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
         await requestSeriesMetadata(props.params["series-name"]);
@@ -55,13 +58,27 @@ export default async function Page(props: Props) {
 
     return (<MainPageWrapper
         locale={locale}
+        breadcrumbElements={[
+            {
+                name: metadataFormat.get(METADATA_PROFILE.SERIES_TITLE),
+                href: HrefConfig.withinSite(locale, "series"),
+            },
+            {
+                name: series.data.title[locale] as string,
+                href: HrefConfig.withinSite(locale, "series", series.data.identifier),
+            },
+            {
+                name: episode.title[locale] as string,
+                href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier),
+            },
+        ]}
     >
         <Section>
             {series.data.original
                 ? <Description1
                     noMargin
                 >
-                    {format.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
+                    {seriesFormat.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
                 </Description1>
                 : null}
             <Header1>
@@ -78,7 +95,7 @@ export default async function Page(props: Props) {
             <Header2
                 noMargin
             >
-                {format.get(SERIES_PROFILE.WATCH_VIDEOS)}
+                {seriesFormat.get(SERIES_PROFILE.WATCH_VIDEOS)}
             </Header2>
             {videos.map((video: VideoPlatformEntity<VIDEO_PLATFORM_TYPE>, index: number) => {
                 return (<VideoVideoCard
@@ -94,38 +111,38 @@ export default async function Page(props: Props) {
             <Header2
                 noMargin
             >
-                {format.get(SERIES_PROFILE.GET_HANDS_ON)}
+                {seriesFormat.get(SERIES_PROFILE.GET_HANDS_ON)}
             </Header2>
             <RedirectionCard
                 full
                 size={SIZE.SMALL}
-                title={format.get(SERIES_PROFILE.LEARN_THE_BASICS)}
-                subtitle={format.get(SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION)}
+                title={seriesFormat.get(SERIES_PROFILE.LEARN_THE_BASICS)}
+                subtitle={seriesFormat.get(SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION)}
             />
             <RedirectionCard
                 full
                 size={SIZE.SMALL}
-                title={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
+                title={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
                 titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "prepare-environment")}
-                subtitle={format.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
+                subtitle={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
             />
             <RedirectionCard
                 full
                 size={SIZE.SMALL}
-                title={format.get(SERIES_PROFILE.DEEP_DIVE)}
+                title={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE)}
                 titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "deep-dive")}
-                subtitle={format.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
+                subtitle={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
             />
         </Section>
         <Section
             marginTop
         >
             <Header2>
-                {format.get(SERIES_PROFILE.TRANSCRIPT)}
+                {seriesFormat.get(SERIES_PROFILE.TRANSCRIPT)}
             </Header2>
             <RedirectionCard
                 full
-                title={format.get(SERIES_PROFILE.VIEW_TRANSCRIPT)}
+                title={seriesFormat.get(SERIES_PROFILE.VIEW_TRANSCRIPT)}
                 size={SIZE.SMALL}
                 titleHref={HrefConfig.withinSite(
                     locale,
