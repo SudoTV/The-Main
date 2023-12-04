@@ -12,7 +12,6 @@ import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/ser
 import { requestSeriesEpisodeTranscript } from "../../../../../../data/request/series-episode-transcript";
 import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
 import { metadataInternationalization } from "../../../../../../dictionary/metadata/_intl";
-import { METADATA_PROFILE } from "../../../../../../dictionary/metadata/_profile";
 import { seriesInternationalization } from "../../../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../../../i18n/use-locale";
@@ -64,7 +63,7 @@ export default async function Page(props: Props) {
             locale={locale}
             breadcrumbElements={[
                 {
-                    name: metadataFormat.get(METADATA_PROFILE.SERIES_TITLE),
+                    name: seriesFormat.get(SERIES_PROFILE.SERIES_TITLE),
                     href: HrefConfig.withinSite(locale, "series"),
                 },
                 {
