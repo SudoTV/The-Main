@@ -11,9 +11,9 @@ import "../styles/globals.css";
 export default function Custom404() {
 
     return (<html lang={IETF_LOCALE.ENGLISH_UNITED_STATES}>
-        <body className="flex flex-col h-screen justify-between">
+        <body className="flex flex-col h-screen justify-between w-full">
             <main
-                className="flex min-h-screen flex-col items-center justify-between p-24"
+                className="flex min-h-screen flex-col items-center justify-between"
             >
                 <LayoutHeader />
                 <h1>404 - Not Found</h1>

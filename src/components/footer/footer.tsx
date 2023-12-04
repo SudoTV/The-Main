@@ -27,7 +27,9 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
     const format = footerInternationalization.format(props.locale);
 
     return (
-        <footer>
+        <footer
+            className="w-full"
+        >
             <div className="mx-auto w-full max-w-screen-xl">
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>

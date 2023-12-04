@@ -10,7 +10,9 @@ import * as React from "react";
 export const LayoutHeader: React.FC = () => {
 
     return (
-        <header>
+        <header
+            className="w-full"
+        >
             <nav
                 className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
             >
