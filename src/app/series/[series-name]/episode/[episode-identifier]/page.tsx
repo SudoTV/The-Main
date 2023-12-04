@@ -53,7 +53,9 @@ export default async function Page(props: Props) {
 
     const videos = episode.videos[locale] as Array<VideoPlatformEntity<VIDEO_PLATFORM_TYPE>>;
 
-    return (<MainPageWrapper>
+    return (<MainPageWrapper
+        locale={locale}
+    >
         <Section>
             {series.data.original
                 ? <Description1

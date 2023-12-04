@@ -15,9 +15,12 @@ import { Section } from "../../../components/typography/section";
 import { CacheableResponse } from "../../../data/cache/definition";
 import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../data/request/series-metadata";
+import { metadataInternationalization } from "../../../dictionary/metadata/_intl";
+import { METADATA_PROFILE } from "../../../dictionary/metadata/_profile";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
 import { useLocale } from "../../../i18n/use-locale";
+import { HrefConfig } from "../../../util/href";
 
 type Props = {
 
@@ -29,18 +32,31 @@ type Props = {
 export default async function Page(props: Props) {
 
     const locale = useLocale();
-    const format = seriesInternationalization.format(locale);
+    const seriesFormat = seriesInternationalization.format(locale);
+    const metadataFormat = metadataInternationalization.format(locale);
 
     const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
         await requestSeriesMetadata(props.params["series-name"]);
 
-    return (<MainPageWrapper>
+    return (<MainPageWrapper
+        locale={locale}
+        breadcrumbElements={[
+            {
+                name: metadataFormat.get(METADATA_PROFILE.SERIES_TITLE),
+                href: HrefConfig.withinSite(locale, "series"),
+            },
+            {
+                name: series.data.title[locale] as string,
+                href: HrefConfig.withinSite(locale, "series", series.data.identifier),
+            },
+        ]}
+    >
         <Section>
             {series.data.original
                 ? <Description1
                     noMargin
                 >
-                    {format.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
+                    {seriesFormat.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
                 </Description1>
                 : null}
             <Header1>
@@ -61,7 +77,7 @@ export default async function Page(props: Props) {
             marginTop
         >
             <Header2>
-                {format.get(SERIES_PROFILE.ALL_EPISODES)}
+                {seriesFormat.get(SERIES_PROFILE.ALL_EPISODES)}
             </Header2>
             <div
                 className="flex flex-col gap-4"

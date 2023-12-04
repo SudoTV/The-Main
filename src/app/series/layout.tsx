@@ -29,19 +29,5 @@ export default function Layout(props: {
     children: React.ReactNode,
 }) {
 
-    const locale: IETF_LOCALE = useLocale();
-    const profile = metadataInternationalization.format(locale);
-
-    return (<Fragment>
-        <Breadcrumb
-            locale={locale}
-            elements={[
-                {
-                    name: profile.get(METADATA_PROFILE.SERIES_TITLE),
-                    href: HrefConfig.withinSite(locale, "series"),
-                },
-            ]}
-        />
-        {props.children}
-    </Fragment>);
+    return props.children;
 }

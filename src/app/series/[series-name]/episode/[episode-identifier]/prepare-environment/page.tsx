@@ -35,7 +35,9 @@ export default async function Page(props: Props) {
     const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown.data);
 
     return (
-        <MainPageWrapper>
+        <MainPageWrapper
+            locale={locale}
+        >
             <MarkdownWrapper>
                 <div>
                     {parsedMarkdown.reactNodes}
