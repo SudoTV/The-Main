@@ -6,12 +6,16 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
+import { CacheableResponse } from "../../data/cache/definition";
 import { Breadcrumb, BreadcrumbElement } from "../breadcrumb/breadcrumb";
+import { CachedIndicator } from "../cache/cached-indicator";
 
 export type MainPageWrapperProps = {
 
     readonly locale: IETF_LOCALE;
+
     readonly breadcrumbElements?: BreadcrumbElement[];
+    readonly cacheableResponse?: CacheableResponse<any>;
 
     readonly children?: React.ReactNode;
 };
@@ -31,5 +35,15 @@ export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageW
         >
             {props.children}
         </main>
+        {props.cacheableResponse
+            ? <div
+                className="w-full mt-2"
+            >
+                <CachedIndicator
+                    cacheableResponse={props.cacheableResponse}
+                    locale={props.locale}
+                />
+            </div>
+            : null}
     </React.Fragment>);
 };

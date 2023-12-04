@@ -4,7 +4,6 @@
  * @description Page
  */
 
-import { CachedIndicator } from "../../../../../components/cache/cached-indicator";
 import { RedirectionCard } from "../../../../../components/common/redirection-card";
 import { Description1 } from "../../../../../components/typography/description-1";
 import { Header1 } from "../../../../../components/typography/header-1";
@@ -72,6 +71,7 @@ export default async function Page(props: Props) {
                 href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier),
             },
         ]}
+        cacheableResponse={series}
     >
         <Section>
             {series.data.original
@@ -154,13 +154,5 @@ export default async function Page(props: Props) {
                 )}
             />
         </Section>
-        <div
-            className="w-full mt-2"
-        >
-            <CachedIndicator
-                cacheableResponse={series}
-                locale={locale}
-            />
-        </div>
     </MainPageWrapper>);
 };
