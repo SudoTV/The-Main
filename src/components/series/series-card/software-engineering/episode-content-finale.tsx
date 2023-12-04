@@ -10,6 +10,7 @@ import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/se
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../i18n/use-locale";
+import { HrefConfig } from "../../../../util/href";
 import { PowerLink } from "../../../common/power-link";
 
 export type SeriesCardSoftwareEngineeringEpisodeContentFinaleProps = {
@@ -32,7 +33,7 @@ export const SeriesCardSoftwareEngineeringEpisodeContentFinale: React.FC<SeriesC
                 className="font-semibold text-base sm:text-lg"
             >
                 <PowerLink
-                    href={`/series/${props.series.identifier}/episodes/`}
+                    href={HrefConfig.withinSite(locale, "series", props.series.identifier, "episodes")}
                 >
                     {format.get(SERIES_PROFILE.ALL_EPISODES)}
                 </PowerLink>

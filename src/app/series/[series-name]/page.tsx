@@ -82,7 +82,7 @@ export default async function Page(props: Props) {
                 className="w-full mt-2 mb-3"
             >
                 <PowerLink
-                    href="/series"
+                    href={HrefConfig.withinSite(locale, "series", series.data.identifier, "episodes")}
                 >
                     {seriesFormat.get(SERIES_PROFILE.VIEW_ALL_EPISODES)}
                 </PowerLink>

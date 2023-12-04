@@ -14,6 +14,7 @@ import { seriesInternationalization } from "../../../../dictionary/series/_intl"
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "../../../../util/format-date";
+import { HrefConfig } from "../../../../util/href";
 import { PowerLink } from "../../../common/power-link";
 import { VideoVideoButton } from "../../../video/video-button/video-button";
 
@@ -96,7 +97,7 @@ export const SeriesCardSoftwareEngineeringEpisodeContentUpdating: React.FC<Serie
                     className="font-semibold text-base sm:text-lg"
                 >
                     <PowerLink
-                        href={`/series/${props.series.identifier}/episode/${latestEpisode.getOrThrow().identifier}`}
+                        href={HrefConfig.withinSite(locale, "series", props.series.identifier, "episode", latestEpisode.getOrThrow().identifier)}
                     >
                         {latestEpisode.getOrThrow().title[locale]}
                     </PowerLink>

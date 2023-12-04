@@ -6,11 +6,13 @@
 
 import Link from "next/link";
 import * as React from "react";
+import { BiLinkExternal } from "react-icons/bi";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { HrefConfig } from "../../util/href";
 
 export type PowerLinkProps = {
 
-    readonly href: string;
+    readonly href: HrefConfig;
     readonly children?: React.ReactNode;
 };
 
@@ -18,13 +20,15 @@ export const PowerLink: React.FC<PowerLinkProps> = (props: PowerLinkProps) => {
 
     return (
         <Link
-            href={props.href}
+            href={props.href.href}
             className="inline-flex hover:underline items-center gap-2 text-blue-500 dark:text-blue-300"
         >
             <span>
                 {props.children}
             </span>
-            <IoArrowForwardOutline />
+            {props.href.external
+                ? <BiLinkExternal />
+                : <IoArrowForwardOutline />}
         </Link>
     );
 };
