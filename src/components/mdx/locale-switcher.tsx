@@ -8,7 +8,6 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import { MDXProps } from "mdx/types";
 import { useLocale } from "../../i18n/use-locale";
 import { markdownComponentsMap } from "../markdown/component-map";
-import { MDXWrapper } from "./wrapper";
 
 export type MDXLocaleSwitcherProps = {
 } & Partial<Record<IETF_LOCALE, React.FC<MDXProps>>>;
@@ -24,9 +23,7 @@ export const MDXLocaleSwitcher: React.FC<MDXLocaleSwitcherProps> = (props: MDXLo
         </div>);
     }
 
-    return (<MDXWrapper>
-        <Component
-            components={markdownComponentsMap}
-        />
-    </MDXWrapper>);
+    return (<Component
+        components={markdownComponentsMap}
+    />);
 };
