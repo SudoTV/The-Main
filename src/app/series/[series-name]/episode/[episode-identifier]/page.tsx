@@ -10,6 +10,7 @@ import { Header1 } from "../../../../../components/typography/header-1";
 import { Header2 } from "../../../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../../../components/typography/main-page-wrapper";
 import { Section } from "../../../../../components/typography/section";
+import { VideoNoVideoCard } from "../../../../../components/video/video-card/no-video-card";
 import { VideoVideoCard } from "../../../../../components/video/video-card/video-card";
 import { CacheableResponse } from "../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
@@ -94,12 +95,14 @@ export default async function Page(props: Props) {
             >
                 {seriesFormat.get(SERIES_PROFILE.WATCH_VIDEOS)}
             </Header2>
-            {videos.map((video: VideoPlatformEntity<VIDEO_PLATFORM_TYPE>, index: number) => {
-                return (<VideoVideoCard
-                    key={index}
-                    video={video}
-                />);
-            })}
+            {videos.length >= 1
+                ? videos.map((video: VideoPlatformEntity<VIDEO_PLATFORM_TYPE>, index: number) => {
+                    return (<VideoVideoCard
+                        key={index}
+                        video={video}
+                    />);
+                })
+                : <VideoNoVideoCard />}
         </Section>
         <Section
             marginTop
