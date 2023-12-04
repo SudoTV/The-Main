@@ -6,6 +6,8 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import type { Metadata } from "next";
+import { Fragment } from "react";
+import { Breadcrumb } from "../../components/breadcrumb/breadcrumb";
 import { metadataInternationalization } from "../../dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "../../dictionary/metadata/_profile";
 import { useLocale } from "../../i18n/use-locale";
@@ -26,5 +28,12 @@ export default function Layout(props: {
     children: React.ReactNode,
 }) {
 
-    return props.children;
+    const locale: IETF_LOCALE = useLocale();
+
+    return (<Fragment>
+        <Breadcrumb
+            locale={locale}
+        />
+        {props.children}
+    </Fragment>);
 }
