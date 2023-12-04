@@ -123,26 +123,44 @@ export default async function Page(props: Props) {
                 full
                 size={SIZE.SMALL}
                 title={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
-                titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "prepare-environment")}
+                titleHref={HrefConfig.withinSite(
+                    locale,
+                    "series",
+                    series.data.identifier,
+                    "episode",
+                    episode.identifier,
+                    "prepare-environment",
+                )}
                 subtitle={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
             />
             <RedirectionCard
                 full
                 size={SIZE.SMALL}
                 title={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE)}
-                titleHref={HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "deep-dive")}
+                titleHref={HrefConfig.withinSite(
+                    locale,
+                    "series",
+                    series.data.identifier,
+                    "episode",
+                    episode.identifier,
+                    "deep-dive",
+                )}
                 subtitle={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
             />
         </Section>
         <Section
             marginTop
+            className="flex flex-col gap-4"
         >
-            <Header2>
-                {seriesFormat.get(SERIES_PROFILE.TRANSCRIPT)}
+            <Header2
+                noMargin
+            >
+                {seriesFormat.get(SERIES_PROFILE.RESOURCES)}
             </Header2>
             <RedirectionCard
                 full
-                title={seriesFormat.get(SERIES_PROFILE.VIEW_TRANSCRIPT)}
+                title={seriesFormat.get(SERIES_PROFILE.VIEW_TRANSCRIPT_TITLE)}
+                subtitle={seriesFormat.get(SERIES_PROFILE.VIEW_TRANSCRIPT_DESCRIPTION)}
                 size={SIZE.SMALL}
                 titleHref={HrefConfig.withinSite(
                     locale,
@@ -151,6 +169,16 @@ export default async function Page(props: Props) {
                     "episode",
                     episode.identifier,
                     "transcript",
+                )}
+            />
+            <RedirectionCard
+                full
+                title={seriesFormat.get(SERIES_PROFILE.REPRINT_EPISODE_VIDEO_TITLE)}
+                subtitle={seriesFormat.get(SERIES_PROFILE.REPRINT_EPISODE_VIDEO_DESCRIPTION)}
+                size={SIZE.SMALL}
+                titleHref={HrefConfig.withinSite(
+                    locale,
+                    "reprint",
                 )}
             />
         </Section>

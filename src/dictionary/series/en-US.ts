@@ -32,6 +32,10 @@ export const profile_series_en_US: PROFILE<SERIES_PROFILE> = {
     [SERIES_PROFILE.UPDATING]: "Updating",
     [SERIES_PROFILE.VIEW]: "View",
     [SERIES_PROFILE.VIEW_ALL_EPISODES]: "View All Episodes",
-    [SERIES_PROFILE.VIEW_TRANSCRIPT]: "View Transcript",
+    [SERIES_PROFILE.VIEW_TRANSCRIPT_TITLE]: "View Transcript",
+    [SERIES_PROFILE.VIEW_TRANSCRIPT_DESCRIPTION]: "View the transcript of this episode",
     [SERIES_PROFILE.WATCH_VIDEOS]: "Watch Videos",
+    [SERIES_PROFILE.REPRINT_EPISODE_VIDEO_TITLE]: "Reprint Video of this Episode",
+    [SERIES_PROFILE.REPRINT_EPISODE_VIDEO_DESCRIPTION]: "Things you should know if you want to reprint the video of this episode",
+    [SERIES_PROFILE.RESOURCES]: "Resources",
 };
