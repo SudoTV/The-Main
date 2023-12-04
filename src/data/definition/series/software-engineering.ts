@@ -12,13 +12,6 @@ export enum SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM {
     GITHUB = "GITHUB",
 }
 
-export enum SOFTWARE_ENGINEERING_SERIES_STATUS {
-
-    UPDATING = "UPDATING",
-    PAUSED = "PAUSED",
-    FINALE = "FINALE",
-}
-
 export type SoftwareEngineeringSeriesRepositoryEntity = {
 
     readonly platform: SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM;
@@ -34,7 +27,6 @@ export type SoftwareEngineeringSeriesEntity = {
     readonly forum: UrlEntity;
 
     readonly original: boolean;
-    readonly status: SOFTWARE_ENGINEERING_SERIES_STATUS;
 
     readonly title: InternationalizationEntity;
     readonly description: InternationalizationEntity;

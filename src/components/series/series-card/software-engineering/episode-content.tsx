@@ -5,8 +5,7 @@
 */
 
 import * as React from "react";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
-import { SOFTWARE_ENGINEERING_SERIES_STATUS } from "../../../../data/definition/series/software-engineering";
+import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
 import { SeriesCardSoftwareEngineeringEpisodeContentFinale } from "./episode-content-finale";
 import { SeriesCardSoftwareEngineeringEpisodeContentPaused } from "./episode-content-paused";
 import { SeriesCardSoftwareEngineeringEpisodeContentUpdating } from "./episode-content-updating";
@@ -22,15 +21,15 @@ export const SeriesCardSoftwareEngineeringEpisodeContent: React.FC<SeriesCardSof
 
     switch (props.series.status) {
 
-        case SOFTWARE_ENGINEERING_SERIES_STATUS.FINALE:
+        case SERIES_STATUS.FINALE:
             return <SeriesCardSoftwareEngineeringEpisodeContentFinale
                 series={props.series}
             />;
-        case SOFTWARE_ENGINEERING_SERIES_STATUS.PAUSED:
+        case SERIES_STATUS.PAUSED:
             return <SeriesCardSoftwareEngineeringEpisodeContentPaused
                 series={props.series}
             />;
-        case SOFTWARE_ENGINEERING_SERIES_STATUS.UPDATING:
+        case SERIES_STATUS.UPDATING:
             return <SeriesCardSoftwareEngineeringEpisodeContentUpdating
                 series={props.series}
             />;

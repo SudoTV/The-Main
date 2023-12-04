@@ -15,6 +15,7 @@ import { seriesInternationalization } from "../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../dictionary/series/_profile";
 import { useLocale } from "../../i18n/use-locale";
 import { HrefConfig } from "../../util/href";
+import { sortSeriesFunction } from "../../util/series/sort-series";
 
 type Props = {
 };
@@ -50,12 +51,14 @@ export default async function Page(_props: Props) {
         <div
             className="w-full flex flex-col gap-3"
         >
-            {series.data.map((each: SeriesEntity<SERIES_TYPE>) => {
-                return (<SeriesCard
-                    key={each.identifier}
-                    series={each}
-                />);
-            })}
+            {series.data
+                .sort(sortSeriesFunction)
+                .map((each: SeriesEntity<SERIES_TYPE>) => {
+                    return (<SeriesCard
+                        key={each.identifier}
+                        series={each}
+                    />);
+                })}
         </div>
     </MainPageWrapper>);
 };
