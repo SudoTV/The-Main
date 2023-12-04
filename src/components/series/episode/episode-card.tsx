@@ -5,13 +5,14 @@
 */
 
 import * as React from "react";
+import { FaCode } from "react-icons/fa6";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { useLocale } from "../../../i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "../../../util/format-date";
+import { HrefConfig } from "../../../util/href";
 import { SIZE } from "../../../util/size";
 import { RedirectionCard } from "../../common/redirection-card";
-import { HrefConfig } from "../../../util/href";
 
 export type SeriesEpisodeCardProps = {
 
@@ -39,5 +40,6 @@ export const SeriesEpisodeCard: React.FC<SeriesEpisodeCardProps> = (
                 dateFormat: FORMAT_DATE_DATE_FORMAT.FULL,
             },
         )}
+        backgroundIcon={FaCode}
     />);
 };

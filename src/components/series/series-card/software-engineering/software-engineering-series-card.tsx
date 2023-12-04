@@ -6,6 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
+import { GoCodeReview } from "react-icons/go";
 import { GrCompliance, GrPause, GrUpdate } from "react-icons/gr";
 import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
@@ -80,6 +81,7 @@ export const SeriesCardSoftwareEngineering: React.FC<SeriesCardSoftwareEngineeri
             suffix={<SeriesCardSoftwareEngineeringEpisodeContent
                 series={series}
             />}
+            backgroundIcon={GoCodeReview}
         />
     );
 };
