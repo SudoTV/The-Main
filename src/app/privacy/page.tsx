@@ -6,7 +6,6 @@
 
 import { MDXLocaleSwitcher } from "../../components/mdx/locale-switcher";
 import EnglishUnitedStates from "../../dictionary/privacy/privacy/en-US.mdx";
-import ChineseSimplified from "../../dictionary/privacy/privacy/zh-CN.mdx";
 
 type Props = {
 };
@@ -14,7 +13,7 @@ type Props = {
 export default async function Page(props: Props) {
 
   return (<MDXLocaleSwitcher
-    zh-CN={ChineseSimplified}
+    zh-CN={EnglishUnitedStates}
     en-US={EnglishUnitedStates}
   />);
 };
