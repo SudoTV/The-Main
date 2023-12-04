@@ -6,8 +6,10 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { HrefConfig } from "../../util/href";
 import { FaCaretRight } from "react-icons/fa6";
+import { IoHome } from "react-icons/io5";
+import { HrefConfig } from "../../util/href";
+import { HrefLink } from "../common/href-link";
 
 export type BreadcrumbElement = {
 
@@ -27,27 +29,43 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (props: BreadcrumbProps) =>
         className="flex mx-auto w-full max-w-screen-xl px-4 py-2"
         aria-label="Breadcrumb"
     >
-        <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+        <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse flex-wrap">
             <li className="inline-flex items-center">
-                <a href="#" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                    Home
-                </a>
+                <HrefLink
+                    href={HrefConfig.withinSite(props.locale)}
+                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                    <IoHome
+                        size={16}
+                    />
+                </HrefLink>
             </li>
-            <li className="inline-flex items-center">
-                <a
-                    href="#"
-                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+            {props.elements.map((
+                element: BreadcrumbElement,
+                index: number,
+            ) => {
+
+                const isLast: boolean = index === props.elements.length - 1;
+
+                return (<li
+                    aria-current={isLast ? "page" : undefined}
+                    className="inline-flex items-center"
+                    key={index}
                 >
-                    <FaCaretRight />
-                    <span>Home</span>
-                </a>
-            </li>
-            <li className="inline-flex items-center">
-                <a href="#" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                    <FaCaretRight />
-                    <span>Home</span>
-                </a>
-            </li>
+                    <div
+                        className="pr-2"
+                    >
+                        <FaCaretRight
+                            size={16}
+                        />
+                    </div>
+                    <HrefLink
+                        href={element.href}
+                        className="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+                    >
+                        <span>{element.name}</span>
+                    </HrefLink>
+                </li>);
+            })}
         </ol>
     </nav>);
 };

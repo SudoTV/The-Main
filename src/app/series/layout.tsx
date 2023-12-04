@@ -11,6 +11,7 @@ import { Breadcrumb } from "../../components/breadcrumb/breadcrumb";
 import { metadataInternationalization } from "../../dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "../../dictionary/metadata/_profile";
 import { useLocale } from "../../i18n/use-locale";
+import { HrefConfig } from "../../util/href";
 
 export async function generateMetadata(): Promise<Metadata> {
 
@@ -29,10 +30,17 @@ export default function Layout(props: {
 }) {
 
     const locale: IETF_LOCALE = useLocale();
+    const profile = metadataInternationalization.format(locale);
 
     return (<Fragment>
         <Breadcrumb
             locale={locale}
+            elements={[
+                {
+                    name: profile.get(METADATA_PROFILE.SERIES_TITLE),
+                    href: HrefConfig.withinSite(locale, "series"),
+                },
+            ]}
         />
         {props.children}
     </Fragment>);
