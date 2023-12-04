@@ -31,7 +31,7 @@ export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageW
             />
             : null}
         <main
-            className="flex flex-col items-start justify-between p-6 mx-auto w-full max-w-screen-xl"
+            className="flex flex-col items-start justify-between px-4 py-2 mx-auto w-full max-w-screen-xl"
         >
             {props.children}
         </main>
