@@ -37,7 +37,7 @@ export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageW
         </main>
         {props.cacheableResponse
             ? <div
-                className="w-full mt-2"
+                className="w-full mx-auto max-w-screen-xl px-4 py-2"
             >
                 <CachedIndicator
                     cacheableResponse={props.cacheableResponse}
