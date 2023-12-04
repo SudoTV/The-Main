@@ -22,7 +22,6 @@ export type MainPageWrapperProps = {
 
 export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageWrapperProps) => {
 
-
     return (<React.Fragment>
         {props.breadcrumbElements
             ? <Breadcrumb
