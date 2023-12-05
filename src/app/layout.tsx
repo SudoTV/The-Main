@@ -34,7 +34,9 @@ export default function RootLayout(props: {
 
     return (<html lang={locale}>
         <body className="flex flex-col h-screen justify-between">
-            <LayoutHeader />
+            <LayoutHeader
+                locale={locale}
+            />
             <section className="mb-auto">
                 {props.children}
             </section>

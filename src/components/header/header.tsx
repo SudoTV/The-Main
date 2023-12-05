@@ -4,14 +4,17 @@
 * @description Header
 */
 
+import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { useLocale } from "../../i18n/use-locale";
 import { HrefConfig } from "../../util/href";
 import { HrefLink } from "../common/href-link";
 
-export const LayoutHeader: React.FC = () => {
+export type LayoutHeaderProps = {
 
-    const locale = useLocale();
+    readonly locale: IETF_LOCALE;
+};
+
+export const LayoutHeader: React.FC<LayoutHeaderProps> = (props: LayoutHeaderProps) => {
 
     return (
         <header
@@ -24,7 +27,7 @@ export const LayoutHeader: React.FC = () => {
                     className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
                 >
                     <HrefLink
-                        href={HrefConfig.withinSite(locale)}
+                        href={HrefConfig.withinSite(props.locale)}
                         className="flex items-center hover:bg-gray-300 dark:hover:bg-gray-700 rounded-md px-3 py-1 active:bg-gray-400 dark:active:bg-gray-600 transition-colors"
                         noUnderline
                     >

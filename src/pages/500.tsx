@@ -15,7 +15,9 @@ export default function Custom500() {
             <main
                 className="flex min-h-screen flex-col items-center justify-between"
             >
-                <LayoutHeader />
+                <LayoutHeader
+                    locale={IETF_LOCALE.ENGLISH_UNITED_STATES}
+                />
                 <h1>500 - Server Error</h1>
                 <LayoutFooter
                     locale={IETF_LOCALE.ENGLISH_UNITED_STATES}
