@@ -1,15 +1,15 @@
 /**
  * @author WMXPY
  * @namespace Data_Request
- * @description Series Episode Transcript
+ * @description Series Episode Learn The Basics
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
+import { EmptyValueSymbol } from "@sudoo/symbol";
 import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { getGithubFile } from "../github/get-file";
-import { EmptyValueSymbol } from "@sudoo/symbol";
 
-export const requestSeriesEpisodeTranscript = async (
+export const requestSeriesEpisodeLearnTheBasics = async (
     seriesName: string,
     episodeName: string,
     locale: IETF_LOCALE,
@@ -20,7 +20,7 @@ export const requestSeriesEpisodeTranscript = async (
             "SudoTV",
             "SudoTV-Series-DB",
             "main",
-            ["series", seriesName, "transcripts", episodeName, `${locale}.md`],
+            ["series", seriesName, "learn-the-basics", episodeName, `${locale}.md`],
         );
 
     if (episodeTranscript.cached === CACHED_TYPE.NONE) {

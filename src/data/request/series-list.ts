@@ -4,6 +4,7 @@
  * @description Series List
  */
 
+import { EmptyValueSymbol } from "@sudoo/symbol";
 import { load } from "js-yaml";
 import { CACHED_TYPE, CacheableResponse, CachedComponent } from "../cache/definition";
 import { SERIES_TYPE, SeriesEntity } from "../definition/series/series";
@@ -34,7 +35,7 @@ export const requestSeriesList = async (
         });
     }
 
-    const pendingRequests: Array<Promise<CacheableResponse<string>>> = [];
+    const pendingRequests: Array<Promise<CacheableResponse<string | typeof EmptyValueSymbol>>> = [];
     for (const file of folderFiles.data) {
 
         pendingRequests.push(getGithubFile(
@@ -45,10 +46,14 @@ export const requestSeriesList = async (
         ));
     }
 
-    const seriesRawMetadataList: Array<CacheableResponse<string>> = await Promise.all(pendingRequests);
+    const seriesRawMetadataList: Array<CacheableResponse<string | typeof EmptyValueSymbol>> = await Promise.all(pendingRequests);
 
     const seriesResult: Array<SeriesEntity<SERIES_TYPE>> = [];
     for (const seriesRawMetadata of seriesRawMetadataList) {
+
+        if (seriesRawMetadata.data === EmptyValueSymbol) {
+            continue;
+        }
 
         const series: SeriesEntity<SERIES_TYPE> = load(
             seriesRawMetadata.data,
