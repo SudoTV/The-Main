@@ -9,6 +9,7 @@ export enum CACHED_TYPE {
     FULL = "FULL",
     PARTIAL = "PARTIAL",
     NONE = "NONE",
+    ERRORED = "ERRORED",
 }
 
 export type CachedComponent = {

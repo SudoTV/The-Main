@@ -4,6 +4,8 @@
  * @description Page
  */
 
+import { EmptyValueSymbol } from "@sudoo/symbol";
+import { notFound } from "next/navigation";
 import { SeriesEpisodeCard } from "../../../../components/series/episode/episode-card";
 import { Description1 } from "../../../../components/typography/description-1";
 import { Header1 } from "../../../../components/typography/header-1";
@@ -13,12 +15,12 @@ import { Section } from "../../../../components/typography/section";
 import { CacheableResponse } from "../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
-import { getGithubFile } from "../../../../data/github/get-file";
 import { requestSeriesMetadata } from "../../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../i18n/use-locale";
 import { HrefConfig } from "../../../../util/href";
+import { logger } from "../../../../util/log";
 
 type Props = {
 
@@ -32,8 +34,14 @@ export default async function Page(props: Props) {
     const locale = useLocale();
     const seriesFormat = seriesInternationalization.format(locale);
 
-    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE> | typeof EmptyValueSymbol> =
         await requestSeriesMetadata(props.params["series-name"]);
+
+    if (series.data === EmptyValueSymbol) {
+
+        logger.error("Series Not Found", props.params["series-name"]);
+        return notFound();
+    }
 
     return (<MainPageWrapper
         locale={locale}
@@ -88,9 +96,12 @@ export default async function Page(props: Props) {
                     })
                     .slice(0, 10)
                     .map((episode) => {
+                        const fixedSeries: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+                            series as CacheableResponse<SeriesEntity<SERIES_TYPE>>;
+
                         return (<SeriesEpisodeCard
                             key={episode.identifier}
-                            seriesIdentifier={series.data.identifier}
+                            seriesIdentifier={fixedSeries.data.identifier}
                             episode={episode}
                         />);
                     })}

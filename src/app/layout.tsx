@@ -41,6 +41,12 @@ export default function RootLayout(props: {
             <LayoutFooter
                 locale={locale}
             />
+            <script
+                defer
+                src='https://static.cloudflareinsights.com/beacon.min.js'
+                data-cf-beacon='{"token": "08dd09da202e470fb7f75d6d170e2d37"}'
+            >
+            </script>
         </body>
     </html>);
 }

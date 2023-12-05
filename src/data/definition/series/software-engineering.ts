@@ -4,8 +4,8 @@
  * @description Software Engineering
  */
 
-import { InternationalizationEntity, UrlEntity } from "../common";
 import { EPISODE_TYPE, EpisodeEntity } from "../episode/episode";
+import { PRODUCT_TYPE, ProductEntity } from "../product/product";
 
 export enum SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM {
 
@@ -24,12 +24,7 @@ export type SoftwareEngineeringSeriesEntity = {
     readonly identifier: string;
 
     readonly repository: SoftwareEngineeringSeriesRepositoryEntity;
-    readonly forum: UrlEntity;
-
-    readonly original: boolean;
-
-    readonly title: InternationalizationEntity;
-    readonly description: InternationalizationEntity;
+    readonly products: Array<ProductEntity<PRODUCT_TYPE>>;
 
     readonly episodes: Array<EpisodeEntity<EPISODE_TYPE>>;
 };
