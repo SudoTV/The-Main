@@ -94,8 +94,8 @@ export default async function Page(props: Props) {
                 </Description1>
             </Section>
             <SeriesEpisodePrepareEnvironmentArticle
-                series={series.data}
-                episode={episode}
+                series={series.data as SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>}
+                episode={episode as EpisodeEntity<EPISODE_TYPE.CODING>}
             />
         </MainPageWrapper>
     );
