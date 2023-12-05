@@ -9,24 +9,18 @@ import { SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
 
 const getUpdateTime = (series: SeriesEntity<SERIES_TYPE>): number => {
 
-    switch (series.type) {
+    return series.episodes.reduce((
+        previous: number,
+        current: EpisodeEntity<EPISODE_TYPE>,
+    ) => {
 
-        case SERIES_TYPE.SOFTWARE_ENGINEERING: {
-            return series.episodes.reduce((
-                previous: number,
-                current: EpisodeEntity<EPISODE_TYPE>,
-            ) => {
+        const releaseDate: number = current["release-date"].getTime();
 
-                const releaseDate: number = current["release-date"].getTime();
-
-                if (releaseDate > previous) {
-                    return releaseDate;
-                }
-                return previous;
-            }, 0);
+        if (releaseDate > previous) {
+            return releaseDate;
         }
-    }
-    return 0;
+        return previous;
+    }, 0);
 };
 
 export const sortSeriesFunction = (
