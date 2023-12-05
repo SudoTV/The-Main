@@ -5,6 +5,12 @@
 
 The portal website for SudoTV
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+Contents of the `docs/` folder, `src/dictionary` folder, and other "non-code" content within this project are licensed under the [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) license.
+
 ## Development
 
 To start development you will need to prepare a Github GraphQL API token. Which can be obtained [Fine-grained personal access tokens](https://github.com/settings/tokens). Public access scope is good enough for The Main to work.
