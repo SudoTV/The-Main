@@ -25,13 +25,16 @@ export const ProductsSection: React.FC<ProductsSectionProps> = (
 
     const format = productInternationalization.format(props.locale);
 
-    if (!Array.isArray(props.products) || props.products.length === 0) {
+    if (!Array.isArray(props.products)
+        || props.products.length === 0) {
 
         return null;
     }
 
     return (
-        <Section>
+        <Section
+            marginTop
+        >
             <Header2>
                 {format.get(PRODUCT_PROFILE.PRODUCT_CREATED)}
             </Header2>

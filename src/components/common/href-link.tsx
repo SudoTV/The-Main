@@ -14,13 +14,17 @@ export type HrefLinkProps = {
     readonly children?: React.ReactNode;
 
     readonly className?: string;
+
+    readonly noUnderline?: boolean;
 };
 
 export const HrefLink: React.FC<HrefLinkProps> = (props: HrefLinkProps) => {
 
-    const classes: string[] = [
-        "hover:underline",
-    ];
+    const classes: string[] = [];
+
+    if (!props.noUnderline) {
+        classes.push("hover:underline");
+    }
 
     if (props.className) {
         classes.push(props.className);

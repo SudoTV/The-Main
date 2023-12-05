@@ -29,7 +29,9 @@ export default async function Page(props: Props) {
       },
     ]}
   >
-    <article>
+    <article
+      className="w-full"
+    >
       <h2
         className="text-3xl font-bold"
       >
