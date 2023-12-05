@@ -10,6 +10,8 @@ import { useLocale } from "../../i18n/use-locale";
 import { markdownComponentsMap } from "../markdown/component-map";
 
 export type MDXLocaleSwitcherProps = {
+
+    readonly parameters?: Record<string, any>;
 } & Partial<Record<IETF_LOCALE, React.FC<MDXProps>>>;
 
 export const MDXLocaleSwitcher: React.FC<MDXLocaleSwitcherProps> = (props: MDXLocaleSwitcherProps) => {
@@ -25,5 +27,6 @@ export const MDXLocaleSwitcher: React.FC<MDXLocaleSwitcherProps> = (props: MDXLo
 
     return (<Component
         components={markdownComponentsMap}
+        parameters={props.parameters}
     />);
 };

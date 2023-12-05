@@ -1,0 +1,25 @@
+import { MDX_Pre } from "../../../../../components/mdx/pre";
+import { MDX_Code } from "../../../../../components/mdx/code";
+
+## Prepare Workspace
+
+If you have already cloned the workspace of {props.parameters.repositoryName} series of your fork, and synced to get the fork updated. Under the workspace folder: 
+
+> With any terminal shell, run the following command.
+
+<MDX_Pre>
+<MDX_Code className="language-sh">
+{`git checkout tags/${props.parameters.beforeTag}`}
+</MDX_Code>
+</MDX_Pre>
+
+If you never clone any workspace of {props.parameters.repositoryName} series. Under the folder that you want to clone the workspace:
+
+> With any terminal shell, run the following command.  
+> Replace \<YOUR-USERNAME\> with your username
+
+<MDX_Pre>
+<MDX_Code className="language-sh">
+{`git clone ${props.parameters.forkUrl}.git --branch ${props.parameters.beforeTag}`}
+</MDX_Code>
+</MDX_Pre>

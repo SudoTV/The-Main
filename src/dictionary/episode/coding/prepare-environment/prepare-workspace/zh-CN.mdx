@@ -1,0 +1,25 @@
+import { MDX_Pre } from "../../../../../components/mdx/pre";
+import { MDX_Code } from "../../../../../components/mdx/code";
+
+## 准备工作区
+
+如果您已经克隆了您复刻的 {props.parameters.repositoryName} 剧集的工作区，并已经完成了同步。在工作区文件夹下：
+
+> 使用任何命令行工具，运行以下命令。
+
+<MDX_Pre>
+<MDX_Code className="language-sh">
+{`git checkout tags/${props.parameters.beforeTag}`}
+</MDX_Code>
+</MDX_Pre>
+
+如果您从未克隆过任何一个 {props.parameters.repositoryName} 剧集的工作环境。在您想克隆工作环境的文件夹下：
+
+> 使用任何命令行工具，运行以下命令。  
+> 将 \<YOUR-USERNAME\> 替换为您的用户名
+
+<MDX_Pre>
+<MDX_Code className="language-sh">
+{`git clone ${props.parameters.forkUrl}.git --branch ${props.parameters.beforeTag}`}
+</MDX_Code>
+</MDX_Pre>
