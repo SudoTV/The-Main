@@ -14,3 +14,9 @@ To start the development server run:
 ```bash
 GRAPHQL_GITHUB_API_TOKEN="<YOUR-GITHUB-ACCESS-TOKEN>" npm run dev
 ```
+
+## Deployment
+
+Currently, this project is being deployed to Cloudflare Pages. The deployment is done automatically on every push to the `main` branch.
+
+Also, when pull requests are created, a preview deployment is created automatically. The link to the preview deployment is added to the pull request description.
