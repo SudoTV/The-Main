@@ -30,6 +30,10 @@ export const SeriesEpisodePrepareEnvironmentCodingPrepareWorkspace: React.FC<Ser
         "<YOUR-USERNAME>",
     );
 
+    const rootUrl: string = buildRepositoryUrl(
+        props.series.repository,
+    );
+
     return (<MDXLocaleSwitcher
         zh-CN={ChineseSimplified}
         en-US={EnglishUnitedStates}
@@ -37,6 +41,7 @@ export const SeriesEpisodePrepareEnvironmentCodingPrepareWorkspace: React.FC<Ser
             repositoryName: props.series.title[locale],
             beforeTag: props.episode.git["before-tag"],
             forkUrl,
+            rootUrl,
         }}
     />);
 };

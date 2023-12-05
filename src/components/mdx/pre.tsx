@@ -29,7 +29,7 @@ export const MDX_Pre: React.FC<MDX_PreProps> = (props: MDX_PreProps) => {
     return (
         <div>
             <div
-                className="border-t-4 border-l-4 border-r-4 border-gray-200 dark:border-gray-800 rounded-t-md py-2 px-4 text-gray-500 dark:text-gray-400 text-xs sm:text-sm font-mono flex flex-row justify-between items-center"
+                className="border-t-4 border-l-4 border-r-4 border-gray-200 dark:border-gray-800 rounded-t-md py-2 px-4 text-gray-500 dark:text-gray-400 text-sm sm:text-base font-mono flex flex-row justify-between items-center pointer-events-none select-none"
             >
                 <div
                     className="text-gray-500 dark:text-gray-400"
