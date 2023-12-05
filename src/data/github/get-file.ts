@@ -4,6 +4,7 @@
  * @description Get File
  */
 
+import { EmptyValueSymbol } from "@sudoo/symbol";
 import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 import { githubGraphql } from "./client";
 
@@ -21,7 +22,7 @@ export const getGithubFile = async (
     repo: string,
     branch: string,
     paths: string[],
-): Promise<CacheableResponse<string>> => {
+): Promise<CacheableResponse<string | typeof EmptyValueSymbol>> => {
 
     const response: CacheableResponse<GetGithubFileGraphQLResponse> =
         await githubGraphql(`
@@ -35,8 +36,16 @@ export const getGithubFile = async (
             }
         }
     `);
+    if (response.data.repository.object === null) {
+        return {
+            cached: CACHED_TYPE.ERRORED,
+            cachedComponents: [],
+            data: EmptyValueSymbol,
+        };
+    }
 
     if (response.cached === CACHED_TYPE.NONE) {
+
         return {
             cached: CACHED_TYPE.NONE,
             cachedComponents: [],

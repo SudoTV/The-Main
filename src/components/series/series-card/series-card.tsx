@@ -8,6 +8,7 @@ import * as React from "react";
 import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { logger } from "../../../util/log";
 import { SeriesCardSoftwareEngineering } from "./software-engineering/software-engineering-series-card";
+import { SeriesCardVideoGameStreaming } from "./video-game-streaming/video-game-streaming-series";
 
 export type SeriesCardProps = {
 
@@ -22,7 +23,12 @@ export const SeriesCard: React.FC<SeriesCardProps> = (
 
         case SERIES_TYPE.SOFTWARE_ENGINEERING: {
             return (<SeriesCardSoftwareEngineering
-                series={props.series}
+                series={props.series as SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>}
+            />);
+        }
+        case SERIES_TYPE.VIDEO_GAME_STREAMING: {
+            return (<SeriesCardVideoGameStreaming
+                series={props.series as SeriesEntity<SERIES_TYPE.VIDEO_GAME_STREAMING>}
             />);
         }
     }

@@ -11,18 +11,8 @@ import { SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM, SoftwareEngineeringSer
 import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
 import { HrefConfig } from "../../../../util/href";
 import { SIZE } from "../../../../util/size";
+import { buildIssueUrl } from "../../../../util/url-builder/issue";
 import { RedirectionCard } from "../../../common/redirection-card";
-
-const getIssueUrl = (
-    repository: SoftwareEngineeringSeriesRepositoryEntity,
-): string => {
-
-    switch (repository.platform) {
-        case SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM.GITHUB:
-            return `https://github.com/${repository.owner}/${repository.repository}/issues`;
-    }
-    return "";
-};
 
 const getIssueTitle = (
     repository: SoftwareEngineeringSeriesRepositoryEntity,
@@ -49,7 +39,7 @@ export const SeriesResourceCardSoftwareEngineeringIssue: React.FC<SeriesResource
     props: SeriesResourceCardSoftwareEngineeringIssueProps,
 ) => {
 
-    const issueUrl: string = getIssueUrl(props.series.repository);
+    const issueUrl: string = buildIssueUrl(props.series.repository);
     const issueTitle: string = getIssueTitle(props.series.repository, props.seriesFormat);
 
     return (
