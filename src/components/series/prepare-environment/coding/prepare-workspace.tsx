@@ -15,7 +15,7 @@ import { MDXLocaleSwitcher } from "../../../mdx/locale-switcher";
 
 export type SeriesEpisodePrepareEnvironmentCodingPrepareWorkspaceProps = {
 
-    readonly series: SeriesEntity<SERIES_TYPE>;
+    readonly series: SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>;
     readonly episode: EpisodeEntity<EPISODE_TYPE.CODING>;
 };
 
