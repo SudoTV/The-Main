@@ -36,7 +36,7 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
                         <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 dark:text-white">
-                            SudoTV © 2017-2024
+                            SudoTV © 2018-2024
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-1 sm:mb-2">

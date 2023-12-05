@@ -11,6 +11,7 @@ export const profile_footer_en_US: PROFILE<FOOTER_PROFILE> = {
 
     [FOOTER_PROFILE.ABOUT_US]: "About Us",
     [FOOTER_PROFILE.CONTACT_US]: "Contact Us",
+    [FOOTER_PROFILE.CONTRIBUTE]: "Contribute",
     [FOOTER_PROFILE.LANGUAGE]: "Language",
     [FOOTER_PROFILE.LEGAL]: "Legal",
     [FOOTER_PROFILE.HELP_CENTER]: "Help Center",
