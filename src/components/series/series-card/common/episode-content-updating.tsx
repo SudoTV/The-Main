@@ -1,6 +1,6 @@
 /**
 * @author WMXPY
-* @namespace Components_Series_SeriesCard_SoftwareEngineering
+* @namespace Components_Series_SeriesCard_Common
 * @description Episode Content Updating
 */
 
@@ -48,13 +48,13 @@ const Episode: React.FC<EpisodeProps> = (
     );
 };
 
-export type SeriesCardSoftwareEngineeringEpisodeContentUpdatingProps = {
+export type SeriesCardEpisodeContentUpdatingProps = {
 
-    readonly series: SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>;
+    readonly series: SeriesEntity<SERIES_TYPE>;
 };
 
-export const SeriesCardSoftwareEngineeringEpisodeContentUpdating: React.FC<SeriesCardSoftwareEngineeringEpisodeContentUpdatingProps> = (
-    props: SeriesCardSoftwareEngineeringEpisodeContentUpdatingProps,
+export const SeriesCardEpisodeContentUpdating: React.FC<SeriesCardEpisodeContentUpdatingProps> = (
+    props: SeriesCardEpisodeContentUpdatingProps,
 ) => {
 
     const locale: IETF_LOCALE = useLocale();

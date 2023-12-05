@@ -1,6 +1,6 @@
 /**
 * @author WMXPY
-* @namespace Components_Series_SeriesCard_SoftwareEngineering
+* @namespace Components_Series_SeriesCard_Common
 * @description Episode Content Paused
 */
 
@@ -48,13 +48,13 @@ const Episode: React.FC<EpisodeProps> = (
     );
 };
 
-export type SeriesCardSoftwareEngineeringEpisodeContentPausedProps = {
+export type SeriesCardEpisodeContentPausedProps = {
 
-    readonly series: SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>;
+    readonly series: SeriesEntity<SERIES_TYPE>;
 };
 
-export const SeriesCardSoftwareEngineeringEpisodeContentPaused: React.FC<SeriesCardSoftwareEngineeringEpisodeContentPausedProps> = (
-    props: SeriesCardSoftwareEngineeringEpisodeContentPausedProps,
+export const SeriesCardEpisodeContentPaused: React.FC<SeriesCardEpisodeContentPausedProps> = (
+    props: SeriesCardEpisodeContentPausedProps,
 ) => {
 
     const locale: IETF_LOCALE = useLocale();

@@ -4,6 +4,8 @@
  * @description Page
  */
 
+import { EmptyValueSymbol } from "@sudoo/symbol";
+import { notFound } from "next/navigation";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
@@ -11,7 +13,6 @@ import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/e
 import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
 import { requestSeriesEpisodeTranscript } from "../../../../../../data/request/series-episode-transcript";
 import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
-import { metadataInternationalization } from "../../../../../../dictionary/metadata/_intl";
 import { seriesInternationalization } from "../../../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../../../i18n/use-locale";
@@ -33,10 +34,15 @@ export default async function Page(props: Props) {
     const locale = useLocale();
 
     const seriesFormat = seriesInternationalization.format(locale);
-    const metadataFormat = metadataInternationalization.format(locale);
 
-    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE> | typeof EmptyValueSymbol> =
         await requestSeriesMetadata(props.params["series-name"]);
+
+    if (series.data === EmptyValueSymbol) {
+
+        logger.error("Series Not Found", props.params["series-name"]);
+        return notFound();
+    }
 
     const episode: EpisodeEntity<EPISODE_TYPE> | undefined =
         series.data.episodes.find((each) => {
@@ -46,15 +52,21 @@ export default async function Page(props: Props) {
     if (!episode) {
 
         logger.error("Episode Not Found", props.params["series-name"], props.params["episode-identifier"]);
-        return "NOT FOUND";
+        return notFound();
     }
 
-    const rawMarkdown: CacheableResponse<string> =
+    const rawMarkdown: CacheableResponse<string | typeof EmptyValueSymbol> =
         await requestSeriesEpisodeTranscript(
             props.params["series-name"],
             props.params["episode-identifier"],
             locale,
         );
+
+    if (rawMarkdown.data === EmptyValueSymbol) {
+
+        logger.error("Transcript Not Found", props.params["series-name"], props.params["episode-identifier"]);
+        return notFound();
+    }
 
     const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown.data);
 

@@ -1,25 +1,24 @@
 /**
  * @author WMXPY
- * @namespace Series_SeriesName_Episode_EpisodeIdentifier_Transcript
+ * @namespace Series_SeriesName_Episode_EpisodeIdentifier_LearnTheBasics
  * @description Page
  */
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
-import { SeriesEpisodePrepareEnvironmentArticle } from "../../../../../../components/series/prepare-environment/article";
-import { Description1 } from "../../../../../../components/typography/description-1";
-import { Header1 } from "../../../../../../components/typography/header-1";
+import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
-import { Section } from "../../../../../../components/typography/section";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
+import { requestSeriesEpisodeLearnTheBasics } from "../../../../../../data/request/series-episode-learn-the-basics";
 import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../../../../dictionary/series/_profile";
 import { useLocale } from "../../../../../../i18n/use-locale";
 import { HrefConfig } from "../../../../../../util/href";
 import { logger } from "../../../../../../util/log";
+import { ParseMarkdownResult, parseMarkdown } from "../../../../../../util/parse-markdown";
 
 type Props = {
 
@@ -55,6 +54,21 @@ export default async function Page(props: Props) {
         return notFound();
     }
 
+    const rawMarkdown: CacheableResponse<string | typeof EmptyValueSymbol> =
+        await requestSeriesEpisodeLearnTheBasics(
+            props.params["series-name"],
+            props.params["episode-identifier"],
+            locale,
+        );
+
+    if (rawMarkdown.data === EmptyValueSymbol) {
+
+        logger.error("Learn the Basics Not Found", props.params["series-name"], props.params["episode-identifier"]);
+        return notFound();
+    }
+
+    const parsedMarkdown: ParseMarkdownResult = await parseMarkdown(rawMarkdown.data);
+
     return (
         <MainPageWrapper
             locale={locale}
@@ -72,31 +86,15 @@ export default async function Page(props: Props) {
                     href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier),
                 },
                 {
-                    name: seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT),
-                    href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "prepare-environment"),
+                    name: seriesFormat.get(SERIES_PROFILE.LEARN_THE_BASICS),
+                    href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "learn-the-basics"),
                 },
             ]}
-            cacheableResponse={series}
+            cacheableResponse={rawMarkdown}
         >
-            <Section>
-                {series.data.original
-                    ? <Description1
-                        noMargin
-                    >
-                        {seriesFormat.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
-                    </Description1>
-                    : null}
-                <Header1>
-                    {series.data.title[locale]}
-                </Header1>
-                <Description1>
-                    {series.data.description[locale]}
-                </Description1>
-            </Section>
-            <SeriesEpisodePrepareEnvironmentArticle
-                series={series.data}
-                episode={episode}
-            />
+            <MarkdownWrapper>
+                {parsedMarkdown.reactNodes}
+            </MarkdownWrapper>
         </MainPageWrapper>
     );
 };
