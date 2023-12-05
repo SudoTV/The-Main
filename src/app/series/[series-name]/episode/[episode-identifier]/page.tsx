@@ -4,7 +4,10 @@
  * @description Page
  */
 
+import { EmptyValueSymbol } from "@sudoo/symbol";
+import { notFound } from "next/navigation";
 import { RedirectionCard } from "../../../../../components/common/redirection-card";
+import { SeriesEpisodesHandsOn } from "../../../../../components/series/episode-hands-on/episode-hands-on";
 import { Description1 } from "../../../../../components/typography/description-1";
 import { Header1 } from "../../../../../components/typography/header-1";
 import { Header2 } from "../../../../../components/typography/header-2";
@@ -37,8 +40,14 @@ export default async function Page(props: Props) {
     const locale = useLocale();
     const seriesFormat = seriesInternationalization.format(locale);
 
-    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE> | typeof EmptyValueSymbol> =
         await requestSeriesMetadata(props.params["series-name"]);
+
+    if (series.data === EmptyValueSymbol) {
+
+        logger.error("Series Not Found", props.params["series-name"]);
+        return notFound();
+    }
 
     const episode: EpisodeEntity<EPISODE_TYPE> | undefined =
         series.data.episodes.find((each) => {
@@ -48,7 +57,7 @@ export default async function Page(props: Props) {
     if (!episode) {
 
         logger.error("Episode Not Found", props.params["series-name"], props.params["episode-identifier"]);
-        return "NOT FOUND";
+        return notFound();
     }
 
     const videos = episode.videos[locale] as Array<VideoPlatformEntity<VIDEO_PLATFORM_TYPE>>;
@@ -104,50 +113,10 @@ export default async function Page(props: Props) {
                 })
                 : <VideoNoVideoCard />}
         </Section>
-        <Section
-            marginTop
-            className="flex flex-col gap-4"
-        >
-            <Header2
-                noMargin
-            >
-                {seriesFormat.get(SERIES_PROFILE.GET_HANDS_ON)}
-            </Header2>
-            <RedirectionCard
-                full
-                size={SIZE.SMALL}
-                title={seriesFormat.get(SERIES_PROFILE.LEARN_THE_BASICS)}
-                subtitle={seriesFormat.get(SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION)}
-            />
-            <RedirectionCard
-                full
-                size={SIZE.SMALL}
-                title={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT)}
-                titleHref={HrefConfig.withinSite(
-                    locale,
-                    "series",
-                    series.data.identifier,
-                    "episode",
-                    episode.identifier,
-                    "prepare-environment",
-                )}
-                subtitle={seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT_DESCRIPTION)}
-            />
-            <RedirectionCard
-                full
-                size={SIZE.SMALL}
-                title={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE)}
-                titleHref={HrefConfig.withinSite(
-                    locale,
-                    "series",
-                    series.data.identifier,
-                    "episode",
-                    episode.identifier,
-                    "deep-dive",
-                )}
-                subtitle={seriesFormat.get(SERIES_PROFILE.DEEP_DIVE_DESCRIPTION)}
-            />
-        </Section>
+        <SeriesEpisodesHandsOn
+            series={series.data}
+            episode={episode}
+        />
         <Section
             marginTop
             className="flex flex-col gap-4"

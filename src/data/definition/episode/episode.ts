@@ -7,10 +7,12 @@
 import { InternationalizationEntity } from "../common";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../video/video-platform";
 import { EpisodeEntitySwitchCoding } from "./coding";
+import { EpisodeEntitySwitchConsoleGaming } from "./console-gaming";
 
 export enum EPISODE_TYPE {
 
     CODING = "CODING",
+    CONSOLE_GAMING = "CONSOLE_GAMING",
 }
 
 export type EpisodeEntity<T extends EPISODE_TYPE> = {
@@ -27,4 +29,5 @@ export type EpisodeEntity<T extends EPISODE_TYPE> = {
 
 export type EpisodeEntitySwitch<T extends EPISODE_TYPE> =
     T extends EPISODE_TYPE.CODING ? EpisodeEntitySwitchCoding :
+    T extends EPISODE_TYPE.CONSOLE_GAMING ? EpisodeEntitySwitchConsoleGaming :
     never;

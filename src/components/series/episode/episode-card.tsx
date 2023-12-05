@@ -5,14 +5,27 @@
 */
 
 import * as React from "react";
-import { FaCode } from "react-icons/fa6";
+import { IconType } from "react-icons";
+import { FaClipboardQuestion, FaCode } from "react-icons/fa6";
+import { IoGameController } from "react-icons/io5";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
-import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { useLocale } from "../../../i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "../../../util/format-date";
 import { HrefConfig } from "../../../util/href";
 import { SIZE } from "../../../util/size";
 import { RedirectionCard } from "../../common/redirection-card";
+
+const getBackgroundIcon = (type: EPISODE_TYPE): IconType => {
+
+    switch (type) {
+
+        case EPISODE_TYPE.CODING:
+            return FaCode;
+        case EPISODE_TYPE.CONSOLE_GAMING:
+            return IoGameController;
+    }
+    return FaClipboardQuestion;
+};
 
 export type SeriesEpisodeCardProps = {
 
@@ -25,7 +38,6 @@ export const SeriesEpisodeCard: React.FC<SeriesEpisodeCardProps> = (
 ) => {
 
     const locale = useLocale();
-    const format = seriesInternationalization.format(locale);
 
     return (<RedirectionCard
         full
@@ -40,6 +52,6 @@ export const SeriesEpisodeCard: React.FC<SeriesEpisodeCardProps> = (
                 dateFormat: FORMAT_DATE_DATE_FORMAT.FULL,
             },
         )}
-        backgroundIcon={FaCode}
+        backgroundIcon={getBackgroundIcon(props.episode.type)}
     />);
 };

@@ -5,6 +5,7 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
+import { EmptyValueSymbol } from "@sudoo/symbol";
 import type { Metadata } from "next";
 import { CacheableResponse } from "../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
@@ -29,8 +30,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const locale: IETF_LOCALE = useLocale();
     const profile = metadataInternationalization.format(locale);
 
-    const series: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
+    const series: CacheableResponse<SeriesEntity<SERIES_TYPE> | typeof EmptyValueSymbol> =
         await requestSeriesMetadata(props.params["series-name"]);
+
+    if (series.data === EmptyValueSymbol) {
+
+        logger.error("Series Not Found", props.params["series-name"]);
+        return {};
+    }
 
     const episode: EpisodeEntity<EPISODE_TYPE> | undefined =
         series.data.episodes.find((each) => {
