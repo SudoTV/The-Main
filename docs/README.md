@@ -13,7 +13,7 @@ Contents of the `docs/` folder, `src/dictionary` folder, and other "non-code" co
 
 ## Development
 
-To start development you will need to prepare a Github GraphQL API token. Which can be obtained [Fine-grained personal access tokens](https://github.com/settings/tokens). Public access scope is good enough for The Main to work.
+To start development you will need to prepare a Github GraphQL API token. Which can be obtained from [Fine-grained personal access tokens](https://github.com/settings/tokens) page. Public access scope is good enough for The Main to work.
 
 To start the development server run:
 
