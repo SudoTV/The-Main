@@ -5,12 +5,7 @@
 */
 
 import * as React from "react";
-
-const getAnchor = (text: string): string => {
-    return text
-        .toLowerCase()
-        .replace(/[ ]/g, "-");
-};
+import { getTitleAnchor } from "../../util/anchor";
 
 export type MDX_H5Props = {
 
@@ -19,7 +14,7 @@ export type MDX_H5Props = {
 
 export const MDX_H5: React.FC<MDX_H5Props> = (props: MDX_H5Props) => {
 
-    const anchor = getAnchor(props.children);
+    const anchor = getTitleAnchor(props.children);
     const link = `#${anchor}`;
 
     return (
