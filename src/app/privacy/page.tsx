@@ -30,7 +30,6 @@ export default async function Page(props: Props) {
     ]}
   >
     <MDXLocaleSwitcher
-      zh-CN={EnglishUnitedStates}
       en-US={EnglishUnitedStates}
     />
   </MainPageWrapper>);
