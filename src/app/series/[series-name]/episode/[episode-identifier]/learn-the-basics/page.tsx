@@ -92,7 +92,10 @@ export default async function Page(props: Props) {
             ]}
             cacheableResponse={rawMarkdown}
         >
-            <MarkdownWrapper>
+            <MarkdownWrapper
+                locale={locale}
+                contentLocale={parsedMarkdown.locale}
+            >
                 {parsedMarkdown.reactNodes}
             </MarkdownWrapper>
         </MainPageWrapper>
