@@ -16,7 +16,7 @@ export const profile_metadata_en_US: PROFILE<METADATA_PROFILE> = {
     [METADATA_PROFILE.ALL_EPISODES_DESCRIPTION]: "All Episodes",
 
     [METADATA_PROFILE.INDEX_TITLE]: "SudoTV the Main",
-    [METADATA_PROFILE.INDEX_DESCRIPTION]: "Welcome to SudoTV",
+    [METADATA_PROFILE.INDEX_DESCRIPTION]: "Welcome to SudoTV, we dedicated to providing educational and fun content to learn programming and software engineering.",
 
     [METADATA_PROFILE.NOT_FOUND_TITLE]: "Not Found",
     [METADATA_PROFILE.NOT_FOUND_DESCRIPTION]: "Sorry, we can't find the page you are looking for.",
@@ -47,4 +47,7 @@ export const profile_metadata_en_US: PROFILE<METADATA_PROFILE> = {
 
     [METADATA_PROFILE.SERIES_SERIES_EPISODES_EPISODE_TITLE_2]: "Episode {} - {} Series",
     [METADATA_PROFILE.SERIES_SERIES_EPISODES_EPISODE_DESCRIPTION_2]: "Episode {} - {} Series",
+
+    [METADATA_PROFILE.TERMS_OF_SERVICE_TITLE]: "Terms of Service",
+    [METADATA_PROFILE.TERMS_OF_SERVICE_DESCRIPTION]: "Terms of Service of SudoTV",
 };
