@@ -9,6 +9,7 @@ import * as React from "react";
 import { CacheableResponse } from "../../data/cache/definition";
 import { Breadcrumb, BreadcrumbElement } from "../breadcrumb/breadcrumb";
 import { CachedIndicator } from "../cache/cached-indicator";
+import { ContributeAnnotation, ContributeAnnotationConfig } from "../contribute/contribute-annotation";
 
 export type MainPageWrapperProps = {
 
@@ -16,8 +17,53 @@ export type MainPageWrapperProps = {
 
     readonly breadcrumbElements?: BreadcrumbElement[];
     readonly cacheableResponse?: CacheableResponse<any>;
+    readonly contributeAnnotation?: ContributeAnnotationConfig;
 
     readonly children?: React.ReactNode;
+};
+
+const Tail: React.FC<MainPageWrapperProps> = (props: MainPageWrapperProps) => {
+
+    if (props.cacheableResponse && props.contributeAnnotation) {
+
+        return (<div
+            className="flex flex-wrap items-start justify-between px-4 py-2 mx-auto w-full max-w-screen-xl"
+        >
+            <ContributeAnnotation
+                config={props.contributeAnnotation}
+                locale={props.locale}
+            />
+            <CachedIndicator
+                cacheableResponse={props.cacheableResponse}
+                locale={props.locale}
+                reversed
+            />
+        </div>);
+    }
+
+    if (props.cacheableResponse) {
+        return (<div
+            className="w-full mx-auto max-w-screen-xl px-4 py-2"
+        >
+            <CachedIndicator
+                cacheableResponse={props.cacheableResponse}
+                locale={props.locale}
+            />
+        </div>);
+    }
+
+    if (props.contributeAnnotation) {
+        return (<div
+            className="w-full mx-auto max-w-screen-xl px-4 py-2"
+        >
+            <ContributeAnnotation
+                config={props.contributeAnnotation}
+                locale={props.locale}
+            />
+        </div>);
+    }
+
+    return null;
 };
 
 export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageWrapperProps) => {
@@ -34,15 +80,8 @@ export const MainPageWrapper: React.FC<MainPageWrapperProps> = (props: MainPageW
         >
             {props.children}
         </main>
-        {props.cacheableResponse
-            ? <div
-                className="w-full mx-auto max-w-screen-xl px-4 py-2"
-            >
-                <CachedIndicator
-                    cacheableResponse={props.cacheableResponse}
-                    locale={props.locale}
-                />
-            </div>
-            : null}
+        <Tail
+            {...props}
+        />
     </React.Fragment>);
 };

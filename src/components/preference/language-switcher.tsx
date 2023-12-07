@@ -37,9 +37,12 @@ export const LocaleSwitcher: React.FC = () => {
     return (
         <select
             title="Language-Select"
-            className="mb-2 text-sm rounded-lg w-full p-2"
+            className="mb-2 text-sm rounded-lg w-full p-2 border cursor-pointer border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 text-gray-600 dark:text-gray-400"
             value={currentLocale}
-            onChange={(event) => {
+            onChange={(
+                event: React.ChangeEvent<HTMLSelectElement>,
+            ) => {
+
                 const newLocale: string = event.target.value;
                 if (!verifyIETFLocale(newLocale)) {
                     return;

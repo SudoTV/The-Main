@@ -14,6 +14,8 @@ export type CachedIndicatorProps = {
 
     readonly cacheableResponse: CacheableResponse<any>;
     readonly locale: IETF_LOCALE;
+
+    readonly reversed?: boolean;
 };
 
 export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedIndicatorProps) => {
@@ -43,42 +45,64 @@ export const CachedIndicator: React.FC<CachedIndicatorProps> = (props: CachedInd
             return (<div
                 className={divClasses.join(" ")}
             >
-                <span
-                    className="flex w-3 h-3 me-2 bg-green-300 rounded-full"
-                />
+                {props.reversed
+                    ? null
+                    : <span
+                        className="flex w-3 h-3 me-2 bg-green-300 rounded-full"
+                    />}
                 <span
                     title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_FULLY_CACHED)}
                 </span>
+                {props.reversed
+                    ? <span
+                        className="flex w-3 h-3 ms-2 bg-green-300 rounded-full"
+                    />
+                    : null}
             </div>);
         }
         case CACHED_TYPE.PARTIAL: {
             return (<div
                 className={divClasses.join(" ")}
             >
-                <span
-                    className="flex w-3 h-3 me-2 bg-blue-300 rounded-full"
-                />
+                {props.reversed
+                    ?
+                    null
+                    : <span
+                        className="flex w-3 h-3 me-2 bg-blue-300 rounded-full"
+                    />}
                 <span
                     title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_PARTIALLY_CACHED)}
                 </span>
+                {props.reversed
+                    ? <span
+                        className="flex w-3 h-3 ms-2 bg-blue-300 rounded-full"
+                    />
+                    : null}
             </div>);
         }
         case CACHED_TYPE.NONE: {
             return (<div
                 className={divClasses.join(" ")}
             >
-                <span
-                    className="flex w-3 h-3 me-2 bg-yellow-300 rounded-full"
-                />
+                {props.reversed
+                    ? null
+                    : <span
+                        className="flex w-3 h-3 me-2 bg-yellow-300 rounded-full"
+                    />}
                 <span
                     title={cachedComponentsText}
                 >
                     {format.get(CACHE_PROFILE.THIS_PAGE_IS_NOT_CACHED)}
                 </span>
+                {props.reversed
+                    ? <span
+                        className="flex w-3 h-3 ms-2 bg-yellow-300 rounded-full"
+                    />
+                    : null}
             </div>);
         }
     }
