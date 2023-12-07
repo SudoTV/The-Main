@@ -1,0 +1,35 @@
+import { ContributeAnnotation } from "../../../components/contribute/contribute-annotation";
+
+# 改进剧集内容和元数据
+
+## 使用网页编辑器
+
+SudoTV 剧集的内容和元数据都在 `SudoTV Series DB` 仓库中：
+
+- [SudoTV-Series-DB](https://github.com/SudoTV/SudoTV-Series-DB)
+
+你可以直接在网页编辑器中编辑内容和元数据。
+
+对于使用 SudoTV Series DB 仓库中的内容渲染的页面，你可能会在页面底部看到这样的信息：
+
+<ContributeAnnotation
+    config={{
+        repository: {
+            platform: "GITHUB",
+            owner: "SudoTV",
+            repository: "The-Main",
+        },
+        branch: "main",
+
+        paths: [
+            "src",
+            "dictionary",
+            "contribute",
+            "series",
+            "zh-CN.mdx",
+        ],
+    }}
+    locale="zh-CN"
+/>
+
+点击链接进入编辑页面。你将被重定向到仓库的网页编辑器。你可能需要一个账号才能编辑内容。如果你没有账号，你可以免费创建一个。

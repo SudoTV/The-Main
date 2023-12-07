@@ -1,0 +1,34 @@
+import { ContributeAnnotation } from "../../../components/contribute/contribute-annotation";
+
+# Improve Series Content and Metadata 
+
+## With web editor
+
+The content and metadata of SudoTV series are under the `SudoTV Series DB` repository:
+
+- [SudoTV-Series-DB](https://github.com/SudoTV/SudoTV-Series-DB)
+
+You can edit the content and metadata directly on the web editor. 
+
+For pages rendered with content under SudoTV Series DB repository, you may notice a footer message on each page of our side. Which shows something like this:
+
+<ContributeAnnotation
+    config={{
+        repository: {
+            platform: "GITHUB",
+            owner: "SudoTV",
+            repository: "The-Main",
+        },
+        branch: "main",
+        paths: [
+            "src",
+            "dictionary",
+            "contribute",
+            "series",
+            "en-US.mdx",
+        ],
+    }}
+    locale="en-US"
+/>
+
+Client on the link to edit the currently displayed page. You will be redirected to the repository web editor. You may need a account in order to edit the content. If you don't have one, you can create one for free.
