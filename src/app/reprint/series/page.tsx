@@ -1,9 +1,10 @@
 /**
  * @author WMXPY
- * @namespace Reprint_Series_Series
+ * @namespace Reprint_Series
  * @description Page
  */
 
+import { createTheMainDictionaryRepositoryConfig } from "../../../components/contribute/repositories";
 import { MDXLocaleSwitcher } from "../../../components/mdx/locale-switcher";
 import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
 import { reprintInternationalization } from "../../../dictionary/reprint/_intl";
@@ -18,25 +19,30 @@ type Props = {
 
 export default async function Page(props: Props) {
 
-  const locale = useLocale();
-  const format = reprintInternationalization.format(locale);
+    const locale = useLocale();
+    const format = reprintInternationalization.format(locale);
 
-  return (<MainPageWrapper
-    locale={locale}
-    breadcrumbElements={[
-      {
-        name: format.get(REPRINT_PROFILE.REPRINT),
-        href: HrefConfig.withinSite(locale, "reprint"),
-      },
-      {
-        name: format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT),
-        href: HrefConfig.withinSite(locale, "reprint", "series"),
-      },
-    ]}
-  >
-    <MDXLocaleSwitcher
-      zh-CN={ChineseSimplified}
-      en-US={EnglishUnitedStates}
-    />
-  </MainPageWrapper>);
+    return (<MainPageWrapper
+        locale={locale}
+        breadcrumbElements={[
+            {
+                name: format.get(REPRINT_PROFILE.REPRINT),
+                href: HrefConfig.withinSite(locale, "reprint"),
+            },
+            {
+                name: format.get(REPRINT_PROFILE.SERIES_CODE_AND_CONTENT),
+                href: HrefConfig.withinSite(locale, "reprint", "series"),
+            },
+        ]}
+        contributeAnnotation={createTheMainDictionaryRepositoryConfig(
+            "reprint",
+            "series",
+            `${locale}.mdx`,
+        )}
+    >
+        <MDXLocaleSwitcher
+            zh-CN={ChineseSimplified}
+            en-US={EnglishUnitedStates}
+        />
+    </MainPageWrapper>);
 };

@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Privacy_Series
+ * @namespace Reprint_Sites
  * @description Layout
  */
 
