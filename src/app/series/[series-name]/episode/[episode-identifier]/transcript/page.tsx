@@ -6,6 +6,7 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
+import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
@@ -92,6 +93,13 @@ export default async function Page(props: Props) {
                 },
             ]}
             cacheableResponse={rawMarkdown}
+            contributeAnnotation={createSeriesDBRepositoryConfig(
+                "series",
+                series.data.identifier,
+                "transcripts",
+                episode.identifier,
+                `${locale}.md`,
+            )}
         >
             <MarkdownWrapper
                 locale={locale}

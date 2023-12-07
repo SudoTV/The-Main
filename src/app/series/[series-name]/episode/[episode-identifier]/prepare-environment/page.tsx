@@ -6,6 +6,7 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
+import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
 import { SeriesEpisodePrepareEnvironmentArticle } from "../../../../../../components/series/prepare-environment/article";
 import { Description1 } from "../../../../../../components/typography/description-1";
 import { Header1 } from "../../../../../../components/typography/header-1";
@@ -77,6 +78,11 @@ export default async function Page(props: Props) {
                 },
             ]}
             cacheableResponse={series}
+            contributeAnnotation={createSeriesDBRepositoryConfig(
+                "series",
+                series.data.identifier,
+                "metadata.yml",
+            )}
         >
             <Section>
                 {series.data.original

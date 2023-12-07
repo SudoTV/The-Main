@@ -4,6 +4,7 @@
  * @description Page
  */
 
+import { createSeriesDBRepositoryConfig } from "../../components/contribute/repositories";
 import { SeriesCard } from "../../components/series/series-card/series-card";
 import { Description1 } from "../../components/typography/description-1";
 import { Header1 } from "../../components/typography/header-1";
@@ -37,6 +38,9 @@ export default async function Page(_props: Props) {
             },
         ]}
         cacheableResponse={series}
+        contributeAnnotation={createSeriesDBRepositoryConfig(
+            "series",
+        )}
     >
         <div
             className="w-full"
