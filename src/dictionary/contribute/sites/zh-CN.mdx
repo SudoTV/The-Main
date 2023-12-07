@@ -1,0 +1,40 @@
+import { ContributeAnnotation } from "../../../components/contribute/contribute-annotation";
+
+# 改进 SudoTV 主函数网站
+
+## 使用网页编辑器
+
+SudoTV 主函数网站的内容和源代码都被放置在 SudoTV The Main 仓库中：
+
+- [The-Main](https://github.com/SudoTV/TheMain)
+
+你可以直接在网页编辑器中编辑内容和元数据。
+
+对于网站中使用静态文档渲染的页面，你可能会在页面底部看到这样的信息：
+
+<ContributeAnnotation
+    config={{
+        repository: {
+            platform: "GITHUB",
+            owner: "SudoTV",
+            repository: "The-Main",
+        },
+        branch: "main",
+        
+        paths: [
+            "src",
+            "dictionary",
+            "contribute",
+            "series",
+            "zh-CN.mdx",
+        ],
+    }}
+    locale="zh-CN"
+/>
+
+点击链接进入编辑页面。你将被重定向到仓库的网页编辑器。你可能需要一个账号才能编辑内容。如果你没有账号，你可以免费创建一个。
+
+## 本地开发
+
+您可以访问，Fork 并且提交 pull request 来添加或者修改 SudoTV 主函数网站。启动项目和本地开发的指南可以在 `docs/README.md` 中找到。
+
