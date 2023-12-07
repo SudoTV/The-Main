@@ -9,7 +9,8 @@ import * as React from "react";
 import { CacheableResponse } from "../../data/cache/definition";
 import { Breadcrumb, BreadcrumbElement } from "../breadcrumb/breadcrumb";
 import { CachedIndicator } from "../cache/cached-indicator";
-import { ContributeAnnotation, ContributeAnnotationConfig } from "../contribute/contribute-annotation";
+import { ContributeAnnotation } from "../contribute/contribute-annotation";
+import { ContributeAnnotationConfig } from "../contribute/repositories";
 
 export type MainPageWrapperProps = {
 
