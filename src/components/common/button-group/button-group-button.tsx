@@ -16,7 +16,7 @@ export type ButtonGroupButtonProps = {
 
 export const ButtonGroupButton: React.FC<ButtonGroupButtonProps> = (props: ButtonGroupButtonProps) => {
 
-    let buttonClasses: string = "px-2 py-2 text-gray-900 first:border last:border border-t border-b border-gray-900 first:rounded-s-lg last:rounded-e-lg focus:z-10 focus:ring-2 dark:border-white";
+    let buttonClasses: string = "px-2 py-2 text-gray-900 first:border last:border border-t border-b border-gray-300 first:rounded-s-lg last:rounded-e-lg focus:z-10 focus:ring-2 dark:border-gray-700";
 
     buttonClasses += " ";
     if (props.activated) {

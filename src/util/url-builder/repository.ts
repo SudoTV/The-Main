@@ -4,26 +4,26 @@
  * @description Repository
  */
 
-import { SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM, SoftwareEngineeringSeriesRepositoryEntity } from "../../data/definition/series/software-engineering";
+import { REPOSITORY_PLATFORM, RepositoryEntity } from "../../data/definition/repository/repository";
 
 export const buildRepositoryUrl = (
-    repository: SoftwareEngineeringSeriesRepositoryEntity,
+    repository: RepositoryEntity,
 ): string => {
 
     switch (repository.platform) {
-        case SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM.GITHUB:
+        case REPOSITORY_PLATFORM.GITHUB:
             return `https://github.com/${repository.owner}/${repository.repository}`;
     }
     return "";
 };
 
 export const buildRepositoryForkUrl = (
-    repository: SoftwareEngineeringSeriesRepositoryEntity,
+    repository: RepositoryEntity,
     newOwner: string,
 ): string => {
 
     switch (repository.platform) {
-        case SOFTWARE_ENGINEERING_SERIES_REPOSITORY_PLATFORM.GITHUB:
+        case REPOSITORY_PLATFORM.GITHUB:
             return `https://github.com/${newOwner}/${repository.repository}`;
     }
     return "";

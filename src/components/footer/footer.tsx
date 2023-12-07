@@ -36,46 +36,28 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                 <div className="grid grid-cols-2 gap-8 px-4 py-2 lg:py-4 md:grid-cols-4">
                     <div>
                         <h2 className="mb-4 sm:mb-6 text-sm font-semibold text-gray-900 dark:text-white">
-                            SudoTV © 2018-2024
+                            SudoTV
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
-                            <li className="mb-1 sm:mb-2">
-                                <Link
-                                    href="/about"
-                                    className=" hover:underline"
+                            <li className="mb-4">
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "about",
+                                    )}
                                 >
                                     {format.get(FOOTER_PROFILE.ABOUT_US)}
-                                </Link>
+                                </HrefLink>
                             </li>
-                            <li className="mb-1 sm:mb-2">
-                                <div
-                                    className="w-full flex gap-2"
+                            <li className="mb-4">
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "contribute",
+                                    )}
                                 >
-                                    <Link
-                                        href="https://github.com/SudoTV"
-                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                                    >
-                                        <IoLogoGithub
-                                            size={24}
-                                        />
-                                    </Link>
-                                    <Link
-                                        href="https://github.com/SudoTV"
-                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                                    >
-                                        <SiDiscord
-                                            size={24}
-                                        />
-                                    </Link>
-                                    <Link
-                                        href="https://github.com/SudoTV"
-                                        className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                                    >
-                                        <FaTelegramPlane
-                                            size={24}
-                                        />
-                                    </Link>
-                                </div>
+                                    {format.get(FOOTER_PROFILE.CONTRIBUTE)}
+                                </HrefLink>
                             </li>
                         </ul>
                     </div>
@@ -85,12 +67,14 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
                             <li className="mb-4">
-                                <Link
-                                    href="#"
-                                    className="hover:underline"
+                                <HrefLink
+                                    href={HrefConfig.withinSite(
+                                        props.locale,
+                                        "contact",
+                                    )}
                                 >
                                     {format.get(FOOTER_PROFILE.CONTACT_US)}
-                                </Link>
+                                </HrefLink>
                             </li>
                             <li className="mb-4">
                                 <HrefLink
@@ -144,6 +128,49 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div
+                    className="w-full flex px-4 pb-2 items-center justify-between flex-wrap"
+                >
+                    <div
+                        className="flex gap-2"
+                    >
+                        <Link
+                            href="https://github.com/SudoTV"
+                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                        >
+                            <IoLogoGithub
+                                size={24}
+                            />
+                        </Link>
+                        <Link
+                            href="https://github.com/SudoTV"
+                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                        >
+                            <SiDiscord
+                                size={24}
+                            />
+                        </Link>
+                        <Link
+                            href="https://github.com/SudoTV"
+                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                        >
+                            <FaTelegramPlane
+                                size={24}
+                            />
+                        </Link>
+                    </div>
+                    <div
+                        className="flex gap-2 items-center"
+                    >
+                        <div className="font-semibold text-gray-900 dark:text-white">
+                            {">"}
+                        </div>
+                        <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                            © 2018-2024
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </footer>

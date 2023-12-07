@@ -15,6 +15,12 @@ export const profile_metadata_en_US: PROFILE<METADATA_PROFILE> = {
     [METADATA_PROFILE.ALL_EPISODES_TITLE]: "All Episodes",
     [METADATA_PROFILE.ALL_EPISODES_DESCRIPTION]: "All Episodes",
 
+    [METADATA_PROFILE.CONTACT_TITLE]: "Contact",
+    [METADATA_PROFILE.CONTACT_DESCRIPTION]: "Contact SudoTV",
+
+    [METADATA_PROFILE.CONTRIBUTE_TITLE]: "Contribute",
+    [METADATA_PROFILE.CONTRIBUTE_DESCRIPTION]: "Contribute to SudoTV",
+
     [METADATA_PROFILE.INDEX_TITLE]: "SudoTV the Main",
     [METADATA_PROFILE.INDEX_DESCRIPTION]: "Welcome to SudoTV, we dedicated to providing educational and fun content to learn programming and software engineering.",
 

@@ -14,6 +14,8 @@ export type PowerLinkProps = {
 
     readonly href: HrefConfig;
     readonly children?: React.ReactNode;
+
+    readonly noIcon?: boolean;
 };
 
 export const PowerLink: React.FC<PowerLinkProps> = (props: PowerLinkProps) => {
@@ -26,9 +28,11 @@ export const PowerLink: React.FC<PowerLinkProps> = (props: PowerLinkProps) => {
             <span>
                 {props.children}
             </span>
-            {props.href.external
-                ? <BiLinkExternal />
-                : <IoArrowForwardOutline />}
+            {props.noIcon
+                ? null
+                : props.href.external
+                    ? <BiLinkExternal />
+                    : <IoArrowForwardOutline />}
         </Link>
     );
 };
