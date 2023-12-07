@@ -33,6 +33,8 @@ export const HrefLink: React.FC<HrefLinkProps> = (props: HrefLinkProps) => {
     return (
         <Link
             href={props.href.href}
+            rel={props.href.external ? "noopener noreferrer" : undefined}
+            target={props.href.external ? "_blank" : undefined}
             className={classes.join(" ")}
         >
             {props.children}

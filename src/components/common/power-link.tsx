@@ -23,6 +23,8 @@ export const PowerLink: React.FC<PowerLinkProps> = (props: PowerLinkProps) => {
     return (
         <Link
             href={props.href.href}
+            rel={props.href.external ? "noopener noreferrer" : undefined}
+            target={props.href.external ? "_blank" : undefined}
             className="inline-flex hover:underline items-center gap-2 text-blue-500 dark:text-blue-300"
         >
             <span>
