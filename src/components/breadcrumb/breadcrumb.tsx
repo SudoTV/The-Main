@@ -33,7 +33,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (props: BreadcrumbProps) =>
             <li className="inline-flex items-center">
                 <HrefLink
                     href={HrefConfig.withinSite(props.locale)}
-                    className="inline-flex items-center text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                    className="inline-flex items-center text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition-colors">
                     <IoHome
                         size={18}
                     />
@@ -66,7 +66,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (props: BreadcrumbProps) =>
                         </span>
                         : <HrefLink
                             href={element.href}
-                            className="text-medium font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+                            className="text-medium font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition-colors"
                         >
                             <span>{element.name}</span>
                         </HrefLink>}

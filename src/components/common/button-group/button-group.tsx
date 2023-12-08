@@ -15,7 +15,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props: ButtonGroupProps)
 
     return (
         <div
-            className="inline-flex rounded-md shadow-sm w-full justify-start"
+            className="inline-flex rounded-md w-full justify-start"
             role="group"
         >
             {props.children}
