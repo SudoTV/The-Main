@@ -282,14 +282,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/next-on-pages@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "@cloudflare/next-on-pages@npm:1.8.1"
+"@cloudflare/next-on-pages@npm:^1.8.2":
+  version: 1.8.2
+  resolution: "@cloudflare/next-on-pages@npm:1.8.2"
   dependencies:
     acorn: "npm:^8.8.0"
     ast-types: "npm:^0.14.2"
     chalk: "npm:^5.2.0"
     chokidar: "npm:^3.5.3"
+    commander: "npm:^11.1.0"
     cookie: "npm:^0.5.0"
     esbuild: "npm:^0.15.3"
     js-yaml: "npm:^4.1.0"
@@ -297,14 +298,12 @@ __metadata:
     package-manager-manager: "npm:^0.2.0"
     pcre-to-regexp: "npm:^1.1.0"
     semver: "npm:^7.5.2"
-    zod: "npm:^3.22.4"
-    zodcli: "npm:^0.0.4"
   peerDependencies:
     vercel: ">=30.0.0"
     wrangler: ^3.0.0
   bin:
     next-on-pages: bin/index.js
-  checksum: 1e84892640068d599df4b77fa18dfa5b614b130d85de746f54f29b4c9be3baa64818b92fff0464b15f8c07947f73b460d26e815a8b2e195f1ed8741cbd71d198
+  checksum: 944206d64d4fe5a21bd6063db77ef5cdb16e004c161907d3ae2770240cf5d2c9a06907630f1b18328493d37e301c97b91471fb8b7327d350c9e9009efa161984
   languageName: node
   linkType: hard
 
@@ -1991,6 +1990,13 @@ __metadata:
   version: 2.0.3
   resolution: "comma-separated-tokens@npm:2.0.3"
   checksum: 91f90f1aae320f1755d6957ef0b864fe4f54737f3313bd95e0802686ee2ca38bff1dd381964d00ae5db42912dd1f4ae5c2709644e82706ffc6f6842a813cdd67
+  languageName: node
+  linkType: hard
+
+"commander@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "commander@npm:11.1.0"
+  checksum: 13cc6ac875e48780250f723fb81c1c1178d35c5decb1abb1b628b3177af08a8554e76b2c0f29de72d69eef7c864d12613272a71fabef8047922bc622ab75a179
   languageName: node
   linkType: hard
 
@@ -7304,7 +7310,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "the-main@workspace:."
   dependencies:
-    "@cloudflare/next-on-pages": "npm:^1.8.1"
+    "@cloudflare/next-on-pages": "npm:^1.8.2"
     "@formatjs/intl-localematcher": "npm:^0.5.2"
     "@mdx-js/loader": "npm:^3.0.0"
     "@mdx-js/react": "npm:^3.0.0"
@@ -7585,16 +7591,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.5":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 5f6cad2e728a8a063521328e612d7876e12f0d8a8390d3b3aaa452a6a65e24e9ac8ea22beb72a924fd96ea0a49ea63bb4e251fb922b12eedfb7f7a26475e5c56
-  languageName: node
-  linkType: hard
-
 "typescript@npm:^5.3.3":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
@@ -7602,16 +7598,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: e33cef99d82573624fc0f854a2980322714986bc35b9cb4d1ce736ed182aeab78e2cb32b385efa493b2a976ef52c53e20d6c6918312353a91850e2b76f1ea44f
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^4.9.5#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
   languageName: node
   linkType: hard
 
@@ -8244,21 +8230,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.20.6, zod@npm:^3.22.4":
+"zod@npm:^3.20.6":
   version: 3.22.4
   resolution: "zod@npm:3.22.4"
   checksum: 7578ab283dac0eee66a0ad0fc4a7f28c43e6745aadb3a529f59a4b851aa10872b3890398b3160f257f4b6817b4ce643debdda4fb21a2c040adda7862cab0a587
-  languageName: node
-  linkType: hard
-
-"zodcli@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "zodcli@npm:0.0.4"
-  dependencies:
-    typescript: "npm:^4.9.5"
-  peerDependencies:
-    zod: ^3.21.4
-  checksum: 1fe6394a5a9a07e03bfe2be65d8dfe589a0b4c725e76c76e7178411fb84927bb89a7d4010e4e7bcf478617e6ea96c4dd5b98aa215eee61193635052723beb449
   languageName: node
   linkType: hard
 
