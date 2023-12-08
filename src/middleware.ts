@@ -15,70 +15,77 @@ const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 
 function getLocale(request: NextRequest): string | undefined {
 
-  const preferredLocaleCookie: Optional<string> =
-    Optional.ofUndefinable(
-      request.cookies.get(PREFERRED_LOCALE_COOKIE)?.value,
+    const preferredLocaleCookie: Optional<string> =
+        Optional.ofUndefinable(
+            request.cookies.get(PREFERRED_LOCALE_COOKIE)?.value,
+        );
+
+    if (preferredLocaleCookie.exists
+        && SUPPORTED_LOCALES.includes(
+            preferredLocaleCookie.getOrThrow() as IETF_LOCALE,
+        )
+    ) {
+        return preferredLocaleCookie.getOrThrow();
+    }
+
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+    const locales: IETF_LOCALE[] = i18nConfiguration.locales;
+
+    let languages = new Negotiator({
+        headers: negotiatorHeaders,
+    }).languages(
+        locales,
     );
 
-  if (preferredLocaleCookie.exists
-    && SUPPORTED_LOCALES.includes(
-      preferredLocaleCookie.getOrThrow() as IETF_LOCALE,
-    )
-  ) {
-    return preferredLocaleCookie.getOrThrow();
-  }
-
-  const negotiatorHeaders: Record<string, string> = {};
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-
-  const locales: IETF_LOCALE[] = i18nConfiguration.locales;
-
-  let languages = new Negotiator({
-    headers: negotiatorHeaders,
-  }).languages(
-    locales,
-  );
-
-  const locale = matchLocale(languages, locales, i18nConfiguration.defaultLocale);
-  return locale;
+    const locale = matchLocale(languages, locales, i18nConfiguration.defaultLocale);
+    return locale;
 }
 
 export function middleware(request: NextRequest) {
 
+    const pathname: string = request.nextUrl.pathname;
+    const search: string = request.nextUrl.search;
 
-  const pathname: string = request.nextUrl.pathname;
-  const search: string = request.nextUrl.search;
+    const pathnameIsMissingLocale = i18nConfiguration.locales.every(
+        (locale: IETF_LOCALE) => {
 
-  const pathnameIsMissingLocale = i18nConfiguration.locales.every(
-    (locale: IETF_LOCALE) => {
+            return !pathname.startsWith(`/${locale}/`)
+                && pathname !== `/${locale}`;
+        },
+    );
 
-      return !pathname.startsWith(`/${locale}/`)
-        && pathname !== `/${locale}`;
-    },
-  );
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-url", request.url);
 
-  if (pathnameIsMissingLocale) {
+    if (pathname.endsWith("/opengraph-image/")) {
+        return NextResponse.next({
+            request: {
+                headers: requestHeaders,
+            },
+        });
+    }
 
-    const locale = getLocale(request);
+    if (pathnameIsMissingLocale) {
 
-    return NextResponse.redirect(new URL(
-      `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}${search}`,
-      request.url,
-    ));
-  }
+        const locale = getLocale(request);
 
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-url", request.url);
+        return NextResponse.redirect(new URL(
+            `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}${search}`,
+            request.url,
+        ));
+    }
 
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+    return NextResponse.next({
+        request: {
+            headers: requestHeaders,
+        },
+    });
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+    matcher: [
+        "/((?!api|_next/static|_next/image|icon|opengraph-image|favicon.ico|manifest.webmanifest|robots.txt).*)",
+    ],
 };
