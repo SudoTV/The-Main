@@ -5,6 +5,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { LayoutFooter } from "../components/footer/footer";
 import { LayoutHeader } from "../components/header/header";
 import { metadataInternationalization } from "../dictionary/metadata/_intl";
@@ -50,12 +51,13 @@ export default function RootLayout(props: {
             <LayoutFooter
                 locale={locale}
             />
-            <script
+            <Script
+                id="cf-beacon-script"
                 defer
                 src='https://static.cloudflareinsights.com/beacon.min.js'
                 data-cf-beacon='{"token": "08dd09da202e470fb7f75d6d170e2d37"}'
             >
-            </script>
+            </Script>
         </body>
     </html>);
 }
