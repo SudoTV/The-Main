@@ -61,7 +61,7 @@
     "nyc": "^15.1.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "browser": {
