@@ -32,5 +32,9 @@ export const WelcomeCode: React.FC = () => {
 
     const RandomComponent: React.FC = codeOptions[Math.floor(Math.random() * codeOptions.length)];
 
-    return (<RandomComponent />);
+    return (
+        <pre>
+            <RandomComponent />
+        </pre>
+    );
 };
