@@ -24,4 +24,7 @@ export const profile_contribute_en_US: PROFILE<CONTRIBUTE_PROFILE> = {
     [CONTRIBUTE_PROFILE.IMPROVE_THIS_PAGE]: "Improve this page",
 
     [CONTRIBUTE_PROFILE.GITHUB_REPOSITORY]: "GitHub Repository",
+
+    [CONTRIBUTE_PROFILE.UNDERSTAND_HOW_TO_CONTRIBUTE]: "Understand How to Contribute",
+    [CONTRIBUTE_PROFILE.UNDERSTAND_HOW_TO_CONTRIBUTE_DESCRIPTION]: "Learn how to add your brilliant idea to SudoTV",
 };

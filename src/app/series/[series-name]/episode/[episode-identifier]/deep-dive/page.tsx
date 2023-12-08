@@ -1,15 +1,17 @@
 /**
  * @author WMXPY
- * @namespace Series_SeriesName_Episode_EpisodeIdentifier_PrepareEnvironment
+ * @namespace Series_SeriesName_Episode_EpisodeIdentifier_DeepDive
  * @description Page
  */
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
 import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
-import { SeriesEpisodePrepareEnvironmentArticle } from "../../../../../../components/series/prepare-environment/article";
+import { SeriesDeepDiveEpisodePractices } from "../../../../../../components/series/deep-dive/episode-practices";
 import { SeriesTitleSection } from "../../../../../../components/series/title/series-title-section";
+import { Header2 } from "../../../../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
+import { Section } from "../../../../../../components/typography/section";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
@@ -71,8 +73,8 @@ export default async function Page(props: Props) {
                     href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier),
                 },
                 {
-                    name: seriesFormat.get(SERIES_PROFILE.PREPARE_ENVIRONMENT),
-                    href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "prepare-environment"),
+                    name: seriesFormat.get(SERIES_PROFILE.DEEP_DIVE),
+                    href: HrefConfig.withinSite(locale, "series", series.data.identifier, "episode", episode.identifier, "deep-dive"),
                 },
             ]}
             cacheableResponse={series}
@@ -86,10 +88,15 @@ export default async function Page(props: Props) {
                 series={series.data}
                 locale={locale}
             />
-            <SeriesEpisodePrepareEnvironmentArticle
-                series={series.data as SeriesEntity<SERIES_TYPE.SOFTWARE_ENGINEERING>}
-                episode={episode as EpisodeEntity<EPISODE_TYPE.CODING>}
-            />
+            <Section>
+                <Header2>
+                    {seriesFormat.get(SERIES_PROFILE.PRACTICES)}
+                </Header2>
+                <SeriesDeepDiveEpisodePractices
+                    episode={episode}
+                    locale={locale}
+                />
+            </Section>
         </MainPageWrapper>
     );
 };

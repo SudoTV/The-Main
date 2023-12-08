@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Series_SeriesName_Episode_EpisodeIdentifier_PrepareEnvironment
+ * @namespace Series_SeriesName_Episode_EpisodeIdentifier_DeepDive
  * @description Layout
  */
 
