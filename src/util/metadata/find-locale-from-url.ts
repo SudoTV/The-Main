@@ -1,12 +1,12 @@
 /**
  * @author WMXPY
- * @namespace I18N
+ * @namespace Util_Metadata
  * @description Find Locale From URL
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
-import { SUPPORTED_LOCALES } from "./config";
+import { SUPPORTED_LOCALES } from "../../i18n/config";
 
 export const findLocaleFromReferer = (referer: string): Optional<IETF_LOCALE> => {
 

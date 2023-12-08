@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace I18N
- * @description Find Locale From Header
+ * @namespace Util_Metadata
+ * @description Find Locale From Headers
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";

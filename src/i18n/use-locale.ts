@@ -9,8 +9,8 @@ import { Optional } from "@sudoo/optional";
 import { headers } from "next/headers";
 import { cache } from "react";
 import { logger } from "../util/log";
+import { findLocaleFromHeaders } from "../util/metadata/find-locale-from-headers";
 import { DEFAULT_LOCALE } from "./config";
-import { findLocaleFromHeaders } from "./find-locale-from-headers";
 
 export const useLocale = cache((): IETF_LOCALE => {
 
