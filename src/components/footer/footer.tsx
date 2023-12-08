@@ -5,7 +5,6 @@
 */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import Link from "next/link";
 import * as React from "react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
@@ -16,6 +15,7 @@ import { HrefConfig } from "../../util/href";
 import { HrefLink } from "../common/href-link";
 import { LocaleSwitcher } from "../preference/language-switcher";
 import { ThemeSwitch } from "../preference/theme-switch";
+import { LayoutFooterLinkIcon } from "./icon/link-icon";
 
 export type LayoutFooterProps = {
 
@@ -133,32 +133,20 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                     className="w-full flex px-4 pb-2 items-center justify-between flex-wrap"
                 >
                     <div
-                        className="flex gap-2"
+                        className="flex gap-2 sm:gap-3"
                     >
-                        <Link
-                            href="https://github.com/SudoTV"
-                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                        >
-                            <IoLogoGithub
-                                size={24}
-                            />
-                        </Link>
-                        <Link
-                            href="https://github.com/SudoTV"
-                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                        >
-                            <SiDiscord
-                                size={24}
-                            />
-                        </Link>
-                        <Link
-                            href="https://github.com/SudoTV"
-                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-1 lg:px-2 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                        >
-                            <FaTelegramPlane
-                                size={24}
-                            />
-                        </Link>
+                        <LayoutFooterLinkIcon
+                            href={HrefConfig.external("https://github.com/SudoTV")}
+                            icon={IoLogoGithub}
+                        />
+                        <LayoutFooterLinkIcon
+                            href={HrefConfig.external("https://discord.gg/Mr8dPdQ4")}
+                            icon={SiDiscord}
+                        />
+                        <LayoutFooterLinkIcon
+                            href={HrefConfig.external("https://t.me/sudotv")}
+                            icon={FaTelegramPlane}
+                        />
                     </div>
                     <div
                         className="flex gap-2 items-center"

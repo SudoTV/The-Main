@@ -8,6 +8,7 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { HrefConfig } from "../../util/href";
 import { HrefLink } from "../common/href-link";
+import { BiSolidChevronRight } from "react-icons/bi";
 
 export type LayoutHeaderProps = {
 
@@ -31,11 +32,13 @@ export const LayoutHeader: React.FC<LayoutHeaderProps> = (props: LayoutHeaderPro
                         className="flex items-center hover:bg-gray-300 dark:hover:bg-gray-700 rounded-md px-3 py-1 active:bg-gray-400 dark:active:bg-gray-600 transition-colors"
                         noUnderline
                     >
-                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                            {">"}&nbsp;
+                        <span className="self-center dark:text-white mr-1">
+                            <BiSolidChevronRight
+                                size={24}
+                            />
                         </span>
                         <span
-                            className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+                            className="self-center text-xl font-semibold whitespace-nowrap dark:text-white mr-1"
                         >
                             SudoTV
                         </span>
