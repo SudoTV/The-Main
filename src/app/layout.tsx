@@ -11,16 +11,23 @@ import { metadataInternationalization } from "../dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "../dictionary/metadata/_profile";
 import { useLocale } from "../i18n/use-locale";
 import "../styles/globals.css";
+import { generateAlternates } from "../util/metadata/generate-alternates";
+import { generateMetadataBase } from "../util/metadata/generate-metadata-base";
 
 export const runtime = "edge";
 
 export async function generateMetadata(): Promise<Metadata> {
+
+    const metadataBase = generateMetadataBase();
+    const alternates = generateAlternates();
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const locale: IETF_LOCALE = useLocale();
     const profile = metadataInternationalization.format(locale);
 
     return {
+        metadataBase,
+        alternates,
         title: profile.get(METADATA_PROFILE.INDEX_TITLE),
         description: profile.get(METADATA_PROFILE.INDEX_DESCRIPTION),
     };
@@ -33,7 +40,7 @@ export default function RootLayout(props: {
     const locale: IETF_LOCALE = useLocale();
 
     return (<html lang={locale}>
-        <body className="flex flex-col h-screen justify-between">
+        <body className="flex flex-col min-h-screen justify-between">
             <LayoutHeader
                 locale={locale}
             />

@@ -11,8 +11,7 @@ import { createSeriesDBRepositoryConfig } from "../../../components/contribute/r
 import { SeriesEpisodeCard } from "../../../components/series/episode/episode-card";
 import { SeriesResourceCards } from "../../../components/series/resource-card/resource-cards";
 import { SeriesProductSection } from "../../../components/series/sections/product-section";
-import { Description1 } from "../../../components/typography/description-1";
-import { Header1 } from "../../../components/typography/header-1";
+import { SeriesTitleSection } from "../../../components/series/title/series-title-section";
 import { Header2 } from "../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
 import { Section } from "../../../components/typography/section";
@@ -66,21 +65,10 @@ export default async function Page(props: Props) {
             "metadata.yml",
         )}
     >
-        <Section>
-            {series.data.original
-                ? <Description1
-                    noMargin
-                >
-                    {seriesFormat.get(SERIES_PROFILE.ORIGINAL_ANNOTATION)}
-                </Description1>
-                : null}
-            <Header1>
-                {series.data.title[locale]}
-            </Header1>
-            <Description1>
-                {series.data.description[locale]}
-            </Description1>
-        </Section>
+        <SeriesTitleSection
+            series={series.data}
+            locale={locale}
+        />
         <Section
             className="flex"
         >
