@@ -51,7 +51,7 @@ export const LocaleSwitcher: React.FC = () => {
                 router.replace(
                     redirectedPathName(pathName ?? "", newLocale),
                     {
-                        locale,
+                        scroll: false,
                     },
                 );
 
