@@ -1,16 +1,16 @@
 /**
  * @author WMXPY
- * @namespace I18N
+ * @namespace Util_Metadata
  * @description Find Locale From URL
  * @override Unit Test
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
-import { findLocaleFromReferer, findLocaleFromUrl } from "../../../src/i18n/find-locale-from-url";
-import { ExpectOptional } from "../../expect/optional";
+import { findLocaleFromReferer, findLocaleFromUrl } from "../../../../src/util/metadata/find-locale-from-url";
+import { ExpectOptional } from "../../../expect/optional";
 
-describe("Given I18N [Find Locale From Url Utils] Helper Methods", (): void => {
+describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): void => {
 
     describe("Given [findLocaleFromReferer] Helper Method", (): void => {
 
