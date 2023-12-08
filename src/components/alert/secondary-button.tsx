@@ -14,6 +14,8 @@ export type AlertSecondaryButtonProps = {
     readonly text: React.ReactNode;
 
     readonly type: ALERT_TYPE;
+
+    readonly onClick?: () => void;
 };
 
 const getClasses = (type: ALERT_TYPE): string => {
@@ -36,8 +38,9 @@ export const AlertSecondaryButton: React.FC<AlertSecondaryButtonProps> = (props:
 
     return (<button
         type="button"
-        className={`bg-transparent border focus:ring-4 font-medium rounded-lg text-xs px-3 py-1.5 text-center focus:outline-none ${getClasses(props.type)}}`}
+        className={`bg-transparent border focus:ring-4 font-medium rounded-md text-xs px-3 py-1.5 text-center focus:outline-none ${getClasses(props.type)}}`}
         aria-label="Close"
+        onClick={props.onClick}
     >
         {props.icon && <props.icon
             size={16}

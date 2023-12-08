@@ -14,6 +14,8 @@ export type AlertPrimaryButtonProps = {
     readonly text: React.ReactNode;
 
     readonly type: ALERT_TYPE;
+
+    readonly onClick?: () => void;
 };
 
 export const getClasses = (type: ALERT_TYPE): string => {
@@ -28,7 +30,7 @@ export const getClasses = (type: ALERT_TYPE): string => {
             return "text-white bg-red-800 hover:bg-red-900 focus:ring-red-200 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800";
         case ALERT_TYPE.INFO:
         default:
-            return "text-white bg-blue-800 hover:bg-blue-900 focus:ring-blue-200  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
+            return "text-white bg-blue-800 hover:bg-blue-900 focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
     }
 };
 
@@ -36,7 +38,8 @@ export const AlertPrimaryButton: React.FC<AlertPrimaryButtonProps> = (props: Ale
 
     return (<button
         type="button"
-        className={`focus:ring-4 focus:outline-none font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center ${getClasses(props.type)}`}
+        className={`focus:ring-4 focus:outline-none font-medium rounded-md text-xs px-3 py-1.5 me-2 text-center inline-flex items-center ${getClasses(props.type)}`}
+        onClick={props.onClick}
     >
         {props.icon && <props.icon
             size={16}

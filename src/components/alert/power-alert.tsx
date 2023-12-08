@@ -36,7 +36,7 @@ const getClasses = (type: ALERT_TYPE): string => {
 export const PowerAlert: React.FC<PowerAlertProps> = (props: PowerAlertProps) => {
 
     return (<div
-        className={`p-4 rounded-lg border ${getClasses(props.type)}`}
+        className={`p-4 rounded-md border ${getClasses(props.type)}`}
         role="alert"
     >
         <div className="flex items-center">

@@ -16,6 +16,7 @@ export enum PRACTICE_DIFFICULTY {
 
 export type PracticeEntity = {
 
+    readonly identifier: string;
     readonly forum: InternationalizationEntity<UrlEntity>;
     readonly difficulty: PRACTICE_DIFFICULTY;
     readonly title: InternationalizationEntity;
