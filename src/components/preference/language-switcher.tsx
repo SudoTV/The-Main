@@ -10,7 +10,7 @@ import { setCookie } from "cookies-next";
 import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 import { DEFAULT_LOCALE } from "../../i18n/config";
-import { findLocaleFromUrl } from "../../i18n/find-locale-from-url";
+import { findLocaleFromUrl } from "../../util/metadata/find-locale-from-url";
 
 const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 
@@ -37,7 +37,7 @@ export const LocaleSwitcher: React.FC = () => {
     return (
         <select
             title="Language-Select"
-            className="mb-2 text-sm rounded-lg w-full p-2 border cursor-pointer border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 text-gray-600 dark:text-gray-400"
+            className="mb-2 text-sm rounded-md w-full p-2 border cursor-pointer border-gray-300 bg-white dark:bg-black dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             value={currentLocale}
             onChange={(
                 event: React.ChangeEvent<HTMLSelectElement>,

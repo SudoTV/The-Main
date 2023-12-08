@@ -23,14 +23,20 @@ export const ThemeSwitch: React.FC = () => {
         setActiveTheme(
             isUndefined
                 ? "default"
-                : document.body.dataset.theme as "light" | "dark" | "default",
+                : document.body.dataset.theme as "light" | "dark",
         );
     }, []);
 
     React.useEffect(() => {
-        document.body.dataset.theme = activeTheme === "default"
+
+        const newTheme = activeTheme === "default"
             ? undefined
             : activeTheme;
+        document.body.dataset.theme = newTheme;
+
+        if (typeof newTheme === "string") {
+            document.documentElement.setAttribute("data-theme", newTheme);
+        }
     }, [activeTheme]);
 
     return (
