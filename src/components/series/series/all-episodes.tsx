@@ -10,6 +10,8 @@ import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/ep
 import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
+import { ALERT_TYPE } from "../../alert/definition";
+import { PowerAlert } from "../../alert/power-alert";
 import { Header2 } from "../../typography/header-2";
 import { Section } from "../../typography/section";
 import { SeriesEpisodeCard } from "../episode/episode-card";
@@ -25,11 +27,19 @@ export const SeriesAllEpisodes: React.FC<SeriesAllEpisodesProps> = (
     props: SeriesAllEpisodesProps,
 ) => {
 
-    if (props.series.episodes.length === 0) {
-        return null;
-    }
-
     const seriesFormat = seriesInternationalization.format(props.locale);
+
+    if (props.series.episodes.length === 0) {
+
+        return (
+            <PowerAlert
+                type={ALERT_TYPE.INFO}
+                title={seriesFormat.get(SERIES_PROFILE.NO_EPISODES_YET)}
+                description={seriesFormat.get(SERIES_PROFILE.NO_EPISODES_YET_DESCRIPTION)}
+                className="w-full"
+            />
+        );
+    }
 
     return (<Section
         marginTop

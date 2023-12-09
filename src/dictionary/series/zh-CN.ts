@@ -23,6 +23,8 @@ export const profile_series_zh_CN: PROFILE<SERIES_PROFILE> = {
     [SERIES_PROFILE.LATEST_EPISODE]: "最新一集",
     [SERIES_PROFILE.LEARN_THE_BASICS]: "学习基础知识",
     [SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION]: "学习本集提到内容的基础知识",
+    [SERIES_PROFILE.NO_EPISODES_YET]: "还没有剧集",
+    [SERIES_PROFILE.NO_EPISODES_YET_DESCRIPTION]: "本系列还没有剧集，我们正在努力中。欢迎为本系列创建拉取请求！",
     [SERIES_PROFILE.NO_PRACTICE_DESCRIPTION]: "本集没有练习，我们想听听你的想法。欢迎为本集创建拉取请求！",
     [SERIES_PROFILE.ORIGINAL_ANNOTATION]: "SudoTV 原创",
     [SERIES_PROFILE.PAUSED]: "暂停",

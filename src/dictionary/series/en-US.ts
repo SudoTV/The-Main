@@ -23,6 +23,8 @@ export const profile_series_en_US: PROFILE<SERIES_PROFILE> = {
     [SERIES_PROFILE.LATEST_EPISODE]: "Latest Episode",
     [SERIES_PROFILE.LEARN_THE_BASICS]: "Learn the Basics",
     [SERIES_PROFILE.LEARN_THE_BASICS_DESCRIPTION]: "Learn the fundamental knowledge of this episode",
+    [SERIES_PROFILE.NO_EPISODES_YET]: "No Episodes Yet",
+    [SERIES_PROFILE.NO_EPISODES_YET_DESCRIPTION]: "This series does not have any episode yet, we are working on it. Feel free to create a pull request for this series.",
     [SERIES_PROFILE.NO_PRACTICE_DESCRIPTION]: "This episode does not have any practice, your awesome idea will be a huge plus to this episode. Feel free to create a pull request for this episode.",
     [SERIES_PROFILE.ORIGINAL_ANNOTATION]: "SudoTV Original",
     [SERIES_PROFILE.PAUSED]: "Paused",

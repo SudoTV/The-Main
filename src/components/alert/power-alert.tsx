@@ -15,6 +15,8 @@ export type PowerAlertProps = {
     readonly suffix?: React.ReactNode;
 
     readonly type: ALERT_TYPE;
+
+    readonly className?: string;
 };
 
 const getClasses = (type: ALERT_TYPE): string => {
@@ -35,8 +37,19 @@ const getClasses = (type: ALERT_TYPE): string => {
 
 export const PowerAlert: React.FC<PowerAlertProps> = (props: PowerAlertProps) => {
 
+    const classes: string[] = [
+        "p-4",
+        "rounded-md",
+        "border",
+        getClasses(props.type),
+    ];
+
+    if (props.className) {
+        classes.push(props.className);
+    }
+
     return (<div
-        className={`p-4 rounded-md border ${getClasses(props.type)}`}
+        className={classes.join(" ")}
         role="alert"
     >
         <div className="flex items-center">
