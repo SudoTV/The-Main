@@ -7,14 +7,12 @@
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
 import { createSeriesDBRepositoryConfig } from "../../../../components/contribute/repositories";
-import { SeriesEpisodeCard } from "../../../../components/series/episode/episode-card";
+import { SeriesAllEpisodes } from "../../../../components/series/series/all-episodes";
 import { Description1 } from "../../../../components/typography/description-1";
 import { Header1 } from "../../../../components/typography/header-1";
-import { Header2 } from "../../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../../components/typography/main-page-wrapper";
 import { Section } from "../../../../components/typography/section";
 import { CacheableResponse } from "../../../../data/cache/definition";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../../dictionary/series/_intl";
@@ -82,36 +80,9 @@ export default async function Page(props: Props) {
                 {series.data.description[locale]}
             </Description1>
         </Section>
-        <Section
-            marginTop
-        >
-            <Header2>
-                {seriesFormat.get(SERIES_PROFILE.ALL_EPISODES)}
-            </Header2>
-            <div
-                className="flex flex-col gap-4"
-            >
-                {series.data.episodes
-                    .sort((
-                        a: EpisodeEntity<EPISODE_TYPE>,
-                        b: EpisodeEntity<EPISODE_TYPE>,
-                    ) => {
-                        if (a["release-date"] > b["release-date"]) return 1;
-                        if (a["release-date"] < b["release-date"]) return -1;
-                        return 0;
-                    })
-                    .slice(0, 10)
-                    .map((episode) => {
-                        const fixedSeries: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
-                            series as CacheableResponse<SeriesEntity<SERIES_TYPE>>;
-
-                        return (<SeriesEpisodeCard
-                            key={episode.identifier}
-                            seriesIdentifier={fixedSeries.data.identifier}
-                            episode={episode}
-                        />);
-                    })}
-            </div>
-        </Section>
+        <SeriesAllEpisodes
+            series={series.data}
+            locale={locale}
+        />
     </MainPageWrapper>);
 };
