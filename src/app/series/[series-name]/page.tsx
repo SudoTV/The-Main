@@ -6,17 +6,14 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
-import { PowerLink } from "../../../components/common/power-link";
 import { createSeriesDBRepositoryConfig } from "../../../components/contribute/repositories";
-import { SeriesEpisodeCard } from "../../../components/series/episode/episode-card";
 import { SeriesResourceCards } from "../../../components/series/resource-card/resource-cards";
 import { SeriesProductSection } from "../../../components/series/sections/product-section";
+import { SeriesRecentlyUpdated } from "../../../components/series/series/recently-updated";
 import { SeriesTitleSection } from "../../../components/series/title/series-title-section";
-import { Header2 } from "../../../components/typography/header-2";
 import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
 import { Section } from "../../../components/typography/section";
 import { CacheableResponse } from "../../../data/cache/definition";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../data/request/series-metadata";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
@@ -80,45 +77,9 @@ export default async function Page(props: Props) {
             series={series.data}
             locale={locale}
         />
-        <Section
-            marginTop
-        >
-            <Header2>
-                {seriesFormat.get(SERIES_PROFILE.RECENTLY_UPDATED_SERIES)}
-            </Header2>
-            <div
-                className="w-full mt-2 mb-3"
-            >
-                <PowerLink
-                    href={HrefConfig.withinSite(locale, "series", series.data.identifier, "episodes")}
-                >
-                    {seriesFormat.get(SERIES_PROFILE.VIEW_ALL_EPISODES)}
-                </PowerLink>
-            </div>
-            <div
-                className="flex flex-col gap-4"
-            >
-                {series.data.episodes
-                    .sort((
-                        a: EpisodeEntity<EPISODE_TYPE>,
-                        b: EpisodeEntity<EPISODE_TYPE>,
-                    ) => {
-                        if (a["release-date"] > b["release-date"]) return -1;
-                        if (a["release-date"] < b["release-date"]) return 1;
-                        return 0;
-                    })
-                    .slice(0, 10)
-                    .map((episode) => {
-                        const fixedSeries: CacheableResponse<SeriesEntity<SERIES_TYPE>> =
-                            series as CacheableResponse<SeriesEntity<SERIES_TYPE>>;
-
-                        return (<SeriesEpisodeCard
-                            key={episode.identifier}
-                            seriesIdentifier={fixedSeries.data.identifier}
-                            episode={episode}
-                        />);
-                    })}
-            </div>
-        </Section>
+        <SeriesRecentlyUpdated
+            series={series.data}
+            locale={locale}
+        />
     </MainPageWrapper>);
 };
