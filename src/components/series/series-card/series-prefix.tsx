@@ -7,6 +7,7 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { GrCompliance, GrPause, GrUpdate } from "react-icons/gr";
+import { LuCalendarRange } from "react-icons/lu";
 import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
 import { seriesInternationalization } from "../../../dictionary/series/_intl";
 import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
@@ -28,6 +29,7 @@ export const SeriesCardPrefix: React.FC<SeriesCardPrefixProps> = (
             return (<div
                 className="flex flex-row items-center gap-2"
             >
+                <LuCalendarRange />
                 {format.get(SERIES_PROFILE.COMING_SOON)}
             </div>);
         case SERIES_STATUS.UPDATING:
