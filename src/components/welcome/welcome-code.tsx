@@ -33,7 +33,9 @@ export const WelcomeCode: React.FC = () => {
     const RandomComponent: React.FC = codeOptions[Math.floor(Math.random() * codeOptions.length)];
 
     return (
-        <pre>
+        <pre
+            className="whitespace-pre-wrap"
+        >
             <RandomComponent />
         </pre>
     );
