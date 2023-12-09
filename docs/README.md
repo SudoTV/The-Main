@@ -2,6 +2,7 @@
 
 [![Continuous Integration](https://github.com/SudoTV/The-Main/actions/workflows/ci.yml/badge.svg)](https://github.com/SudoTV/The-Main/actions/workflows/ci.yml)
 [![Production Deployment](https://github.com/SudoTV/The-Main/actions/workflows/production.yml/badge.svg)](https://github.com/SudoTV/The-Main/actions/workflows/production.yml)
+
 [![codecov](https://codecov.io/gh/SudoTV/The-Main/branch/main/graph/badge.svg)](https://codecov.io/gh/SudoTV/The-Main)
 [![Checkly](https://api.checklyhq.com/v1/badges/checks/86d4e1ca-b922-4c45-aa73-3ce79c7abb70?style=flat&theme=default&responseTime=true)](https://app.checklyhq.com/)
 [![GitHub License](https://img.shields.io/github/license/SudoTV/The-Main)](https://github.com/SudoTV/The-Main/blob/main/LICENSE)
