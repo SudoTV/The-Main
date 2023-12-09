@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
@@ -24,6 +23,8 @@
     "@sudoo/symbol": "^1.2.0",
     "@sudoo/uuid": "^1.1.0",
     "@types/mdx": "^2.0.10",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.1",
     "cookies-next": "^4.1.0",
     "js-yaml": "^4.1.0",
     "negotiator": "^0.6.3",
@@ -39,7 +40,6 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.8.1",
     "@sudoo/mocha-config": "^3.2.0",
     "@sudoo/mocha-config-react": "^4.1.0",
     "@testing-library/react": "^14.1.2",
