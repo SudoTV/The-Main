@@ -32,6 +32,8 @@ export const parseMarkdown = async (
     const frontMatterParsed = parseFrontmatter<FrontMatter>(markdown);
 
     const showdownConverter = new Converter();
+    showdownConverter.setFlavor("github");
+
     const html = showdownConverter.makeHtml(frontMatterParsed.content);
 
     const rehypeParser = unified()
