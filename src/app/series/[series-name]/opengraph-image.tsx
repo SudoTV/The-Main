@@ -16,8 +16,6 @@ import { requestSeriesMetadata } from "../../../data/request/series-metadata";
 import { logger } from "../../../util/log";
 import { findLocaleFromCookies } from "../../../util/metadata/find-locale-from-cookies";
 
-export const runtime = "edge";
-
 export const alt = "SudoTV";
 export const size = {
     width: 1200,

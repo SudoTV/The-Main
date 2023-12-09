@@ -6,8 +6,6 @@
 import { ImageResponse } from "next/og";
 import { BiSolidChevronRight } from "react-icons/bi";
 
-export const runtime = "edge";
-
 export const alt = "SudoTV";
 export const size = {
     width: 1200,

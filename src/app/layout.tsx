@@ -4,8 +4,9 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import type { Metadata } from "next";
-import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata, Viewport } from "next";
 import { LayoutFooter } from "../components/footer/footer";
 import { LayoutHeader } from "../components/header/header";
 import { metadataInternationalization } from "../dictionary/metadata/_intl";
@@ -15,7 +16,24 @@ import "../styles/globals.css";
 import { generateAlternates } from "../util/metadata/generate-alternates";
 import { generateMetadataBase } from "../util/metadata/generate-metadata-base";
 
-export const runtime = "edge";
+export const viewport: Viewport = {
+
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+
+    themeColor: [
+        {
+            media: "(prefers-color-scheme: light)",
+            color: "white",
+        },
+        {
+            media: "(prefers-color-scheme: dark)",
+            color: "black",
+        },
+    ],
+};
 
 export async function generateMetadata(): Promise<Metadata> {
 
@@ -51,13 +69,8 @@ export default function RootLayout(props: {
             <LayoutFooter
                 locale={locale}
             />
-            <Script
-                id="cf-beacon-script"
-                defer
-                src='https://static.cloudflareinsights.com/beacon.min.js'
-                data-cf-beacon='{"token": "08dd09da202e470fb7f75d6d170e2d37"}'
-            >
-            </Script>
+            <Analytics />
+            <SpeedInsights />
         </body>
     </html>);
 }

@@ -6,8 +6,6 @@
 import { ImageResponse } from "next/og";
 import { BiSolidChevronRight } from "react-icons/bi";
 
-export const runtime = "edge";
-
 const sizeMap: Record<string, number> = {
     small: 48,
     medium: 96,
