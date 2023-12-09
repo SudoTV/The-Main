@@ -10,6 +10,7 @@ import { SERIES_PROFILE } from "./_profile";
 export const profile_series_zh_CN: PROFILE<SERIES_PROFILE> = {
 
     [SERIES_PROFILE.ALL_EPISODES]: "所有剧集",
+    [SERIES_PROFILE.COMING_SOON]: "即将推出",
     [SERIES_PROFILE.DEEP_DIVE]: "深入探索",
     [SERIES_PROFILE.DEEP_DIVE_DESCRIPTION]: "通过练习更深入地了解本集提到的内容",
     [SERIES_PROFILE.FINALE]: "完结",

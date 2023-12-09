@@ -10,6 +10,7 @@ import { VideoGameStreamingSeriesEntity } from "./video-game-streaming";
 
 export enum SERIES_STATUS {
 
+    COMING_SOON = "COMING_SOON",
     UPDATING = "UPDATING",
     PAUSED = "PAUSED",
     FINALE = "FINALE",

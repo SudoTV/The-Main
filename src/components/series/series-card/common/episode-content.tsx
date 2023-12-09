@@ -21,6 +21,8 @@ export const SeriesCardEpisodeContent: React.FC<SeriesCardEpisodeContentProps> =
 
     switch (props.series.status) {
 
+        case SERIES_STATUS.COMING_SOON:
+            return null;
         case SERIES_STATUS.FINALE:
             return <SeriesCardEpisodeContentFinale
                 series={props.series}

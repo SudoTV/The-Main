@@ -10,6 +10,7 @@ import { SERIES_PROFILE } from "./_profile";
 export const profile_series_en_US: PROFILE<SERIES_PROFILE> = {
 
     [SERIES_PROFILE.ALL_EPISODES]: "All Episodes",
+    [SERIES_PROFILE.COMING_SOON]: "Coming Soon",
     [SERIES_PROFILE.DEEP_DIVE]: "Deep Dive",
     [SERIES_PROFILE.DEEP_DIVE_DESCRIPTION]: "Deep dive more into this episode with practices",
     [SERIES_PROFILE.FINALE]: "Finale",

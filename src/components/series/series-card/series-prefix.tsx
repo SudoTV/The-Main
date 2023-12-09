@@ -24,6 +24,12 @@ export const SeriesCardPrefix: React.FC<SeriesCardPrefixProps> = (
     const format = seriesInternationalization.format(props.locale);
 
     switch (props.series.status) {
+        case SERIES_STATUS.COMING_SOON:
+            return (<div
+                className="flex flex-row items-center gap-2"
+            >
+                {format.get(SERIES_PROFILE.COMING_SOON)}
+            </div>);
         case SERIES_STATUS.UPDATING:
             return (<div
                 className="flex flex-row items-center gap-2"
