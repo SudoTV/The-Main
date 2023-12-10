@@ -26,12 +26,11 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: |
-          npm install @sudoo/build-cli -g
           npm install vercel -g
           yarn
       - name: Test
         run: |
-          sudoo-build --type typescript-react test
+          yarn run test
       - name: Pull Vercel Environment Information
         run: |
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}

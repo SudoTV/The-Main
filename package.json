@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "sudoo-build --type typescript-react test",
+    "coverage": "sudoo-build --type typescript-react coverage"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.2",
