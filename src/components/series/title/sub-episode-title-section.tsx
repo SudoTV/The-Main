@@ -34,6 +34,9 @@ export const SubEpisodeTitleSection: React.FC<SubEpisodeTitleSectionProps> = (
             <Header1>
                 {props.title}
             </Header1>
+            <Description1>
+                {props.episode.description[props.locale]}
+            </Description1>
         </Section>
     );
 };

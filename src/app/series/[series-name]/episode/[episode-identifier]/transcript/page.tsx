@@ -8,7 +8,7 @@ import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
 import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
 import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
-import { EpisodeTitleSection } from "../../../../../../components/series/title/episode-title-section";
+import { SubEpisodeTitleSection } from "../../../../../../components/series/title/sub-episode-title-section";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
@@ -102,9 +102,9 @@ export default async function Page(props: Props) {
                 `${locale}.md`,
             )}
         >
-            <EpisodeTitleSection
-                series={series.data}
+            <SubEpisodeTitleSection
                 episode={episode}
+                title={seriesFormat.get(SERIES_PROFILE.TRANSCRIPT)}
                 locale={locale}
             />
             <MarkdownWrapper
