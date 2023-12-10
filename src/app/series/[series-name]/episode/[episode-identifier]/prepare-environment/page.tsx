@@ -8,7 +8,7 @@ import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
 import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
 import { SeriesEpisodePrepareEnvironmentArticle } from "../../../../../../components/series/prepare-environment/article";
-import { SeriesTitleSection } from "../../../../../../components/series/title/series-title-section";
+import { EpisodeTitleSection } from "../../../../../../components/series/title/episode-title-section";
 import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
@@ -82,8 +82,9 @@ export default async function Page(props: Props) {
                 "metadata.yml",
             )}
         >
-            <SeriesTitleSection
+            <EpisodeTitleSection
                 series={series.data}
+                episode={episode}
                 locale={locale}
             />
             <SeriesEpisodePrepareEnvironmentArticle
