@@ -42,9 +42,6 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
-    "@sudoo/build-cli": "^1.3.4",
-    "@sudoo/mocha-config": "^3.2.0",
-    "@sudoo/mocha-config-react": "^4.1.0",
     "@testing-library/react": "^14.1.2",
     "@types/chai": "^4.3.11",
     "@types/js-yaml": "^4.0.9",

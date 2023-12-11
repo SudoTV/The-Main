@@ -727,74 +727,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sudoo/bark@npm:^2.7.2":
-  version: 2.7.2
-  resolution: "@sudoo/bark@npm:2.7.2"
-  checksum: 4c245ae6185ca0023c131c3c12e5d591a20b0c2a129418ab381d0e0ce30b4535cd49940b22b20430391e2d34f9ff97fb495f476c6ce50d3ec2b04812793a74c3
-  languageName: node
-  linkType: hard
-
-"@sudoo/build-cli@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "@sudoo/build-cli@npm:1.3.4"
-  dependencies:
-    "@sudoo/build-utils": "npm:^1.0.0"
-    "@sudoo/license": "npm:^2.1.0"
-  bin:
-    sdb: sdb-bin
-    sudoo-build: sudoo-build-bin
-  checksum: a30971d17164b00ae797ad6da0b4d2a54eaa85ff3c0ee64a99ee55929f210b3346cc87fecd5ba4bc6bd00f88375aba18f657e95b496c622dad53d67367c5f0ea
-  languageName: node
-  linkType: hard
-
-"@sudoo/build-utils@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@sudoo/build-utils@npm:1.0.0"
-  dependencies:
-    "@sudoo/coco": "npm:^1.8.5"
-    "@sudoo/io": "npm:^1.8.0"
-  bin:
-    build-utils: bin
-  checksum: 9d6c4560e2213a656e6c9ce2d4dc52047543588f96e6da6d9ab65d2b8c88fa462a2e6cb5476e1d62067dca45f29bc2d6ac60ffb6f18471ec9b13de804d5cd0bc
-  languageName: node
-  linkType: hard
-
-"@sudoo/coco@npm:^1.8.5":
-  version: 1.8.5
-  resolution: "@sudoo/coco@npm:1.8.5"
-  dependencies:
-    connor: "npm:^2.7.0"
-  checksum: 05a6a06aff9df6c9a0921acee39094cf1f9f01b3d98bd55dc159638dd4c6305adb0120837f1017a2846bfedb5fc3757abe0b4430a183db1f0fb8f89472aa8a74
-  languageName: node
-  linkType: hard
-
 "@sudoo/internationalization@npm:^2.0.0":
   version: 2.0.0
   resolution: "@sudoo/internationalization@npm:2.0.0"
   peerDependencies:
     "@sudoo/locale": ^2
   checksum: 850b9eee1d68aeb9b7f5f27a1646494dd7c6baf452748bf78492f09fda480ae009ba197ca5b230db0df92c6440a845c097ad36551de3dae77ad7485085b20927
-  languageName: node
-  linkType: hard
-
-"@sudoo/io@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "@sudoo/io@npm:1.8.0"
-  dependencies:
-    "@sudoo/bark": "npm:^2.7.2"
-    connor: "npm:^2.7.0"
-  checksum: c268c1abf09734af64ec51954367f4a7328297b980bc99c4d795c0d86f6ca6c82c9bd25bfeb178f37cfe2d39d3a3116c783ac14472c07d6aa6893796b4285d7c
-  languageName: node
-  linkType: hard
-
-"@sudoo/license@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@sudoo/license@npm:2.1.0"
-  dependencies:
-    "@sudoo/coco": "npm:^1.8.5"
-  bin:
-    license-package: bin
-  checksum: 45042763a36a0223cef38f804c344f9d00413f95b84f49ff61d23bb3b0d5f14b07aebe10bdf7d587c80f34aa2ae2af313a0c0849336f1ef1453521dbdc814655
   languageName: node
   linkType: hard
 
@@ -818,20 +756,6 @@ __metadata:
   version: 1.9.0
   resolution: "@sudoo/magic@npm:1.9.0"
   checksum: 8c596684ea28e5de28d73000f18ae085e091accd58001d987bcbd7b4ad9ce784545229d6be2d24d11fc6fa9a2598cc72f5e6263c0964969867d432b62088446d
-  languageName: node
-  linkType: hard
-
-"@sudoo/mocha-config-react@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@sudoo/mocha-config-react@npm:4.1.0"
-  checksum: 69005d0668d772cac06a1ce095aa10bfe1962fda9cf5a89fbf52f74741833e258c03f4b1c616d2d71b9ea7b9fda56ecba7b000e2090cdeca5ee3426d21f82967
-  languageName: node
-  linkType: hard
-
-"@sudoo/mocha-config@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@sudoo/mocha-config@npm:3.2.0"
-  checksum: a5cab7d22be24b9dbd27a5f16ba4d95f74e078bd51a3c6fe4acd2f047df7ef3adc1879927e85e9f3f8047aed8133bb1bef738bad76f116043d7b6a6cb52078e1
   languageName: node
   linkType: hard
 
@@ -1966,13 +1890,6 @@ __metadata:
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
   checksum: c996b1cfdf95b6c90fee4dae37e332c8b6eb7d106430c17d538034c0ad9a1630cb194d2ab37293b1bdd4d779494beee7786d586a50bd9376fd6f7bcc2bd4c98f
-  languageName: node
-  linkType: hard
-
-"connor@npm:^2.7.0":
-  version: 2.9.0
-  resolution: "connor@npm:2.9.0"
-  checksum: 950a9521bd645cac67cba0628b4d986c639fc8999ec58ad4d0ecfa13c282ba4f2804156ce822696028f6736d5d48eedcaaf2af642ebfa3b0829b542085e6e041
   languageName: node
   linkType: hard
 
@@ -6924,13 +6841,10 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@next/mdx": "npm:^14.0.4"
     "@octokit/graphql": "npm:^7.0.2"
-    "@sudoo/build-cli": "npm:^1.3.4"
     "@sudoo/internationalization": "npm:^2.0.0"
     "@sudoo/locale": "npm:^2.0.0"
     "@sudoo/log": "npm:^1.8.0"
     "@sudoo/magic": "npm:^1.9.0"
-    "@sudoo/mocha-config": "npm:^3.2.0"
-    "@sudoo/mocha-config-react": "npm:^4.1.0"
     "@sudoo/optional": "npm:^2.0.0"
     "@sudoo/symbol": "npm:^1.2.0"
     "@sudoo/uuid": "npm:^1.1.0"
