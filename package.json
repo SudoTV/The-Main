@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "mocha --config test/.mocharc.json",
-    "coverage": "sudoo-build --type typescript-react coverage"
+    "coverage": "nyc mocha --config test/.mocharc.json"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.2",
