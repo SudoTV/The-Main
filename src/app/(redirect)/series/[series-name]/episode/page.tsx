@@ -4,6 +4,7 @@
  * @description Page
  */
 
+import { useLocale } from "@/i18n/use-locale";
 import { redirect } from "next/navigation";
 
 type Props = {
@@ -15,5 +16,7 @@ type Props = {
 
 export default async function Page(props: Props) {
 
-    redirect(`/series/${props.params["series-name"]}/episodes`);
+    const locale = useLocale();
+
+    redirect(`/${locale}/series/${props.params["series-name"]}/episodes`);
 };
