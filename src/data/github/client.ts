@@ -19,7 +19,7 @@ export const graphqlWithAuth = graphql.defaults({
 });
 
 const nodeCache: NodeCache = new NodeCache();
-const CACHE_EXPIRE: number = 60 * 5; // 5 minutes
+const CACHE_EXPIRE: number = 60 * 30; // 30 minutes
 
 export const githubGraphql = cache(
     async <T>(query: string): Promise<CacheableResponse<T>> => {
