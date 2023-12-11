@@ -6,13 +6,14 @@
 import { metadataInternationalization } from "@/dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "@/dictionary/metadata/_profile";
 import { useLocale } from "@/i18n/use-locale";
-import "@/styles/globals.css";
 import { generateAlternates } from "@/util/metadata/generate-alternates";
 import { generateMetadataBase } from "@/util/metadata/generate-metadata-base";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
+
+import "@/styles/globals.css";
 
 export const viewport: Viewport = {
 

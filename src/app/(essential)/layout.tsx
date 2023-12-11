@@ -7,7 +7,6 @@
 import { LayoutFooter } from "@/components/footer/footer";
 import { LayoutHeader } from "@/components/header/header";
 import { useLocale } from "@/i18n/use-locale";
-import "@/styles/globals.css";
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 
