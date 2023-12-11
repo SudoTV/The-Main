@@ -6,10 +6,10 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { contributeInternationalization } from "../../dictionary/contribute/_intl";
-import { CONTRIBUTE_PROFILE } from "../../dictionary/contribute/_profile";
-import { HrefConfig } from "../../util/href";
-import { SIZE } from "../../util/size";
+import { contributeInternationalization } from "@/dictionary/contribute/_intl";
+import { CONTRIBUTE_PROFILE } from "@/dictionary/contribute/_profile";
+import { HrefConfig } from "@/util/href";
+import { SIZE } from "@/util/size";
 import { RedirectionCard } from "../common/redirection-card";
 
 export type ContributeRedirectionCardProps = {

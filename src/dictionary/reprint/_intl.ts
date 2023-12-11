@@ -6,7 +6,7 @@
 
 import { SudooInternationalization } from "@sudoo/internationalization";
 import { IETF_LOCALE } from "@sudoo/locale";
-import { DEFAULT_LOCALE } from "../../i18n/config";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 import { REPRINT_PROFILE } from "./_profile";
 import { profile_reprint_en_US } from "./en-US";
 import { profile_reprint_zh_CN } from "./zh-CN";

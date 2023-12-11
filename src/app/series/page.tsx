@@ -4,19 +4,19 @@
  * @description Page
  */
 
-import { createSeriesDBRepositoryConfig } from "../../components/contribute/repositories";
-import { SeriesCard } from "../../components/series/series-card/series-card";
-import { Description1 } from "../../components/typography/description-1";
-import { Header1 } from "../../components/typography/header-1";
-import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
+import { createSeriesDBRepositoryConfig } from "@/components/contribute/repositories";
+import { SeriesCard } from "@/components/series/series-card/series-card";
+import { Description1 } from "@/components/typography/description-1";
+import { Header1 } from "@/components/typography/header-1";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../data/cache/definition";
 import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
 import { requestSeriesList } from "../../data/request/series-list";
-import { seriesInternationalization } from "../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../dictionary/series/_profile";
-import { useLocale } from "../../i18n/use-locale";
-import { HrefConfig } from "../../util/href";
-import { sortSeriesFunction } from "../../util/series/sort-series";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { sortSeriesFunction } from "@/util/series/sort-series";
 
 type Props = {
 };

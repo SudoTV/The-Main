@@ -4,14 +4,14 @@
  * @description Page
  */
 
-import { MDXLocaleSwitcher } from "../../../components/mdx/locale-switcher";
-import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
-import { contributeInternationalization } from "../../../dictionary/contribute/_intl";
-import { CONTRIBUTE_PROFILE } from "../../../dictionary/contribute/_profile";
-import EnglishUnitedStates from "../../../dictionary/contribute/series/en-US.mdx";
-import ChineseSimplified from "../../../dictionary/contribute/series/zh-CN.mdx";
-import { useLocale } from "../../../i18n/use-locale";
-import { HrefConfig } from "../../../util/href";
+import { MDXLocaleSwitcher } from "@/components/mdx/locale-switcher";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { contributeInternationalization } from "@/dictionary/contribute/_intl";
+import { CONTRIBUTE_PROFILE } from "@/dictionary/contribute/_profile";
+import EnglishUnitedStates from "@/dictionary/contribute/series/en-US.mdx";
+import ChineseSimplified from "@/dictionary/contribute/series/zh-CN.mdx";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
 
 type Props = {
 };

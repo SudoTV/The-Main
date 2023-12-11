@@ -6,26 +6,26 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
-import { RedirectionCard } from "../../../../../components/common/redirection-card";
-import { createSeriesDBRepositoryConfig } from "../../../../../components/contribute/repositories";
-import { SeriesEpisodesHandsOn } from "../../../../../components/series/episode-hands-on/episode-hands-on";
-import { EpisodeTitleSection } from "../../../../../components/series/title/episode-title-section";
-import { Header2 } from "../../../../../components/typography/header-2";
-import { MainPageWrapper } from "../../../../../components/typography/main-page-wrapper";
-import { Section } from "../../../../../components/typography/section";
-import { VideoNoVideoCard } from "../../../../../components/video/video-card/no-video-card";
-import { VideoVideoCard } from "../../../../../components/video/video-card/video-card";
+import { RedirectionCard } from "@/components/common/redirection-card";
+import { createSeriesDBRepositoryConfig } from "@/components/contribute/repositories";
+import { SeriesEpisodesHandsOn } from "@/components/series/episode-hands-on/episode-hands-on";
+import { EpisodeTitleSection } from "@/components/series/title/episode-title-section";
+import { Header2 } from "@/components/typography/header-2";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { Section } from "@/components/typography/section";
+import { VideoNoVideoCard } from "@/components/video/video-card/no-video-card";
+import { VideoVideoCard } from "@/components/video/video-card/video-card";
 import { CacheableResponse } from "../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../data/definition/series/series";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../../data/definition/video/video-platform";
 import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
-import { seriesInternationalization } from "../../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../../dictionary/series/_profile";
-import { useLocale } from "../../../../../i18n/use-locale";
-import { HrefConfig } from "../../../../../util/href";
-import { logger } from "../../../../../util/log";
-import { SIZE } from "../../../../../util/size";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { logger } from "@/util/log";
+import { SIZE } from "@/util/size";
 
 type Props = {
 

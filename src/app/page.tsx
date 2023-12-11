@@ -3,7 +3,7 @@
  * @description Page
  */
 
-import { WelcomeCode } from "../components/welcome/welcome-code";
+import { WelcomeCode } from "@/components/welcome/welcome-code";
 
 export default async function Home() {
 

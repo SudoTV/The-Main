@@ -9,8 +9,8 @@ import * as React from "react";
 import { IconType } from "react-icons";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { HrefConfig } from "../../util/href";
-import { SIZE } from "../../util/size";
+import { HrefConfig } from "@/util/href";
+import { SIZE } from "@/util/size";
 
 export type RedirectionCardProps = {
 

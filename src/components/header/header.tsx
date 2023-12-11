@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { HrefConfig } from "../../util/href";
+import { HrefConfig } from "@/util/href";
 import { HrefLink } from "../common/href-link";
 import { BiSolidChevronRight } from "react-icons/bi";
 

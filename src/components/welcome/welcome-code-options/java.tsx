@@ -5,9 +5,9 @@
 */
 
 import * as React from "react";
-import { welcomeCodeInternationalization } from "../../../dictionary/welcome-code/_intl";
-import { WELCOME_CODE_PROFILE } from "../../../dictionary/welcome-code/_profile";
-import { useLocale } from "../../../i18n/use-locale";
+import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
+import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
+import { useLocale } from "@/i18n/use-locale";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 

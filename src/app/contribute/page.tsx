@@ -4,17 +4,17 @@
  * @description Page
  */
 
-import { RedirectionCard } from "../../components/common/redirection-card";
-import { createTheMainDictionaryRepositoryConfig } from "../../components/contribute/repositories";
-import { MDXLocaleSwitcher } from "../../components/mdx/locale-switcher";
-import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
-import { contributeInternationalization } from "../../dictionary/contribute/_intl";
-import { CONTRIBUTE_PROFILE } from "../../dictionary/contribute/_profile";
-import EnglishUnitedStates from "../../dictionary/contribute/before-start/en-US.mdx";
-import ChineseSimplified from "../../dictionary/contribute/before-start/zh-CN.mdx";
-import { useLocale } from "../../i18n/use-locale";
-import { HrefConfig } from "../../util/href";
-import { SIZE } from "../../util/size";
+import { RedirectionCard } from "@/components/common/redirection-card";
+import { createTheMainDictionaryRepositoryConfig } from "@/components/contribute/repositories";
+import { MDXLocaleSwitcher } from "@/components/mdx/locale-switcher";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { contributeInternationalization } from "@/dictionary/contribute/_intl";
+import { CONTRIBUTE_PROFILE } from "@/dictionary/contribute/_profile";
+import EnglishUnitedStates from "@/dictionary/contribute/before-start/en-US.mdx";
+import ChineseSimplified from "@/dictionary/contribute/before-start/zh-CN.mdx";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { SIZE } from "@/util/size";
 
 
 type Props = {

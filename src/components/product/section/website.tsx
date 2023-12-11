@@ -8,8 +8,8 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { PRODUCT_TYPE, ProductEntity } from "../../../data/definition/product/product";
 import { RedirectionCard } from "../../common/redirection-card";
-import { SIZE } from "../../../util/size";
-import { HrefConfig } from "../../../util/href";
+import { SIZE } from "@/util/size";
+import { HrefConfig } from "@/util/href";
 
 export type ProductsSectionWebsiteProps = {
 

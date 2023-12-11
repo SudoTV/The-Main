@@ -7,8 +7,8 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { PRODUCT_TYPE, ProductEntity } from "../../../data/definition/product/product";
-import { productInternationalization } from "../../../dictionary/product/_intl";
-import { PRODUCT_PROFILE } from "../../../dictionary/product/_profile";
+import { productInternationalization } from "@/dictionary/product/_intl";
+import { PRODUCT_PROFILE } from "@/dictionary/product/_profile";
 import { Header2 } from "../../typography/header-2";
 import { Section } from "../../typography/section";
 import { ProductsSectionItem } from "./item";

@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
-import { SUPPORTED_LOCALES } from "../../i18n/config";
+import { SUPPORTED_LOCALES } from "@/i18n/config";
 
 export const findLocaleFromReferer = (referer: string): Optional<IETF_LOCALE> => {
 

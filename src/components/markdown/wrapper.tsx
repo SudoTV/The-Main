@@ -8,9 +8,9 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import { ALERT_TYPE } from "../alert/definition";
 import { PowerAlert } from "../alert/power-alert";
 import { Section } from "../typography/section";
-import { contentInternationalization } from "../../dictionary/content/_intl";
-import { crossLocaleInternationalization } from "../../dictionary/cross-locale/_intl";
-import { CONTENT_PROFILE } from "../../dictionary/content/_profile";
+import { contentInternationalization } from "@/dictionary/content/_intl";
+import { crossLocaleInternationalization } from "@/dictionary/cross-locale/_intl";
+import { CONTENT_PROFILE } from "@/dictionary/content/_profile";
 
 export type MarkdownWrapperProps = {
 

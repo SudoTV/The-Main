@@ -5,7 +5,7 @@
 */
 
 import * as React from "react";
-import { getTitleAnchor } from "../../util/anchor";
+import { getTitleAnchor } from "@/util/anchor";
 
 export type MDX_H5Props = {
 

@@ -7,9 +7,9 @@
 import { SudooFormat } from "@sudoo/internationalization";
 import * as React from "react";
 import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
-import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
-import { HrefConfig } from "../../../../util/href";
-import { SIZE } from "../../../../util/size";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { HrefConfig } from "@/util/href";
+import { SIZE } from "@/util/size";
 import { RedirectionCard } from "../../../common/redirection-card";
 
 export type SeriesResourceCardGeneralForumProps = {

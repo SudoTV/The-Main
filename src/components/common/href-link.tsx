@@ -6,7 +6,7 @@
 
 import Link from "next/link";
 import * as React from "react";
-import { HrefConfig } from "../../util/href";
+import { HrefConfig } from "@/util/href";
 
 export type HrefLinkProps = {
 

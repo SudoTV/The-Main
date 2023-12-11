@@ -14,8 +14,8 @@ import { CacheableResponse } from "../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
-import { logger } from "../../../../../util/log";
-import { findLocaleFromCookies } from "../../../../../util/metadata/find-locale-from-cookies";
+import { logger } from "@/util/log";
+import { findLocaleFromCookies } from "@/util/metadata/find-locale-from-cookies";
 
 export const alt = "SudoTV";
 export const size = {

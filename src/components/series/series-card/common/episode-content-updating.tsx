@@ -10,11 +10,11 @@ import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../../data/definition/video/video-platform";
-import { seriesInternationalization } from "../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
-import { useLocale } from "../../../../i18n/use-locale";
-import { FORMAT_DATE_DATE_FORMAT, formatDate } from "../../../../util/format-date";
-import { HrefConfig } from "../../../../util/href";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { FORMAT_DATE_DATE_FORMAT, formatDate } from "@/util/format-date";
+import { HrefConfig } from "@/util/href";
 import { PowerLink } from "../../../common/power-link";
 import { VideoVideoButton } from "../../../video/video-button/video-button";
 

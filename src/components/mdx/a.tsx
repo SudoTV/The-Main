@@ -6,7 +6,7 @@
 
 import { headers } from "next/headers";
 import * as React from "react";
-import { findIsExternalFromHeaders } from "../../util/metadata/find-is-external-from-headers";
+import { findIsExternalFromHeaders } from "@/util/metadata/find-is-external-from-headers";
 
 export type MDX_AProps = {
 

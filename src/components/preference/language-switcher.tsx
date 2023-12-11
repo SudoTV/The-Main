@@ -9,8 +9,8 @@ import { IETF_LOCALE, verifyIETFLocale } from "@sudoo/locale";
 import { setCookie } from "cookies-next";
 import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
-import { DEFAULT_LOCALE } from "../../i18n/config";
-import { findLocaleFromUrl } from "../../util/metadata/find-locale-from-url";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import { findLocaleFromUrl } from "@/util/metadata/find-locale-from-url";
 
 const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 

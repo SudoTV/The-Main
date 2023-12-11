@@ -7,8 +7,8 @@
 "use client";
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { codeInternationalization } from "../../../dictionary/code/_intl";
-import { CODE_PROFILE } from "../../../dictionary/code/_profile";
+import { codeInternationalization } from "@/dictionary/code/_intl";
+import { CODE_PROFILE } from "@/dictionary/code/_profile";
 
 export type MDX_PreProps = {
 

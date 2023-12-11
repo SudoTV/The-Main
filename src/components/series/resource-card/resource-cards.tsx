@@ -6,9 +6,9 @@
 
 import * as React from "react";
 import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
-import { seriesInternationalization } from "../../../dictionary/series/_intl";
-import { useLocale } from "../../../i18n/use-locale";
-import { SIZE } from "../../../util/size";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { useLocale } from "@/i18n/use-locale";
+import { SIZE } from "@/util/size";
 import { SeriesResourceCardGeneralForum } from "./general/forum";
 import { SeriesResourceCardSoftwareEngineeringIssue } from "./software-engineering/issue";
 import { SeriesResourceCardSoftwareEngineeringRepository } from "./software-engineering/repository";

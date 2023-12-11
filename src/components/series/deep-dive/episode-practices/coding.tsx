@@ -12,9 +12,9 @@ import { Description2 } from "../../../typography/description-2";
 import { Header3 } from "../../../typography/header-3";
 import { SeriesDeepDiveEpisodePracticesNoPractice } from "./no-practice";
 import { PowerLink } from "../../../common/power-link";
-import { seriesInternationalization } from "../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
-import { HrefConfig } from "../../../../util/href";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { HrefConfig } from "@/util/href";
 
 export type SeriesDeepDiveEpisodePracticesCodingProps = {
 

@@ -5,10 +5,10 @@
 */
 
 import * as React from "react";
-import { videoInternationalization } from "../../../dictionary/video/_intl";
-import { VIDEO_PROFILE } from "../../../dictionary/video/_profile";
-import { useLocale } from "../../../i18n/use-locale";
-import { SIZE } from "../../../util/size";
+import { videoInternationalization } from "@/dictionary/video/_intl";
+import { VIDEO_PROFILE } from "@/dictionary/video/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { SIZE } from "@/util/size";
 import { RedirectionCard } from "../../common/redirection-card";
 
 export type VideoNoVideoCardProps = {

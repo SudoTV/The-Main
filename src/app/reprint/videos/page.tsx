@@ -4,15 +4,15 @@
  * @description Page
  */
 
-import { createTheMainDictionaryRepositoryConfig } from "../../../components/contribute/repositories";
-import { MDXLocaleSwitcher } from "../../../components/mdx/locale-switcher";
-import { MainPageWrapper } from "../../../components/typography/main-page-wrapper";
-import { reprintInternationalization } from "../../../dictionary/reprint/_intl";
-import { REPRINT_PROFILE } from "../../../dictionary/reprint/_profile";
-import EnglishUnitedStates from "../../../dictionary/reprint/videos/en-US.mdx";
-import ChineseSimplified from "../../../dictionary/reprint/videos/zh-CN.mdx";
-import { useLocale } from "../../../i18n/use-locale";
-import { HrefConfig } from "../../../util/href";
+import { createTheMainDictionaryRepositoryConfig } from "@/components/contribute/repositories";
+import { MDXLocaleSwitcher } from "@/components/mdx/locale-switcher";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { reprintInternationalization } from "@/dictionary/reprint/_intl";
+import { REPRINT_PROFILE } from "@/dictionary/reprint/_profile";
+import EnglishUnitedStates from "@/dictionary/reprint/videos/en-US.mdx";
+import ChineseSimplified from "@/dictionary/reprint/videos/zh-CN.mdx";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
 
 type Props = {
 };

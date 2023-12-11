@@ -6,11 +6,11 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import { MDXProps } from "mdx/types";
-import { contentInternationalization } from "../../dictionary/content/_intl";
-import { CONTENT_PROFILE } from "../../dictionary/content/_profile";
-import { crossLocaleInternationalization } from "../../dictionary/cross-locale/_intl";
-import { DEFAULT_LOCALE } from "../../i18n/config";
-import { useLocale } from "../../i18n/use-locale";
+import { contentInternationalization } from "@/dictionary/content/_intl";
+import { CONTENT_PROFILE } from "@/dictionary/content/_profile";
+import { crossLocaleInternationalization } from "@/dictionary/cross-locale/_intl";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import { useLocale } from "@/i18n/use-locale";
 import { ALERT_TYPE } from "../alert/definition";
 import { PowerAlert } from "../alert/power-alert";
 import { markdownComponentsMap } from "../markdown/component-map";

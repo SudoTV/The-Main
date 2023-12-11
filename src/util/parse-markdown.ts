@@ -11,7 +11,7 @@ import rehypeParse from "rehype-parse";
 import rehypeReact from "rehype-react";
 import { Converter } from "showdown";
 import { unified } from "unified";
-import { markdownComponentsMap } from "../components/markdown/component-map";
+import { markdownComponentsMap } from "@/components/markdown/component-map";
 import { parseFrontmatter } from "./parse-frontmatter";
 
 type FrontMatter = {

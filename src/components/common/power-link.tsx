@@ -8,7 +8,7 @@ import Link from "next/link";
 import * as React from "react";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { HrefConfig } from "../../util/href";
+import { HrefConfig } from "@/util/href";
 
 export type PowerLinkProps = {
 

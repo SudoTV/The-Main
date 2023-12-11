@@ -4,13 +4,13 @@
  * @description Page
  */
 
-import { MDXLocaleSwitcher } from "../../components/mdx/locale-switcher";
-import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
-import { metadataInternationalization } from "../../dictionary/metadata/_intl";
-import { METADATA_PROFILE } from "../../dictionary/metadata/_profile";
-import EnglishUnitedStates from "../../dictionary/privacy/privacy/en-US.mdx";
-import { useLocale } from "../../i18n/use-locale";
-import { HrefConfig } from "../../util/href";
+import { MDXLocaleSwitcher } from "@/components/mdx/locale-switcher";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { metadataInternationalization } from "@/dictionary/metadata/_intl";
+import { METADATA_PROFILE } from "@/dictionary/metadata/_profile";
+import EnglishUnitedStates from "@/dictionary/privacy/privacy/en-US.mdx";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
 
 type Props = {
 };

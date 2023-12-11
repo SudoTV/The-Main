@@ -6,9 +6,9 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { seriesInternationalization } from "../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../dictionary/series/_profile";
-import { SIZE } from "../../../../util/size";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { SIZE } from "@/util/size";
 import { ContributeRedirectionCard } from "../../../contribute/contribute-redirection-card";
 import { Description2 } from "../../../typography/description-2";
 

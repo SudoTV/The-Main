@@ -6,12 +6,12 @@
 
 import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
-import EnglishUnitedStates from "../../../../dictionary/episode/coding/prepare-environment/fork-repository/en-US.mdx";
-import ChineseSimplified from "../../../../dictionary/episode/coding/prepare-environment/fork-repository/zh-CN.mdx";
-import { useLocale } from "../../../../i18n/use-locale";
+import EnglishUnitedStates from "@/dictionary/episode/coding/prepare-environment/fork-repository/en-US.mdx";
+import ChineseSimplified from "@/dictionary/episode/coding/prepare-environment/fork-repository/zh-CN.mdx";
+import { useLocale } from "@/i18n/use-locale";
 import { MDXLocaleSwitcher } from "../../../mdx/locale-switcher";
 import { SeriesEntity, SERIES_TYPE } from "../../../../data/definition/series/series";
-import { buildRepositoryUrl } from "../../../../util/url-builder/repository";
+import { buildRepositoryUrl } from "@/util/url-builder/repository";
 
 export type SeriesEpisodePrepareEnvironmentCodingForkRepositoryProps = {
 

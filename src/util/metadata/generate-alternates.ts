@@ -6,7 +6,7 @@
 
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { SUPPORTED_LOCALES } from "../../i18n/config";
+import { SUPPORTED_LOCALES } from "@/i18n/config";
 import { findLocaleFromHeaders } from "./find-locale-from-headers";
 import { findUrlFromHeaders } from "./find-url-from-header";
 

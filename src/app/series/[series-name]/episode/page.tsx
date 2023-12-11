@@ -5,7 +5,7 @@
  */
 
 import { redirect } from "next/navigation";
-import { useLocale } from "../../../../i18n/use-locale";
+import { useLocale } from "@/i18n/use-locale";
 
 type Props = {
 

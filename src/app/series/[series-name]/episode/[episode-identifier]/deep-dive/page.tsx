@@ -6,21 +6,21 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
-import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
-import { SeriesDeepDiveEpisodePractices } from "../../../../../../components/series/deep-dive/episode-practices";
-import { SubEpisodeTitleSection } from "../../../../../../components/series/title/sub-episode-title-section";
-import { Header2 } from "../../../../../../components/typography/header-2";
-import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
-import { Section } from "../../../../../../components/typography/section";
+import { createSeriesDBRepositoryConfig } from "@/components/contribute/repositories";
+import { SeriesDeepDiveEpisodePractices } from "@/components/series/deep-dive/episode-practices";
+import { SubEpisodeTitleSection } from "@/components/series/title/sub-episode-title-section";
+import { Header2 } from "@/components/typography/header-2";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { Section } from "@/components/typography/section";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
 import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
-import { seriesInternationalization } from "../../../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../../../dictionary/series/_profile";
-import { useLocale } from "../../../../../../i18n/use-locale";
-import { HrefConfig } from "../../../../../../util/href";
-import { logger } from "../../../../../../util/log";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { logger } from "@/util/log";
 
 type Props = {
 

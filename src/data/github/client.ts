@@ -7,9 +7,9 @@
 import { graphql } from "@octokit/graphql";
 import NodeCache from "node-cache";
 import { cache } from "react";
-import { GRAPHQL_GITHUB_API_TOKEN } from "../../util/environment";
-import { logger } from "../../util/log";
-import { digestMD5String } from "../../util/md5";
+import { GRAPHQL_GITHUB_API_TOKEN } from "@/util/environment";
+import { logger } from "@/util/log";
+import { digestMD5String } from "@/util/md5";
 import { CACHED_TYPE, CacheableResponse } from "../cache/definition";
 
 export const graphqlWithAuth = graphql.defaults({

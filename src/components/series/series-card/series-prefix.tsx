@@ -9,8 +9,8 @@ import * as React from "react";
 import { GrCompliance, GrPause, GrUpdate } from "react-icons/gr";
 import { LuCalendarRange } from "react-icons/lu";
 import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
-import { seriesInternationalization } from "../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../dictionary/series/_profile";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 
 export type SeriesCardPrefixProps = {
 

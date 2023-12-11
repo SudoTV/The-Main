@@ -6,21 +6,21 @@
 
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { notFound } from "next/navigation";
-import { createSeriesDBRepositoryConfig } from "../../../../../../components/contribute/repositories";
-import { MarkdownWrapper } from "../../../../../../components/markdown/wrapper";
-import { SubEpisodeTitleSection } from "../../../../../../components/series/title/sub-episode-title-section";
-import { MainPageWrapper } from "../../../../../../components/typography/main-page-wrapper";
+import { createSeriesDBRepositoryConfig } from "@/components/contribute/repositories";
+import { MarkdownWrapper } from "@/components/markdown/wrapper";
+import { SubEpisodeTitleSection } from "@/components/series/title/sub-episode-title-section";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
 import { CacheableResponse } from "../../../../../../data/cache/definition";
 import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
 import { requestSeriesEpisodeLearnTheBasics } from "../../../../../../data/request/series-episode-learn-the-basics";
 import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
-import { seriesInternationalization } from "../../../../../../dictionary/series/_intl";
-import { SERIES_PROFILE } from "../../../../../../dictionary/series/_profile";
-import { useLocale } from "../../../../../../i18n/use-locale";
-import { HrefConfig } from "../../../../../../util/href";
-import { logger } from "../../../../../../util/log";
-import { ParseMarkdownResult, parseMarkdown } from "../../../../../../util/parse-markdown";
+import { seriesInternationalization } from "@/dictionary/series/_intl";
+import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { logger } from "@/util/log";
+import { ParseMarkdownResult, parseMarkdown } from "@/util/parse-markdown";
 
 type Props = {
 

@@ -7,7 +7,7 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
-import { SUPPORTED_LOCALES } from "../../i18n/config";
+import { SUPPORTED_LOCALES } from "@/i18n/config";
 
 const PREFERRED_LOCALE_COOKIE: string = "preferred-locale";
 

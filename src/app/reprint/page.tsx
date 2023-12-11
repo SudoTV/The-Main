@@ -4,13 +4,13 @@
  * @description Page
  */
 
-import { RedirectionCard } from "../../components/common/redirection-card";
-import { MainPageWrapper } from "../../components/typography/main-page-wrapper";
-import { reprintInternationalization } from "../../dictionary/reprint/_intl";
-import { REPRINT_PROFILE } from "../../dictionary/reprint/_profile";
-import { useLocale } from "../../i18n/use-locale";
-import { HrefConfig } from "../../util/href";
-import { SIZE } from "../../util/size";
+import { RedirectionCard } from "@/components/common/redirection-card";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { reprintInternationalization } from "@/dictionary/reprint/_intl";
+import { REPRINT_PROFILE } from "@/dictionary/reprint/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { SIZE } from "@/util/size";
 
 type Props = {
 };

@@ -3,10 +3,10 @@
  * @description Not Found
  */
 
-import { MainPageWrapper } from "../components/typography/main-page-wrapper";
-import { metadataInternationalization } from "../dictionary/metadata/_intl";
-import { METADATA_PROFILE } from "../dictionary/metadata/_profile";
-import { useLocale } from "../i18n/use-locale";
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
+import { metadataInternationalization } from "@/dictionary/metadata/_intl";
+import { METADATA_PROFILE } from "@/dictionary/metadata/_profile";
+import { useLocale } from "@/i18n/use-locale";
 
 export default function NotFound() {
 

@@ -5,8 +5,8 @@
 */
 
 import * as React from "react";
-import { useLocale } from "../../i18n/use-locale";
-import { extractLanguageFromClassName } from "../../util/extract-language";
+import { useLocale } from "@/i18n/use-locale";
+import { extractLanguageFromClassName } from "@/util/extract-language";
 import { MDX_Code } from "./code";
 import { MDXCopyCodeButton } from "./pre/copy-code-button";
 

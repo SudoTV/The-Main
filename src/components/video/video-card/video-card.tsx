@@ -9,13 +9,13 @@ import * as React from "react";
 import { FaYoutube } from "react-icons/fa";
 import { FaBilibili } from "react-icons/fa6";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../data/definition/video/video-platform";
-import { crossLocaleInternationalization } from "../../../dictionary/cross-locale/_intl";
-import { videoInternationalization } from "../../../dictionary/video/_intl";
-import { VIDEO_PROFILE } from "../../../dictionary/video/_profile";
-import { useLocale } from "../../../i18n/use-locale";
-import { HrefConfig } from "../../../util/href";
-import { logger } from "../../../util/log";
-import { SIZE } from "../../../util/size";
+import { crossLocaleInternationalization } from "@/dictionary/cross-locale/_intl";
+import { videoInternationalization } from "@/dictionary/video/_intl";
+import { VIDEO_PROFILE } from "@/dictionary/video/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
+import { logger } from "@/util/log";
+import { SIZE } from "@/util/size";
 import { RedirectionCard } from "../../common/redirection-card";
 
 const getPrefix = (currentLocale: IETF_LOCALE, targetLocale?: IETF_LOCALE): string => {

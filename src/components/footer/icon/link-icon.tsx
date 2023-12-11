@@ -7,7 +7,7 @@
 import Link from "next/link";
 import * as React from "react";
 import { IconType } from "react-icons";
-import { HrefConfig } from "../../../util/href";
+import { HrefConfig } from "@/util/href";
 
 export type LayoutFooterLinkIconProps = {
 

@@ -8,7 +8,7 @@ import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { FaCaretRight } from "react-icons/fa6";
 import { IoHome } from "react-icons/io5";
-import { HrefConfig } from "../../util/href";
+import { HrefConfig } from "@/util/href";
 import { HrefLink } from "../common/href-link";
 
 export type BreadcrumbElement = {
