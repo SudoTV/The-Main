@@ -36,6 +36,7 @@ export const getGithubFile = async (
             }
         }
     `);
+
     if (response.data.repository.object === null) {
         return {
             cached: CACHED_TYPE.ERRORED,
