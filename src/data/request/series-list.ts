@@ -65,12 +65,12 @@ export const requestSeriesList = async (
             || seriesRawMetadata.cached === CACHED_TYPE.PARTIAL) {
 
             cachedComponents.push({
-                identifier: `series:${series.identifier}`,
+                identifier: `series:${series.identifier}:metadata`,
             });
         } else {
 
             noneCachedComponents.push({
-                identifier: `series:${series.identifier}`,
+                identifier: `series:${series.identifier}:metadata`,
             });
         }
 

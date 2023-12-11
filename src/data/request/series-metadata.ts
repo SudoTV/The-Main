@@ -43,7 +43,7 @@ export const requestSeriesMetadata = async (
     return {
         cached: seriesMetadata.cached,
         cachedComponents: [{
-            identifier: "series",
+            identifier: `series:${seriesName}:metadata`,
         }],
         data: series,
     };
