@@ -3161,12 +3161,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"global-jsdom@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "global-jsdom@npm:9.1.0"
+"global-jsdom@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "global-jsdom@npm:9.2.0"
   peerDependencies:
-    jsdom: ">=22 <23"
-  checksum: 81568078fdfa19fcf58b59c775f4bb142f9a01e1d9eaaf70950a2a5d7c8988e703ccb0009bde90bdb5eb4a1cae8a66d016e4397a662b3bdf3568d232aa6a5b80
+    jsdom: ">=23 <24"
+  checksum: b46220ba58ec9bc355df86b0f5a7444f32fd435bf1bb380ddf1ab89ada277b2be6b88d6b03d79083dac16728b276e1de2edeb7f8aad0709a880bfd1a7110a81b
   languageName: node
   linkType: hard
 
@@ -6865,7 +6865,7 @@ __metadata:
     cookies-next: "npm:^4.1.0"
     eslint: "npm:^8.55.0"
     eslint-config-next: "npm:^14.0.4"
-    global-jsdom: "npm:^9.1.0"
+    global-jsdom: "npm:^9.2.0"
     js-yaml: "npm:^4.1.0"
     jsdom: "npm:^23.0.1"
     mocha: "npm:^10.2.0"

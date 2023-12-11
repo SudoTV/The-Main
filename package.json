@@ -55,7 +55,7 @@
     "chai": "^4.3.10",
     "eslint": "^8.55.0",
     "eslint-config-next": "^14.0.4",
-    "global-jsdom": "^9.1.0",
+    "global-jsdom": "^9.2.0",
     "jsdom": "^23.0.1",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
