@@ -1,0 +1,15 @@
+{
+    "spec": [
+        "test/**/*.test.ts",
+        "test/**/*.test.tsx"
+    ],
+    "extension": [
+        "js",
+        "ts",
+        "jsx",
+        "tsx"
+    ],
+    "require": [
+        "test/ts-hook.js"
+    ]
+}

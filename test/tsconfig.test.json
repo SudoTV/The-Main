@@ -1,0 +1,50 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ES2015",
+            "ES2016",
+            "ES2017",
+            "ES2018",
+            "ESNext",
+            "ESNext.BigInt"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es6",
+        "baseUrl": "../src/",
+        "paths": {
+            "@/components/*": [
+                "components/*"
+            ],
+            "@/data/*": [
+                "data/*"
+            ],
+            "@/dictionary/*": [
+                "dictionary/*"
+            ],
+            "@/error/*": [
+                "error/*"
+            ],
+            "@/i18n/*": [
+                "i18n/*"
+            ],
+            "@/styles/*": [
+                "styles/*"
+            ],
+            "@/util/*": [
+                "util/*"
+            ]
+        },
+    }
+}
