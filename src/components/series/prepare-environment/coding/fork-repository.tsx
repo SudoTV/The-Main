@@ -4,14 +4,14 @@
 * @description Fork Repository
 */
 
-import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import EnglishUnitedStates from "@/dictionary/episode/coding/prepare-environment/fork-repository/en-US.mdx";
 import ChineseSimplified from "@/dictionary/episode/coding/prepare-environment/fork-repository/zh-CN.mdx";
 import { useLocale } from "@/i18n/use-locale";
-import { MDXLocaleSwitcher } from "../../../mdx/locale-switcher";
-import { SeriesEntity, SERIES_TYPE } from "@/data/definition/series/series";
 import { buildRepositoryUrl } from "@/util/url-builder/repository";
+import * as React from "react";
+import { MDXLocaleSwitcher } from "../../../mdx/locale-switcher";
 
 export type SeriesEpisodePrepareEnvironmentCodingForkRepositoryProps = {
 

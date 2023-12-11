@@ -4,6 +4,7 @@
  * @description Parse Markdown
  */
 
+import { markdownComponentsMap } from "@/components/markdown/component-map";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Fragment } from "react";
 import * as prod from "react/jsx-runtime";
@@ -11,7 +12,6 @@ import rehypeParse from "rehype-parse";
 import rehypeReact from "rehype-react";
 import { Converter } from "showdown";
 import { unified } from "unified";
-import { markdownComponentsMap } from "@/components/markdown/component-map";
 import { parseFrontmatter } from "./parse-frontmatter";
 
 type FrontMatter = {
