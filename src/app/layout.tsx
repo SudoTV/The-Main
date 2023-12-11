@@ -3,8 +3,6 @@
  * @description Layout
  */
 
-import { LayoutFooter } from "@/components/footer/footer";
-import { LayoutHeader } from "@/components/header/header";
 import { metadataInternationalization } from "@/dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "@/dictionary/metadata/_profile";
 import { useLocale } from "@/i18n/use-locale";
@@ -60,15 +58,7 @@ export default function RootLayout(props: {
 
     return (<html lang={locale}>
         <body className="flex flex-col min-h-screen justify-between">
-            <LayoutHeader
-                locale={locale}
-            />
-            <section className="mb-auto">
-                {props.children}
-            </section>
-            <LayoutFooter
-                locale={locale}
-            />
+            {props.children}
             <Analytics />
             <SpeedInsights />
         </body>

@@ -1,5 +1,6 @@
 /**
  * @author WMXPY
+ * @namespace Essential
  * @description Not Found
  */
 
