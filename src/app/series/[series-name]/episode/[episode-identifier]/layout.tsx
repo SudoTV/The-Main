@@ -7,10 +7,10 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import type { Metadata } from "next";
-import { CacheableResponse } from "../../../../../data/cache/definition";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../../../data/definition/series/series";
-import { requestSeriesMetadata } from "../../../../../data/request/series-metadata";
+import { CacheableResponse } from "@/data/cache/definition";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
+import { requestSeriesMetadata } from "@/data/request/series-metadata";
 import { metadataInternationalization } from "@/dictionary/metadata/_intl";
 import { METADATA_PROFILE } from "@/dictionary/metadata/_profile";
 import { useLocale } from "@/i18n/use-locale";

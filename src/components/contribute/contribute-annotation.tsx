@@ -4,15 +4,15 @@
 * @description Contribute Annotation
 */
 
-import { SudooFormat } from "@sudoo/internationalization";
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
-import { REPOSITORY_PLATFORM, RepositoryEntity } from "../../data/definition/repository/repository";
+import { REPOSITORY_PLATFORM, RepositoryEntity } from "@/data/definition/repository/repository";
 import { contributeInternationalization } from "@/dictionary/contribute/_intl";
 import { CONTRIBUTE_PROFILE } from "@/dictionary/contribute/_profile";
 import { HrefConfig } from "@/util/href";
 import { buildRepositoryFileEditUrl, buildRepositoryFolderUrl } from "@/util/url-builder/file";
 import { buildRepositoryUrl } from "@/util/url-builder/repository";
+import { SudooFormat } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
 import { PowerLink } from "../common/power-link";
 import { ContributeAnnotationConfig } from "./repositories";
 

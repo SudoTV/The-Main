@@ -4,11 +4,11 @@
 * @description Cached Indicator
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
-import { CACHED_TYPE, CacheableResponse, CachedComponent } from "../../data/cache/definition";
+import { CACHED_TYPE, CacheableResponse, CachedComponent } from "@/data/cache/definition";
 import { cacheInternationalization } from "@/dictionary/cache/_intl";
 import { CACHE_PROFILE } from "@/dictionary/cache/_profile";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
 
 export type CachedIndicatorProps = {
 

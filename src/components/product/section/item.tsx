@@ -4,9 +4,9 @@
 * @description Item
 */
 
+import { PRODUCT_TYPE, ProductEntity } from "@/data/definition/product/product";
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { PRODUCT_TYPE, ProductEntity } from "../../../data/definition/product/product";
 import { ProductsSectionWebsite } from "./website";
 
 export type ProductsSectionItemProps = {

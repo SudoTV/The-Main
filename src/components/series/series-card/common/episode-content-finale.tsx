@@ -7,8 +7,8 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";

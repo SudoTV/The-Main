@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { ProductsSection } from "../../product/section/section";
 
 export type SeriesProductSectionProps = {

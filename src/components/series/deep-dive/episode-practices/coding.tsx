@@ -4,17 +4,17 @@
 * @description Coding
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
-import { PracticeEntity } from "../../../../data/definition/practice/practice";
-import { Description2 } from "../../../typography/description-2";
-import { Header3 } from "../../../typography/header-3";
-import { SeriesDeepDiveEpisodePracticesNoPractice } from "./no-practice";
-import { PowerLink } from "../../../common/power-link";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { PracticeEntity } from "@/data/definition/practice/practice";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { HrefConfig } from "@/util/href";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
+import { PowerLink } from "../../../common/power-link";
+import { Description2 } from "../../../typography/description-2";
+import { Header3 } from "../../../typography/header-3";
+import { SeriesDeepDiveEpisodePracticesNoPractice } from "./no-practice";
 
 export type SeriesDeepDiveEpisodePracticesCodingProps = {
 

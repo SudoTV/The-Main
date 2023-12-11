@@ -5,8 +5,8 @@
 */
 
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { SeriesEpisodePrepareEnvironmentCodingForkRepository } from "./fork-repository";
 import { SeriesEpisodePrepareEnvironmentCodingPrepareWorkspace } from "./prepare-workspace";
 

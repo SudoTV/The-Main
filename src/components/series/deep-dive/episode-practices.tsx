@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SeriesDeepDiveEpisodePracticesCoding } from "./episode-practices/coding";
 
 export type SeriesDeepDiveEpisodePracticesProps = {

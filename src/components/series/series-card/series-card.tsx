@@ -5,7 +5,7 @@
 */
 
 import * as React from "react";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { logger } from "@/util/log";
 import { SeriesCardSoftwareEngineering } from "./software-engineering/software-engineering-series-card";
 import { SeriesCardVideoGameStreaming } from "./video-game-streaming/video-game-streaming-series";

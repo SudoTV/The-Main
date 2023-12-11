@@ -5,8 +5,8 @@
 */
 
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { SeriesEpisodesHandsOnSoftwareEngineeringCoding } from "./episode-hands-on-software-engineering-coding";
 
 export type SeriesEpisodesHandsOnProps = {

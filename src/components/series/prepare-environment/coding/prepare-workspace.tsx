@@ -5,8 +5,8 @@
 */
 
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import EnglishUnitedStates from "@/dictionary/episode/coding/prepare-environment/prepare-workspace/en-US.mdx";
 import ChineseSimplified from "@/dictionary/episode/coding/prepare-environment/prepare-workspace/zh-CN.mdx";
 import { useLocale } from "@/i18n/use-locale";

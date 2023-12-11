@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { Description1 } from "../../typography/description-1";

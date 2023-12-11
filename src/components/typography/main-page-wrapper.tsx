@@ -6,7 +6,7 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
-import { CacheableResponse } from "../../data/cache/definition";
+import { CacheableResponse } from "@/data/cache/definition";
 import { Breadcrumb, BreadcrumbElement } from "../breadcrumb/breadcrumb";
 import { CachedIndicator } from "../cache/cached-indicator";
 import { ContributeAnnotation } from "../contribute/contribute-annotation";

@@ -4,8 +4,6 @@
  * @description Page
  */
 
-import { EmptyValueSymbol } from "@sudoo/symbol";
-import { notFound } from "next/navigation";
 import { createSeriesDBRepositoryConfig } from "@/components/contribute/repositories";
 import { SeriesResourceCards } from "@/components/series/resource-card/resource-cards";
 import { SeriesProductSection } from "@/components/series/sections/product-section";
@@ -13,14 +11,16 @@ import { SeriesRecentlyUpdated } from "@/components/series/series/recently-updat
 import { SeriesTitleSection } from "@/components/series/title/series-title-section";
 import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
 import { Section } from "@/components/typography/section";
-import { CacheableResponse } from "../../../data/cache/definition";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
-import { requestSeriesMetadata } from "../../../data/request/series-metadata";
+import { CacheableResponse } from "@/data/cache/definition";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
+import { requestSeriesMetadata } from "@/data/request/series-metadata";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";
 import { HrefConfig } from "@/util/href";
 import { logger } from "@/util/log";
+import { EmptyValueSymbol } from "@sudoo/symbol";
+import { notFound } from "next/navigation";
 
 type Props = {
 

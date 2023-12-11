@@ -7,7 +7,7 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { FaBilibili, FaYoutube } from "react-icons/fa6";
-import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "../../../data/definition/video/video-platform";
+import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "@/data/definition/video/video-platform";
 import { crossLocaleInternationalization } from "@/dictionary/cross-locale/_intl";
 import { videoInternationalization } from "@/dictionary/video/_intl";
 import { VIDEO_PROFILE } from "@/dictionary/video/_profile";

@@ -4,17 +4,17 @@
  * @description OpenGraph Image
  */
 
+import { CacheableResponse } from "@/data/cache/definition";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
+import { requestSeriesMetadata } from "@/data/request/series-metadata";
+import { logger } from "@/util/log";
+import { findLocaleFromCookies } from "@/util/metadata/find-locale-from-cookies";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { EmptyValueSymbol } from "@sudoo/symbol";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 import { BiSolidChevronRight } from "react-icons/bi";
-import { CacheableResponse } from "../../../data/cache/definition";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
-import { requestSeriesMetadata } from "../../../data/request/series-metadata";
-import { logger } from "@/util/log";
-import { findLocaleFromCookies } from "@/util/metadata/find-locale-from-cookies";
 
 export const alt = "SudoTV";
 export const size = {

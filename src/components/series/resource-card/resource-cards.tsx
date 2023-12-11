@@ -5,7 +5,7 @@
 */
 
 import * as React from "react";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { useLocale } from "@/i18n/use-locale";
 import { SIZE } from "@/util/size";

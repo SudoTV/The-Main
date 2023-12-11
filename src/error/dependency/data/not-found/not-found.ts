@@ -4,7 +4,7 @@
  * @description Not Found
  */
 
-import { DependencyDataError } from "../data";
+import { DependencyDataError } from "@/data";
 
 export class DependencyDataNotFoundError extends DependencyDataError {
 

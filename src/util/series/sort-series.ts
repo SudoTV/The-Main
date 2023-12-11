@@ -4,8 +4,8 @@
  * @description Sort Series
  */
 
-import { EPISODE_TYPE, EpisodeEntity } from "../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../data/definition/series/series";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 
 const getUpdateTime = (series: SeriesEntity<SERIES_TYPE>): number => {
 

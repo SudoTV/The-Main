@@ -10,11 +10,11 @@ import { createSeriesDBRepositoryConfig } from "@/components/contribute/reposito
 import { MarkdownWrapper } from "@/components/markdown/wrapper";
 import { SubEpisodeTitleSection } from "@/components/series/title/sub-episode-title-section";
 import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
-import { CacheableResponse } from "../../../../../../data/cache/definition";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../../../../data/definition/episode/episode";
-import { SERIES_TYPE, SeriesEntity } from "../../../../../../data/definition/series/series";
-import { requestSeriesEpisodeLearnTheBasics } from "../../../../../../data/request/series-episode-learn-the-basics";
-import { requestSeriesMetadata } from "../../../../../../data/request/series-metadata";
+import { CacheableResponse } from "@/data/cache/definition";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
+import { requestSeriesEpisodeLearnTheBasics } from "@/data/request/series-episode-learn-the-basics";
+import { requestSeriesMetadata } from "@/data/request/series-metadata";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";

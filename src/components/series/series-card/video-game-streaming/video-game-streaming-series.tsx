@@ -7,7 +7,7 @@
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { FaGamepad } from "react-icons/fa6";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { useLocale } from "@/i18n/use-locale";
 import { HrefConfig } from "@/util/href";
 import { RedirectionCard } from "../../../common/redirection-card";

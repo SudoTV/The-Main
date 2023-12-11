@@ -5,9 +5,9 @@
 */
 
 import * as React from "react";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SeriesEpisodePrepareEnvironmentCodingArticle } from "./coding/article";
-import { SERIES_TYPE, SeriesEntity } from "../../../data/definition/series/series";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 
 export type SeriesEpisodePrepareEnvironmentArticleProps = {
 

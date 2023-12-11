@@ -8,7 +8,7 @@ import * as React from "react";
 import { IconType } from "react-icons";
 import { FaClipboardQuestion, FaCode } from "react-icons/fa6";
 import { IoGameController } from "react-icons/io5";
-import { EPISODE_TYPE, EpisodeEntity } from "../../../data/definition/episode/episode";
+import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { useLocale } from "@/i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "@/util/format-date";
 import { HrefConfig } from "@/util/href";

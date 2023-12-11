@@ -6,8 +6,8 @@
 
 import { SudooFormat } from "@sudoo/internationalization";
 import * as React from "react";
-import { REPOSITORY_PLATFORM, RepositoryEntity } from "../../../../data/definition/repository/repository";
-import { SERIES_TYPE, SeriesEntity } from "../../../../data/definition/series/series";
+import { REPOSITORY_PLATFORM, RepositoryEntity } from "@/data/definition/repository/repository";
+import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { HrefConfig } from "@/util/href";
 import { SIZE } from "@/util/size";

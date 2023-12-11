@@ -4,7 +4,7 @@
  * @description Issue
  */
 
-import { REPOSITORY_PLATFORM, RepositoryEntity } from "../../data/definition/repository/repository";
+import { REPOSITORY_PLATFORM, RepositoryEntity } from "@/data/definition/repository/repository";
 
 export const buildIssueUrl = (
     repository: RepositoryEntity,
