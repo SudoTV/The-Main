@@ -5,9 +5,9 @@
  * @override Unit Test
  */
 
+import { findLocaleFromReferer, findLocaleFromUrl } from "@/util/metadata/find-locale-from-url";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
-import { findLocaleFromReferer, findLocaleFromUrl } from "../../../../src/util/metadata/find-locale-from-url";
 import { ExpectOptional } from "../../../expect/optional";
 
 describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): void => {

@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "sudoo-build --type typescript-react test",
+    "test": "mocha --config test/.mocharc.json",
     "coverage": "sudoo-build --type typescript-react coverage"
   },
   "dependencies": {
@@ -65,6 +65,7 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
   },
   "browser": {

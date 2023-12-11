@@ -11,6 +11,7 @@
         "iostream",
         "jsxs",
         "localematcher",
+        "mocharc",
         "opengraph",
         "println",
         "rehype",
