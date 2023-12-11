@@ -54,7 +54,7 @@ export const getGithubFolder = async (
     return {
         cached: response.cached,
         cachedComponents: [{
-            identifier: "folder",
+            identifier: `github:${owner}:${repo}:${branch}:${paths.join("/")}`,
         }],
         data: response.data.repository.object.entries,
     };

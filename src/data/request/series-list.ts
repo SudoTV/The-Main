@@ -26,10 +26,12 @@ export const requestSeriesList = async (
 
     if (folderFiles.cached === CACHED_TYPE.FULL
         || folderFiles.cached === CACHED_TYPE.PARTIAL) {
+
         cachedComponents.push({
             identifier: "series-list",
         });
     } else {
+
         noneCachedComponents.push({
             identifier: "series-list",
         });
@@ -61,10 +63,12 @@ export const requestSeriesList = async (
 
         if (seriesRawMetadata.cached === CACHED_TYPE.FULL
             || seriesRawMetadata.cached === CACHED_TYPE.PARTIAL) {
+
             cachedComponents.push({
                 identifier: `series:${series.identifier}`,
             });
         } else {
+
             noneCachedComponents.push({
                 identifier: `series:${series.identifier}`,
             });

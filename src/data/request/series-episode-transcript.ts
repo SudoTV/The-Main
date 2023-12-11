@@ -34,7 +34,7 @@ export const requestSeriesEpisodeTranscript = async (
     return {
         cached: episodeTranscript.cached,
         cachedComponents: [{
-            identifier: "episode",
+            identifier: `${seriesName}:${episodeName}:${locale}:transcript`,
         }],
         data: episodeTranscript.data,
     };

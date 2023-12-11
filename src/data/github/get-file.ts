@@ -57,7 +57,7 @@ export const getGithubFile = async (
     return {
         cached: response.cached,
         cachedComponents: [{
-            identifier: "file",
+            identifier: `github:${owner}:${repo}:${branch}:${paths.join("/")}`,
         }],
         data: response.data.repository.object.text,
     };
