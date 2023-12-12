@@ -4,13 +4,13 @@
 * @description C
 */
 
-import * as React from "react";
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
 import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
 import { useLocale } from "@/i18n/use-locale";
+import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
-import { WelcomeCodeOptionProps } from "../welcome-code-option";
+import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
 
 export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -43,18 +43,25 @@ export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
             {"}"}
             <br />
             <br />
-            <CodeLink
-                href="/series"
-            >
-                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
-                <br />
-                {"void sudoTVSeries() {"}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {`openView("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
-                <br />
-                {"}"}
-            </CodeLink>
+            {props.redirects.map((
+                redirect: WelcomeCodeOptionRedirect,
+            ) => {
+                return (
+                    <CodeLink
+                        key={redirect.functionName}
+                        href={redirect.href}
+                    >
+                        {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                        <br />
+                        {`void ${redirect.functionName}() {`}
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {`openView("${redirect.humanFriendlyName}");`}
+                        <br />
+                        {"}"}
+                    </CodeLink>
+                );
+            })}
         </code>
     );
 };
