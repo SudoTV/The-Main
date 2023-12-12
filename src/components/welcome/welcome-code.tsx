@@ -4,7 +4,12 @@
 * @description Welcome Code
 */
 
+import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
+import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
+import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
 import * as React from "react";
+import { WelcomeCodeOptionProps } from "./welcome-code-option";
 import { WelcomeCodeC } from "./welcome-code-options/c";
 import { WelcomeCodeCpp } from "./welcome-code-options/cpp";
 import { WelcomeCodeJava } from "./welcome-code-options/java";
@@ -15,7 +20,7 @@ import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
 
-const codeOptions: React.FC[] = [
+const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
     WelcomeCodeC,
     WelcomeCodeCpp,
@@ -30,13 +35,26 @@ const codeOptions: React.FC[] = [
 
 export const WelcomeCode: React.FC = () => {
 
-    const RandomComponent: React.FC = codeOptions[Math.floor(Math.random() * codeOptions.length)];
+    const locale = useLocale();
+    const format = welcomeCodeInternationalization.format(locale);
+
+    const RandomComponent: React.FC<WelcomeCodeOptionProps> =
+        codeOptions[Math.floor(Math.random() * codeOptions.length)];
 
     return (
         <pre
             className="whitespace-pre-wrap"
         >
-            <RandomComponent />
+            <RandomComponent
+                redirects={[
+                    {
+                        href: HrefConfig.withinSite(locale, "series"),
+                        functionName: "sudoTVSeries",
+                        humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
+                        description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
+                    },
+                ]}
+            />
         </pre>
     );
 };

@@ -10,8 +10,11 @@ import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
 import { useLocale } from "@/i18n/use-locale";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
+import { WelcomeCodeOptionProps } from "../welcome-code-option";
 
-export const WelcomeCodeC: React.FC = () => {
+export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
+    props: WelcomeCodeOptionProps,
+) => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
