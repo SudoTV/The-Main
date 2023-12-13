@@ -4,14 +4,17 @@
 * @description Java
 */
 
-import * as React from "react";
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
 import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
 import { useLocale } from "@/i18n/use-locale";
+import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
+import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
 
-export const WelcomeCodeJava: React.FC = () => {
+export const WelcomeCodeJava: React.FC<WelcomeCodeOptionProps> = (
+    props: WelcomeCodeOptionProps,
+) => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
@@ -44,21 +47,28 @@ export const WelcomeCodeJava: React.FC = () => {
             {"}"}
             <br />
             <br />
-            <CodeLink
-                href="/series"
-            >
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {"public sudoTVSeries() {"}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {`ViewManager.open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {"}"}
-            </CodeLink>
+            {props.redirects.map((
+                redirect: WelcomeCodeOptionRedirect,
+            ) => {
+                return (
+                    <CodeLink
+                        key={redirect.functionName}
+                        href={redirect.href}
+                    >
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {`public ${redirect.functionName}() {`}
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {`ViewManager.open("${redirect.humanFriendlyName}");`}
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {"}"}
+                    </CodeLink>
+                );
+            })}
             <br />
             {"}"}
         </code>
