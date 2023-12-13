@@ -4,14 +4,17 @@
 * @description Kotlin
 */
 
-import * as React from "react";
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
 import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
 import { useLocale } from "@/i18n/use-locale";
+import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
+import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
 
-export const WelcomeCodeKotlin: React.FC = () => {
+export const WelcomeCodeKotlin: React.FC<WelcomeCodeOptionProps> = (
+    props: WelcomeCodeOptionProps,
+) => {
 
     const locale = useLocale();
     const format = welcomeCodeInternationalization.format(locale);
@@ -36,18 +39,25 @@ export const WelcomeCodeKotlin: React.FC = () => {
             {"}"}
             <br />
             <br />
-            <CodeLink
-                href="/series"
-            >
-                {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
-                <br />
-                {"fun sudoTVSeries() {"}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {`ViewManager.open("${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES)}");`}
-                <br />
-                {"}"}
-            </CodeLink>
+            {props.redirects.map((
+                redirect: WelcomeCodeOptionRedirect,
+            ) => {
+                return (
+                    <CodeLink
+                        key={redirect.functionName}
+                        href={redirect.href}
+                    >
+                        {`// ${redirect.description}`}
+                        <br />
+                        {`fun ${redirect.functionName}() {`}
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {`ViewManager.open("${redirect.humanFriendlyName}");`}
+                        <br />
+                        {"}"}
+                    </CodeLink>
+                );
+            })}
         </code>
     );
 };
