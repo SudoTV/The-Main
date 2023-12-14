@@ -48,7 +48,7 @@
     "@types/mocha": "^10.0.6",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
     "@types/showdown": "^2.0.6",
     "autoprefixer": "^10.4.16",
