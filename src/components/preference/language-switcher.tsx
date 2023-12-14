@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Components_I18N
+ * @namespace Components_Preference
  * @description Language Switcher
  */
 "use client";

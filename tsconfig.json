@@ -19,26 +19,8 @@
         "incremental": true,
         "baseUrl": "./src/",
         "paths": {
-            "@/components/*": [
-                "components/*"
-            ],
-            "@/data/*": [
-                "data/*"
-            ],
-            "@/dictionary/*": [
-                "dictionary/*"
-            ],
-            "@/error/*": [
-                "error/*"
-            ],
-            "@/i18n/*": [
-                "i18n/*"
-            ],
-            "@/styles/*": [
-                "styles/*"
-            ],
-            "@/util/*": [
-                "util/*"
+            "@/*": [
+                "./*"
             ]
         },
         "plugins": [
