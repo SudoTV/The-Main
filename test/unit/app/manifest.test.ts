@@ -5,17 +5,16 @@
  * @override Unit Test
  */
 
-import { expect } from "chai";
 import { MetadataRoute } from "next";
 import manifest from "../../../src/app/manifest";
 
 describe("Given Generated <manifest> Component", (): void => {
 
-    it("should be able to generate SudoTV manifest", (): void => {
+    test("should be able to generate SudoTV manifest", (): void => {
 
         const manifestValue: MetadataRoute.Manifest = manifest();
 
-        expect(manifestValue).to.be.deep.equal({
+        expect(manifestValue).toEqual({
             name: "SudoTV The Main",
             short_name: "SudoTV",
             description: "SudoTV The Main, the portal page for SudoTV Network",

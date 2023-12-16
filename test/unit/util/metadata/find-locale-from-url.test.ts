@@ -14,7 +14,7 @@ describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): 
 
     describe("Given [findLocaleFromReferer] Helper Method", (): void => {
 
-        it("Should return the locale from the referer", (): void => {
+        test("Should return the locale from the referer", (): void => {
 
             const referer: string = `/${IETF_LOCALE.ENGLISH_UNITED_STATES}/hello-world/`;
             const result: Optional<string> = findLocaleFromReferer(referer);
@@ -24,7 +24,7 @@ describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): 
                 .toBeEqual(IETF_LOCALE.ENGLISH_UNITED_STATES);
         });
 
-        it("Should return empty if the referer does not contain a valid locale", (): void => {
+        test("Should return empty if the referer does not contain a valid locale", (): void => {
 
             const referer = "/hello-world/en_US/";
             const result = findLocaleFromReferer(referer);
@@ -36,7 +36,7 @@ describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): 
 
     describe("Given [findLocaleFromUrl] Helper Method", (): void => {
 
-        it("Should return the locale from the url", (): void => {
+        test("Should return the locale from the url", (): void => {
 
             const referer: string = `https://hello.com/${IETF_LOCALE.ENGLISH_UNITED_STATES}/hello-world/`;
             const result: Optional<string> = findLocaleFromUrl(referer);
@@ -46,7 +46,7 @@ describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): 
                 .toBeEqual(IETF_LOCALE.ENGLISH_UNITED_STATES);
         });
 
-        it("Should return the locale from the url without header", (): void => {
+        test("Should return the locale from the url without header", (): void => {
 
             const referer: string = `hello.com/${IETF_LOCALE.ENGLISH_UNITED_STATES}/hello-world/`;
             const result: Optional<string> = findLocaleFromUrl(referer);
@@ -56,7 +56,7 @@ describe("Given Util Metadata [Find Locale From Url Utils] Helper Methods", (): 
                 .toBeEqual(IETF_LOCALE.ENGLISH_UNITED_STATES);
         });
 
-        it("Should return empty if the url does not contain a valid locale", (): void => {
+        test("Should return empty if the url does not contain a valid locale", (): void => {
 
             const referer = "https://hello.com/hello-world/en_US/";
             const result = findLocaleFromUrl(referer);

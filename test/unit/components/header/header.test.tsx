@@ -7,13 +7,12 @@
 
 import { IETF_LOCALE } from "@sudoo/locale";
 import { render, screen } from "@testing-library/react";
-import { expect } from "chai";
 import * as React from "react";
 import { LayoutHeader } from "../../../../src/components/header/header";
 
 describe("Given Components <LayoutHeader> Component", (): void => {
 
-    it("should be able to render sudo-tv title", async (): Promise<void> => {
+    test("should be able to render sudo-tv title", async (): Promise<void> => {
 
         render(<React.Fragment>
             <LayoutHeader
@@ -21,6 +20,6 @@ describe("Given Components <LayoutHeader> Component", (): void => {
             />
         </React.Fragment>);
 
-        expect(screen.queryByText("SudoTV")).to.be.exist;
+        expect(screen.queryByText("SudoTV")).toBeDefined();
     });
 });
