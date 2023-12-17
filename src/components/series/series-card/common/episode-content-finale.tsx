@@ -4,9 +4,6 @@
 * @description Episode Content Finale
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import { Optional } from "@sudoo/optional";
-import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
@@ -14,6 +11,10 @@ import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "@/util/format-date";
 import { HrefConfig } from "@/util/href";
+import { findLatestEpisode } from "@/util/series/latest-episode";
+import { IETF_LOCALE } from "@sudoo/locale";
+import { Optional } from "@sudoo/optional";
+import * as React from "react";
 import { PowerLink } from "../../../common/power-link";
 
 export type SeriesCardEpisodeContentFinaleProps = {
@@ -29,16 +30,7 @@ export const SeriesCardEpisodeContentFinale: React.FC<SeriesCardEpisodeContentFi
     const format = seriesInternationalization.format(locale);
 
     const latestEpisode: Optional<EpisodeEntity<EPISODE_TYPE>> =
-        Optional.ofUndefinable(
-            props.series.episodes
-                .sort((
-                    a: EpisodeEntity<EPISODE_TYPE>,
-                    b: EpisodeEntity<EPISODE_TYPE>,
-                ) => {
-                    return b["release-date"].getTime() - a["release-date"].getTime();
-                })
-            [0],
-        );
+        findLatestEpisode(props.series.episodes);
 
     return (
         <div

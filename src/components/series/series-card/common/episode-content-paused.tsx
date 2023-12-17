@@ -4,9 +4,6 @@
 * @description Episode Content Paused
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import { Optional } from "@sudoo/optional";
-import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "@/data/definition/video/video-platform";
@@ -15,6 +12,10 @@ import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "@/util/format-date";
 import { HrefConfig } from "@/util/href";
+import { findLatestEpisode } from "@/util/series/latest-episode";
+import { IETF_LOCALE } from "@sudoo/locale";
+import { Optional } from "@sudoo/optional";
+import * as React from "react";
 import { PowerLink } from "../../../common/power-link";
 import { VideoVideoButton } from "../../../video/video-button/video-button";
 
@@ -61,16 +62,7 @@ export const SeriesCardEpisodeContentPaused: React.FC<SeriesCardEpisodeContentPa
     const format = seriesInternationalization.format(locale);
 
     const latestEpisode: Optional<EpisodeEntity<EPISODE_TYPE>> =
-        Optional.ofUndefinable(
-            props.series.episodes
-                .sort((
-                    a: EpisodeEntity<EPISODE_TYPE>,
-                    b: EpisodeEntity<EPISODE_TYPE>,
-                ) => {
-                    return b["release-date"].getTime() - a["release-date"].getTime();
-                })
-            [0],
-        );
+        findLatestEpisode(props.series.episodes);
 
     return (
         latestEpisode.exists
