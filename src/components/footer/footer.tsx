@@ -4,19 +4,19 @@
 * @description Footer
 */
 
+import { footerInternationalization } from "@/dictionary/footer/_intl";
+import { FOOTER_PROFILE } from "@/dictionary/footer/_profile";
+import { HrefConfig } from "@/util/href";
 import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
 import { SiDiscord } from "react-icons/si";
-import { footerInternationalization } from "@/dictionary/footer/_intl";
-import { FOOTER_PROFILE } from "@/dictionary/footer/_profile";
-import { HrefConfig } from "@/util/href";
 import { HrefLink } from "../common/href-link";
 import { LocaleSwitcher } from "../preference/language-switcher";
 import { ThemeSwitch } from "../preference/theme-switch";
 import { LayoutFooterLinkIcon } from "./icon/link-icon";
-import { SudosaurusIconTailwind } from "@sudosaurus/icon-react";
+import { LayoutFooterSudosaurusIcon } from "./icon/sudosaurus-icon";
 
 export type LayoutFooterProps = {
 
@@ -152,15 +152,7 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                     <div
                         className="flex gap-2 items-center"
                     >
-                        <SudosaurusIconTailwind
-                            size={32}
-                            digest
-                            foregroundColorClassName="text-black dark:text-white"
-                            backgroundColorClassName="bg-black dark:bg-white"
-                        />
-                        <div className="font-semibold text-gray-900 dark:text-white">
-                            {">"}
-                        </div>
+                        <LayoutFooterSudosaurusIcon />
                         <div className="text-sm font-semibold text-gray-900 dark:text-white">
                             © 2018-2024
                         </div>

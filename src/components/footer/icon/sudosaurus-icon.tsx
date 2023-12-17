@@ -20,7 +20,7 @@ export const LayoutFooterSudosaurusIcon: React.FC<LayoutFooterSudosaurusIconProp
             href="https://www.sudosaurus.com"
             rel="noopener noreferrer"
             target="_blank"
-            className="text-gray-800 dark:text-white hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-1 sm:px-2 lg:px-3 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 transition-colors"
+            className=" hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 text-sm dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 transition-colors"
         >
             <SudosaurusIconTailwind
                 size={32}
