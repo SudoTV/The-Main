@@ -12,6 +12,7 @@ import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { useLocale } from "@/i18n/use-locale";
 import { FORMAT_DATE_DATE_FORMAT, formatDate } from "@/util/format-date";
 import { HrefConfig } from "@/util/href";
+import { findLatestEpisode } from "@/util/series/latest-episode";
 import { IETF_LOCALE } from "@sudoo/locale";
 import { Optional } from "@sudoo/optional";
 import * as React from "react";
@@ -61,16 +62,7 @@ export const SeriesCardEpisodeContentUpdating: React.FC<SeriesCardEpisodeContent
     const format = seriesInternationalization.format(locale);
 
     const latestEpisode: Optional<EpisodeEntity<EPISODE_TYPE>> =
-        Optional.ofUndefinable(
-            props.series.episodes
-                .sort((
-                    a: EpisodeEntity<EPISODE_TYPE>,
-                    b: EpisodeEntity<EPISODE_TYPE>,
-                ) => {
-                    return b["release-date"].getTime() - a["release-date"].getTime();
-                })
-            [0],
-        );
+        findLatestEpisode(props.series.episodes);
 
     return (
         latestEpisode.exists

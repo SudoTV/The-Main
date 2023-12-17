@@ -4,15 +4,16 @@
 * @description Video Button
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
-import { FaBilibili, FaYoutube } from "react-icons/fa6";
 import { VIDEO_PLATFORM_TYPE, VideoPlatformEntity } from "@/data/definition/video/video-platform";
 import { crossLocaleInternationalization } from "@/dictionary/cross-locale/_intl";
 import { videoInternationalization } from "@/dictionary/video/_intl";
 import { VIDEO_PROFILE } from "@/dictionary/video/_profile";
 import { useLocale } from "@/i18n/use-locale";
+import { HrefConfig } from "@/util/href";
 import { logger } from "@/util/log";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
+import { FaBilibili, FaYoutube } from "react-icons/fa6";
 import { CardLinkButton } from "../../common/card-link-button";
 
 const getPrefix = (currentLocale: IETF_LOCALE, targetLocale?: IETF_LOCALE): string => {
@@ -53,7 +54,7 @@ export const VideoVideoButton: React.FC<VideoVideoButtonProps> = (
         case VIDEO_PLATFORM_TYPE.BILIBILI: {
             return (<CardLinkButton
                 icon={FaBilibili}
-                href={`https://www.bilibili.com/video/${props.video.identifier}/`}
+                href={HrefConfig.external(`https://www.bilibili.com/video/${props.video.identifier}/`)}
                 prefix={getPrefix(locale, props.video.locale)}
                 title={format.get(VIDEO_PROFILE.BILIBILI)}
             />);
@@ -61,7 +62,7 @@ export const VideoVideoButton: React.FC<VideoVideoButtonProps> = (
         case VIDEO_PLATFORM_TYPE.YOUTUBE: {
             return (<CardLinkButton
                 icon={FaYoutube}
-                href={`https://www.youtube.com/watch?v=${props.video.identifier}`}
+                href={HrefConfig.external(`https://www.youtube.com/watch?v=${props.video.identifier}`)}
                 prefix={getPrefix(locale, props.video.locale)}
                 title={format.get(VIDEO_PROFILE.YOUTUBE)}
             />);
