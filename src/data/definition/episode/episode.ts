@@ -18,6 +18,7 @@ export enum EPISODE_TYPE {
 export type EpisodeEntity<T extends EPISODE_TYPE> = {
 
     readonly identifier: string;
+    readonly premiered: boolean;
     readonly type: T;
     readonly "release-date": Date;
     readonly title: InternationalizationEntity;
