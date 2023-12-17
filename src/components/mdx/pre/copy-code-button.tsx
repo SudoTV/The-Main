@@ -5,10 +5,11 @@
 */
 
 "use client";
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
+
 import { codeInternationalization } from "@/dictionary/code/_intl";
 import { CODE_PROFILE } from "@/dictionary/code/_profile";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
 
 export type MDX_PreProps = {
 
@@ -43,7 +44,7 @@ export const MDXCopyCodeButton: React.FC<MDX_PreProps> = (props: MDX_PreProps) =
     const format = codeInternationalization.format(props.locale);
 
     return (<button
-        className="rounded-md bg-gray-200 dark:bg-gray-800 dark:text-white px-3 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 text-xs sm:text-sm"
+        className="rounded-md bg-gray-200 dark:bg-gray-800 dark:text-white px-3 py-1 hover:bg-gray-300 dark:hover:bg-gray-700 text-xs sm:text-sm font-sans select-none"
         onClick={copyCode}
     >
         {copied
