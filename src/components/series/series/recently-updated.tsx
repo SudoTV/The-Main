@@ -4,13 +4,13 @@
 * @description Recently Updated
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
 import { HrefConfig } from "@/util/href";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
 import { PowerLink } from "../../common/power-link";
 import { Header2 } from "../../typography/header-2";
 import { Section } from "../../typography/section";

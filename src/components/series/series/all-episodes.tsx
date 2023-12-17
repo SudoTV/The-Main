@@ -4,12 +4,12 @@
 * @description All Episodes
 */
 
-import { IETF_LOCALE } from "@sudoo/locale";
-import * as React from "react";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
 import { seriesInternationalization } from "@/dictionary/series/_intl";
 import { SERIES_PROFILE } from "@/dictionary/series/_profile";
+import { IETF_LOCALE } from "@sudoo/locale";
+import * as React from "react";
 import { ALERT_TYPE } from "../../alert/definition";
 import { PowerAlert } from "../../alert/power-alert";
 import { Header2 } from "../../typography/header-2";

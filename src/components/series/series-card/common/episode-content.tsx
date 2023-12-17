@@ -4,8 +4,8 @@
 * @description Episode Content
 */
 
-import * as React from "react";
 import { SERIES_STATUS, SERIES_TYPE, SeriesEntity } from "@/data/definition/series/series";
+import * as React from "react";
 import { SeriesCardEpisodeContentFinale } from "./episode-content-finale";
 import { SeriesCardEpisodeContentPaused } from "./episode-content-paused";
 import { SeriesCardEpisodeContentUpdating } from "./episode-content-updating";
