@@ -152,6 +152,9 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                     <div
                         className="flex gap-2 items-center"
                     >
+                        <div className="font-semibold text-gray-900 dark:text-white">
+                            {">"}
+                        </div>
                         <LayoutFooterSudosaurusIcon />
                         <div className="text-sm font-semibold text-gray-900 dark:text-white">
                             © 2018-2024
