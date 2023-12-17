@@ -16,6 +16,7 @@ import { HrefLink } from "../common/href-link";
 import { LocaleSwitcher } from "../preference/language-switcher";
 import { ThemeSwitch } from "../preference/theme-switch";
 import { LayoutFooterLinkIcon } from "./icon/link-icon";
+import { SudosaurusIconTailwind } from "@sudosaurus/icon-react";
 
 export type LayoutFooterProps = {
 
@@ -151,6 +152,12 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (
                     <div
                         className="flex gap-2 items-center"
                     >
+                        <SudosaurusIconTailwind
+                            size={32}
+                            digest
+                            foregroundColorClassName="text-black dark:text-white"
+                            backgroundColorClassName="bg-black dark:bg-white"
+                        />
                         <div className="font-semibold text-gray-900 dark:text-white">
                             {">"}
                         </div>
