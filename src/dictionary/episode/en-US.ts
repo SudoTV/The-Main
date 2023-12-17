@@ -10,4 +10,5 @@ import { EPISODE_PROFILE } from "./_profile";
 export const profile_episode_en_US: PROFILE<EPISODE_PROFILE> = {
 
     [EPISODE_PROFILE.EPISODE_WORK_IN_PROGRESS]: "Episode Work In Progress",
+    [EPISODE_PROFILE.VISIT_EPISODE_PAGE_BEFORE_RELEASE]: "Visit Episode Page Before Release",
 };

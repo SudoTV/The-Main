@@ -4,6 +4,7 @@
 * @description Episode Card
 */
 
+import { PowerLink } from "@/components/common/power-link";
 import { EPISODE_TYPE, EpisodeEntity } from "@/data/definition/episode/episode";
 import { episodeInternationalization } from "@/dictionary/episode/_intl";
 import { EPISODE_PROFILE } from "@/dictionary/episode/_profile";
@@ -50,7 +51,24 @@ const Subtitle: React.FC<SubtitleProps> = (
     }
 
     const format = episodeInternationalization.format(props.locale);
-    return format.get(EPISODE_PROFILE.EPISODE_WORK_IN_PROGRESS);
+
+    return (<div
+        className="flex flex-row gap-2 items-center"
+    >
+        <div>
+            {format.get(EPISODE_PROFILE.EPISODE_WORK_IN_PROGRESS)}
+        </div>
+        <div
+            className="bg-gray-500 dark:bg-gray-400 rounded-md p-1"
+        />
+        <div>
+            <PowerLink
+                href={HrefConfig.withinSite(props.locale, "series", props.seriesIdentifier, "episode", props.episode.identifier)}
+            >
+                {format.get(EPISODE_PROFILE.VISIT_EPISODE_PAGE_BEFORE_RELEASE)}
+            </PowerLink>
+        </div>
+    </div>);
 };
 
 export type SeriesEpisodeCardProps = {
