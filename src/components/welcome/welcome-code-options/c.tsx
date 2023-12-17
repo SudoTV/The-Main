@@ -11,6 +11,7 @@ import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
+import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
 export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -20,7 +21,10 @@ export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
-        <code>
+        <WelcomeCodeWrapper
+            language="C"
+            locale={locale}
+        >
             {"#include <stdio.h>"}
             <br />
             {"#include <sudotv-the-main.h>"}
@@ -30,15 +34,13 @@ export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
             <br />
             {"int main() {"}
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                {`printf("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
+                {`    printf("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
             </CodeAlertButton>
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {"return 0;"}
+            {"    return 0;"}
             <br />
             {"}"}
             <br />
@@ -52,16 +54,12 @@ export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
                         href={redirect.href}
                     >
                         {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
-                        <br />
-                        {`void ${redirect.functionName}() {`}
-                        <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        {`openView("${redirect.humanFriendlyName}");`}
-                        <br />
+                        {`void ${redirect.functionName}() {\n`}
+                        {`    openView("${redirect.humanFriendlyName}");\n`}
                         {"}"}
                     </CodeLink>
                 );
             })}
-        </code>
+        </WelcomeCodeWrapper>
     );
 };

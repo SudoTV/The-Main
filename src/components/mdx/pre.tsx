@@ -51,7 +51,7 @@ export const MDX_Pre: React.FC<MDX_PreProps> = (props: MDX_PreProps) => {
                 className="w-full text-sm sm:text-base text-left rounded-md rounded-t-none py-2 px-4 whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 dark:text-white [&>code]:p-0 [&>code]:w-full"
             >
                 <code
-                    className="bg-gray-200 dark:bg-gray-800 dark:text-white rounded-sm px-2 font-mono"
+                    className="bg-gray-200 dark:bg-gray-800 dark:text-white rounded-sm font-mono"
                 >
                     {children.props.children}
                 </code>

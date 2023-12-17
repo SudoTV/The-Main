@@ -19,20 +19,18 @@ import { WelcomeCodePhp } from "./welcome-code-options/php";
 import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
-import { MDX_Pre } from "../mdx/pre";
-import { MDX_Code } from "../mdx/code";
 
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
     WelcomeCodeC,
-    WelcomeCodeCpp,
-    WelcomeCodeJava,
-    WelcomeCodeJavaScript,
-    WelcomeCodeKotlin,
-    WelcomeCodePhp,
-    WelcomeCodePython,
-    WelcomeCodeR,
-    WelcomeCodeRust,
+    // WelcomeCodeCpp,
+    // WelcomeCodeJava,
+    // WelcomeCodeJavaScript,
+    // WelcomeCodeKotlin,
+    // WelcomeCodePhp,
+    // WelcomeCodePython,
+    // WelcomeCodeR,
+    // WelcomeCodeRust,
 ];
 
 export const WelcomeCode: React.FC = () => {
@@ -43,21 +41,14 @@ export const WelcomeCode: React.FC = () => {
     const RandomComponent: React.FC<WelcomeCodeOptionProps> =
         codeOptions[Math.floor(Math.random() * codeOptions.length)];
 
-    return (
-        <MDX_Pre>
-            <MDX_Code>
-                <RandomComponent
-                    redirects={[
-                        {
-                            href: HrefConfig.withinSite(locale, "series"),
-                            functionName: "sudoTVSeries",
-                            humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
-                            description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
-                        },
-                    ]}
-                />
-            </MDX_Code>
-
-        </MDX_Pre>
-    );
+    return (<RandomComponent
+        redirects={[
+            {
+                href: HrefConfig.withinSite(locale, "series"),
+                functionName: "sudoTVSeries",
+                humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
+                description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
+            },
+        ]}
+    />);
 };
