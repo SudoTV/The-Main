@@ -23,7 +23,7 @@ export const LayoutFooterSudosaurusIcon: React.FC<LayoutFooterSudosaurusIconProp
             className=" hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 text-sm dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 transition-colors"
         >
             <SudosaurusIconTailwind
-                size={32}
+                size={24}
                 digest
                 foregroundColorClassName="text-black dark:text-white"
                 backgroundColorClassName="bg-black dark:bg-white"
