@@ -4,15 +4,17 @@
 * @description Pre
 */
 
-import * as React from "react";
 import { useLocale } from "@/i18n/use-locale";
 import { extractLanguageFromClassName } from "@/util/extract-language";
+import * as React from "react";
 import { MDX_Code } from "./code";
 import { MDXCopyCodeButton } from "./pre/copy-code-button";
 
 export type MDX_PreProps = {
 
     readonly children?: any;
+
+    readonly language?: string;
 };
 
 export const MDX_Pre: React.FC<MDX_PreProps> = (props: MDX_PreProps) => {
@@ -24,7 +26,9 @@ export const MDX_Pre: React.FC<MDX_PreProps> = (props: MDX_PreProps) => {
         return null;
     };
 
-    const language: string = extractLanguageFromClassName(children.props.className);
+    const language: string = typeof props.language === "string"
+        ? props.language
+        : extractLanguageFromClassName(children.props.className);
 
     return (
         <div>
@@ -47,7 +51,7 @@ export const MDX_Pre: React.FC<MDX_PreProps> = (props: MDX_PreProps) => {
                 className="w-full text-sm sm:text-base text-left rounded-md rounded-t-none py-2 px-4 whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 dark:text-white [&>code]:p-0 [&>code]:w-full"
             >
                 <code
-                    className="bg-gray-200 dark:bg-gray-800 dark:text-white rounded-sm px-2"
+                    className="bg-gray-200 dark:bg-gray-800 dark:text-white rounded-sm px-2 font-mono"
                 >
                     {children.props.children}
                 </code>

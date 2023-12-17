@@ -19,6 +19,8 @@ import { WelcomeCodePhp } from "./welcome-code-options/php";
 import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
+import { MDX_Pre } from "../mdx/pre";
+import { MDX_Code } from "../mdx/code";
 
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
@@ -42,19 +44,20 @@ export const WelcomeCode: React.FC = () => {
         codeOptions[Math.floor(Math.random() * codeOptions.length)];
 
     return (
-        <pre
-            className="whitespace-pre-wrap"
-        >
-            <RandomComponent
-                redirects={[
-                    {
-                        href: HrefConfig.withinSite(locale, "series"),
-                        functionName: "sudoTVSeries",
-                        humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
-                        description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
-                    },
-                ]}
-            />
-        </pre>
+        <MDX_Pre>
+            <MDX_Code>
+                <RandomComponent
+                    redirects={[
+                        {
+                            href: HrefConfig.withinSite(locale, "series"),
+                            functionName: "sudoTVSeries",
+                            humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
+                            description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
+                        },
+                    ]}
+                />
+            </MDX_Code>
+
+        </MDX_Pre>
     );
 };
