@@ -1206,10 +1206,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sudosaurus/icon-react@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@sudosaurus/icon-react@npm:1.2.0"
-  checksum: cef5fab41f7fd87105a77e9a982cbcb274dc0e4e0bf3eba1bb963f22d748f63e71d37be728aab964fdd4234018f9410e66407b0de09efb82660c29a167b3dd26
+"@sudosaurus/icon-react@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@sudosaurus/icon-react@npm:1.3.0"
+  checksum: 3c99288e82fa747f2f6f0c21a33f4ad993b2b0ee8971c0f06ecf85a7844d43e2793023765cba01dcf3d537333b2c58c9d4014f4b9d46011360b826dc341b1683
   languageName: node
   linkType: hard
 
@@ -7897,7 +7897,7 @@ __metadata:
     "@sudoo/optional": "npm:^2.0.0"
     "@sudoo/symbol": "npm:^1.2.0"
     "@sudoo/uuid": "npm:^1.1.0"
-    "@sudosaurus/icon-react": "npm:^1.2.0"
+    "@sudosaurus/icon-react": "npm:^1.3.0"
     "@testing-library/react": "npm:^14.1.2"
     "@types/jest": "npm:^29.5.11"
     "@types/js-yaml": "npm:^4.0.9"
