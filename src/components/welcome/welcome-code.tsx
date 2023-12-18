@@ -6,8 +6,8 @@
 
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
 import { WELCOME_CODE_PROFILE } from "@/dictionary/welcome-code/_profile";
-import { useLocale } from "@/i18n/use-locale";
 import { HrefConfig } from "@/util/href";
+import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { WelcomeCodeOptionProps } from "./welcome-code-option";
 import { WelcomeCodeC } from "./welcome-code-options/c";
@@ -37,10 +37,17 @@ const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
     WelcomeCodeTypeScript,
 ];
 
-export const WelcomeCode: React.FC = () => {
+export type WelcomeCodeProps = {
 
-    const locale = useLocale();
-    const format = welcomeCodeInternationalization.format(locale);
+    readonly locale: IETF_LOCALE;
+};
+
+export const WelcomeCode: React.FC<WelcomeCodeProps> = (
+    props: WelcomeCodeProps,
+) => {
+
+    const format =
+        welcomeCodeInternationalization.format(props.locale);
 
     const RandomComponent: React.FC<WelcomeCodeOptionProps> =
         codeOptions[Math.floor(Math.random() * codeOptions.length)];
@@ -48,7 +55,7 @@ export const WelcomeCode: React.FC = () => {
     return (<RandomComponent
         redirects={[
             {
-                href: HrefConfig.withinSite(locale, "series"),
+                href: HrefConfig.withinSite(props.locale, "series"),
                 functionName: "sudoTVSeries",
                 humanFriendlyName: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES),
                 description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),

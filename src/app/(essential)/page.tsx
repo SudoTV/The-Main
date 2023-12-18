@@ -4,13 +4,19 @@
  * @description Page
  */
 
+import { MainPageWrapper } from "@/components/typography/main-page-wrapper";
 import { WelcomeCode } from "@/components/welcome/welcome-code";
+import { useLocale } from "@/i18n/use-locale";
 
 export default async function Home() {
 
-    return (<main
-        className="flex flex-col items-center justify-between p-4 sm:p-24"
+    const locale = useLocale();
+
+    return (<MainPageWrapper
+        locale={locale}
     >
-        <WelcomeCode />
-    </main>);
+        <WelcomeCode
+            locale={locale}
+        />
+    </MainPageWrapper>);
 };
