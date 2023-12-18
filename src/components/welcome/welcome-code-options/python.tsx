@@ -50,7 +50,7 @@ export const WelcomeCodePython: React.FC<WelcomeCodeOptionProps> = (
                         {`def ${redirect.functionName}():`}
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        {`ViewManager.open("${redirect.humanFriendlyName}");`}
+                        {`ViewManager.open("${redirect.humanFriendlyName}")`}
                     </CodeLink>
                 );
             })}
