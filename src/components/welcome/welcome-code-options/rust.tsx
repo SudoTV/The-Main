@@ -11,6 +11,7 @@ import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
+import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
 export const WelcomeCodeRust: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -20,7 +21,10 @@ export const WelcomeCodeRust: React.FC<WelcomeCodeOptionProps> = (
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
-        <code>
+        <WelcomeCodeWrapper
+            language="Rust"
+            locale={locale}
+        >
             {"use sudotv-the-main::openView;"}
             <br />
             <br />
@@ -57,6 +61,6 @@ export const WelcomeCodeRust: React.FC<WelcomeCodeOptionProps> = (
                     </CodeLink>
                 );
             })}
-        </code>
+        </WelcomeCodeWrapper>
     );
 };

@@ -11,6 +11,7 @@ import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
+import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
 export const WelcomeCodeJava: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -20,7 +21,10 @@ export const WelcomeCodeJava: React.FC<WelcomeCodeOptionProps> = (
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
-        <code>
+        <WelcomeCodeWrapper
+            language="Java"
+            locale={locale}
+        >
             {"package tv.sudo.the-main;"}
             <br />
             <br />
@@ -71,6 +75,6 @@ export const WelcomeCodeJava: React.FC<WelcomeCodeOptionProps> = (
             })}
             <br />
             {"}"}
-        </code>
+        </WelcomeCodeWrapper>
     );
 };

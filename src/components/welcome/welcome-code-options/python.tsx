@@ -11,6 +11,7 @@ import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
+import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
 export const WelcomeCodePython: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -20,7 +21,10 @@ export const WelcomeCodePython: React.FC<WelcomeCodeOptionProps> = (
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
-        <code>
+        <WelcomeCodeWrapper
+            language="Python"
+            locale={locale}
+        >
             {"from sudotv-the-main import ViewManager"}
             <br />
             <br />
@@ -50,6 +54,6 @@ export const WelcomeCodePython: React.FC<WelcomeCodeOptionProps> = (
                     </CodeLink>
                 );
             })}
-        </code>
+        </WelcomeCodeWrapper>
     );
 };

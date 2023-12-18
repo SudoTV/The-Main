@@ -23,14 +23,14 @@ import { WelcomeCodeRust } from "./welcome-code-options/rust";
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
     WelcomeCodeC,
-    // WelcomeCodeCpp,
-    // WelcomeCodeJava,
-    // WelcomeCodeJavaScript,
-    // WelcomeCodeKotlin,
-    // WelcomeCodePhp,
-    // WelcomeCodePython,
-    // WelcomeCodeR,
-    // WelcomeCodeRust,
+    WelcomeCodeCpp,
+    WelcomeCodeJava,
+    WelcomeCodeJavaScript,
+    WelcomeCodeKotlin,
+    WelcomeCodePhp,
+    WelcomeCodePython,
+    WelcomeCodeR,
+    WelcomeCodeRust,
 ];
 
 export const WelcomeCode: React.FC = () => {

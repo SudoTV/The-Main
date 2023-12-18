@@ -11,6 +11,7 @@ import * as React from "react";
 import { CodeAlertButton } from "../code-alert-button";
 import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
+import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
 export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
@@ -20,7 +21,10 @@ export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
     const format = welcomeCodeInternationalization.format(locale);
 
     return (
-        <code>
+        <WelcomeCodeWrapper
+            language="JavaScript"
+            locale={locale}
+        >
             {'"use strict";'}
             <br />
             <br />
@@ -55,6 +59,6 @@ export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
                     </CodeLink>
                 );
             })}
-        </code>
+        </WelcomeCodeWrapper>
     );
 };
