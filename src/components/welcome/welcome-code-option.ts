@@ -16,7 +16,15 @@ export type WelcomeCodeOptionRedirect = {
     readonly description: string;
 };
 
+export type WelcomeCodeOptionQuickLink = {
+
+    readonly href: HrefConfig;
+
+    readonly properties: Record<string, string>;
+};
+
 export type WelcomeCodeOptionProps = {
 
     readonly redirects: WelcomeCodeOptionRedirect[];
+    readonly quickLinks: WelcomeCodeOptionQuickLink[];
 };

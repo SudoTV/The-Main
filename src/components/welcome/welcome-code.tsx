@@ -54,5 +54,6 @@ export const WelcomeCode: React.FC = () => {
                 description: format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT),
             },
         ]}
+        quickLinks={[]}
     />);
 };
