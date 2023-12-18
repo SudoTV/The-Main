@@ -23,7 +23,11 @@ export const MDXCopyCodeButton: React.FC<MDX_PreProps> = (props: MDX_PreProps) =
 
     const copyCode = React.useCallback(() => {
 
-        navigator.clipboard.writeText(props.code);
+        const parsedCode: string = Array.isArray(props.code)
+            ? props.code.join("")
+            : props.code;
+
+        navigator.clipboard.writeText(String(parsedCode));
         setCopied(true);
     }, [props.code]);
 
