@@ -53,7 +53,7 @@ export const WelcomeCodeC: React.FC<WelcomeCodeOptionProps> = (
                         key={redirect.functionName}
                         href={redirect.href}
                     >
-                        {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}`}
+                        {`// ${format.get(WELCOME_CODE_PROFILE.SUDOTV_SERIES_VISIT_TEXT)}\n`}
                         {`void ${redirect.functionName}() {\n`}
                         {`    openView("${redirect.humanFriendlyName}");\n`}
                         {"}"}

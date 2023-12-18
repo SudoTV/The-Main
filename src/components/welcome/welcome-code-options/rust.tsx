@@ -25,23 +25,15 @@ export const WelcomeCodeRust: React.FC<WelcomeCodeOptionProps> = (
             language="Rust"
             locale={locale}
         >
-            {"use sudotv-the-main::openView;"}
-            <br />
-            <br />
-            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
-            <br />
-            {"fn main() {"}
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;
+            {"use sudotv-the-main::openView;\n\n"}
+            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}\n`}
+            {"fn main() {\n"}
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                {`println!("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)})";`}
+                {`    println!("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}");`}
             </CodeAlertButton>
-            <br />
-            {"}"}
-            <br />
-            <br />
+            {"\n}\n\n"}
             {props.redirects.map((
                 redirect: WelcomeCodeOptionRedirect,
             ) => {
@@ -54,8 +46,7 @@ export const WelcomeCodeRust: React.FC<WelcomeCodeOptionProps> = (
                         <br />
                         {`fn ${redirect.functionName}() {`}
                         <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        {`openView("${redirect.humanFriendlyName}");`}
+                        {`    openView("${redirect.humanFriendlyName}");`}
                         <br />
                         {"}"}
                     </CodeLink>
