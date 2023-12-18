@@ -20,6 +20,7 @@ import { WelcomeCodePhp } from "./welcome-code-options/php";
 import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
+import { WelcomeCodeTypeScript } from "./welcome-code-options/typescript";
 
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
@@ -33,6 +34,7 @@ const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
     WelcomeCodePython,
     WelcomeCodeR,
     WelcomeCodeRust,
+    WelcomeCodeTypeScript,
 ];
 
 export const WelcomeCode: React.FC = () => {

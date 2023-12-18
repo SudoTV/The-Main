@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_Welcome_Options
-* @description JavaScript
+* @description TypeScript
 */
 
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
@@ -13,7 +13,7 @@ import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
 import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
-export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
+export const WelcomeCodeTypeScript: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
 ) => {
 
@@ -22,12 +22,9 @@ export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
 
     return (
         <WelcomeCodeWrapper
-            language="Javascript"
+            language="TypeScript"
             locale={locale}
         >
-            {'"use strict";'}
-            <br />
-            <br />
             {'import { ViewManager } from "@sudotv/the-main";'}
             <br />
             <br />
@@ -50,7 +47,7 @@ export const WelcomeCodeJavaScript: React.FC<WelcomeCodeOptionProps> = (
                     >
                         {`// ${redirect.description}`}
                         <br />
-                        {`const ${redirect.functionName} = () => {`}
+                        {`const ${redirect.functionName} = (): void => {`}
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         {`ViewManager.open("${redirect.humanFriendlyName}");`}
