@@ -1,7 +1,7 @@
 /**
 * @author WMXPY
 * @namespace Components_Welcome_Options
-* @description Php
+* @description Go
 */
 
 import { welcomeCodeInternationalization } from "@/dictionary/welcome-code/_intl";
@@ -13,7 +13,7 @@ import { CodeLink } from "../code-link";
 import { WelcomeCodeOptionProps, WelcomeCodeOptionRedirect } from "../welcome-code-option";
 import { WelcomeCodeWrapper } from "../welcome-code-wrapper";
 
-export const WelcomeCodePhp: React.FC<WelcomeCodeOptionProps> = (
+export const WelcomeCodeGo: React.FC<WelcomeCodeOptionProps> = (
     props: WelcomeCodeOptionProps,
 ) => {
 
@@ -22,24 +22,19 @@ export const WelcomeCodePhp: React.FC<WelcomeCodeOptionProps> = (
 
     return (
         <WelcomeCodeWrapper
-            language="php"
+            language="Go"
             locale={locale}
         >
-            {"<?php"}
-            <br />
-            <br />
-            {'require "sudotv-the-main.php";'}
-            <br />
-            <br />
-            {`// ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}`}
-            <br />
+            {"package main\n\n"}
+            {'import "fmt"\n\n'}
+            {"func main() {\n"}
+            {`    // ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}\n`}
             <CodeAlertButton
                 message={format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}
             >
-                {`echo "${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}";`}
+                {`    fmt.Println("${format.get(WELCOME_CODE_PROFILE.HELLO_WORLD_TEXT)}")`}
             </CodeAlertButton>
-            <br />
-            <br />
+            {"\n}\n\n"}
             {props.redirects.map((
                 redirect: WelcomeCodeOptionRedirect,
             ) => {
@@ -50,7 +45,7 @@ export const WelcomeCodePhp: React.FC<WelcomeCodeOptionProps> = (
                     >
                         {`// ${redirect.description}`}
                         <br />
-                        {`function ${redirect.functionName}() {`}
+                        {`func ${redirect.functionName}() {`}
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         {`ViewManager.open("${redirect.humanFriendlyName}");`}

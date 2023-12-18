@@ -19,18 +19,20 @@ import { WelcomeCodePhp } from "./welcome-code-options/php";
 import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
+import { WelcomeCodeGo } from "./welcome-code-options/go";
 
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
-    WelcomeCodeC,
-    WelcomeCodeCpp,
-    WelcomeCodeJava,
-    WelcomeCodeJavaScript,
-    WelcomeCodeKotlin,
-    WelcomeCodePhp,
-    WelcomeCodePython,
-    WelcomeCodeR,
-    WelcomeCodeRust,
+    // WelcomeCodeC,
+    // WelcomeCodeCpp,
+    WelcomeCodeGo,
+    // WelcomeCodeJava,
+    // WelcomeCodeJavaScript,
+    // WelcomeCodeKotlin,
+    // WelcomeCodePhp,
+    // WelcomeCodePython,
+    // WelcomeCodeR,
+    // WelcomeCodeRust,
 ];
 
 export const WelcomeCode: React.FC = () => {
