@@ -25,7 +25,8 @@ export const WelcomeCodeGo: React.FC<WelcomeCodeOptionProps> = (
             language="Go"
             locale={locale}
         >
-            {"package main\n\n"}
+            {"package sudotv-the-main\n\n"}
+            {'import "sudotv/view-manager"\n'}
             {'import "fmt"\n\n'}
             {"func main() {\n"}
             {`    // ${format.get(WELCOME_CODE_PROFILE.WELCOME_TEXT)}\n`}
@@ -48,15 +49,12 @@ export const WelcomeCodeGo: React.FC<WelcomeCodeOptionProps> = (
                         {`func ${redirect.functionName}() {`}
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        {`ViewManager.open("${redirect.humanFriendlyName}");`}
+                        {`ViewManager.open("${redirect.humanFriendlyName}")`}
                         <br />
                         {"}"}
                     </CodeLink>
                 );
             })}
-            <br />
-            <br />
-            {"?>"}
         </WelcomeCodeWrapper>
     );
 };

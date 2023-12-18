@@ -12,6 +12,7 @@ import * as React from "react";
 import { WelcomeCodeOptionProps } from "./welcome-code-option";
 import { WelcomeCodeC } from "./welcome-code-options/c";
 import { WelcomeCodeCpp } from "./welcome-code-options/cpp";
+import { WelcomeCodeGo } from "./welcome-code-options/go";
 import { WelcomeCodeJava } from "./welcome-code-options/java";
 import { WelcomeCodeJavaScript } from "./welcome-code-options/javascript";
 import { WelcomeCodeKotlin } from "./welcome-code-options/kotlin";
@@ -19,20 +20,19 @@ import { WelcomeCodePhp } from "./welcome-code-options/php";
 import { WelcomeCodePython } from "./welcome-code-options/python";
 import { WelcomeCodeR } from "./welcome-code-options/r";
 import { WelcomeCodeRust } from "./welcome-code-options/rust";
-import { WelcomeCodeGo } from "./welcome-code-options/go";
 
 const codeOptions: Array<React.FC<WelcomeCodeOptionProps>> = [
 
-    // WelcomeCodeC,
-    // WelcomeCodeCpp,
+    WelcomeCodeC,
+    WelcomeCodeCpp,
     WelcomeCodeGo,
-    // WelcomeCodeJava,
-    // WelcomeCodeJavaScript,
-    // WelcomeCodeKotlin,
-    // WelcomeCodePhp,
-    // WelcomeCodePython,
-    // WelcomeCodeR,
-    // WelcomeCodeRust,
+    WelcomeCodeJava,
+    WelcomeCodeJavaScript,
+    WelcomeCodeKotlin,
+    WelcomeCodePhp,
+    WelcomeCodePython,
+    WelcomeCodeR,
+    WelcomeCodeRust,
 ];
 
 export const WelcomeCode: React.FC = () => {
