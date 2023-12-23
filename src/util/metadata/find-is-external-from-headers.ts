@@ -11,6 +11,22 @@ export const findIsExternalFromHeaders = (
     targetUrl: string,
 ): boolean => {
 
+    if (targetUrl.startsWith("mailto")) {
+        return true;
+    }
+
+    if (targetUrl.startsWith("tel")) {
+        return true;
+    }
+
+    if (targetUrl.startsWith("sms")) {
+        return true;
+    }
+
+    if (targetUrl.startsWith("/")) {
+        return false;
+    }
+
     const url: string = findUrlFromHeaders(header);
 
     const urlObject: URL = new URL(url);
