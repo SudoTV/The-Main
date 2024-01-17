@@ -12,7 +12,7 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.5.2",
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
