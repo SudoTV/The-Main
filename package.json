@@ -28,7 +28,7 @@
     "@types/mdx": "^2.0.10",
     "@vercel/analytics": "^1.1.2",
     "@vercel/speed-insights": "^1.0.7",
-    "cookies-next": "^4.1.0",
+    "cookies-next": "^4.1.1",
     "js-yaml": "^4.1.0",
     "negotiator": "^0.6.3",
     "next": "14.1.0",
