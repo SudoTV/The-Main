@@ -1656,12 +1656,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@vercel/analytics@npm:1.1.2"
+"@vercel/analytics@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@vercel/analytics@npm:1.1.4"
   dependencies:
     server-only: "npm:^0.0.1"
-  checksum: 01d2d4b9a178d33b913ea94a872ca3d0fd98ba951fc4002d2f5e722a367af0188c81a42a133de472125279dcb5b8eb7cf953682e2b0bf34ebdb0563ba890553e
+  checksum: 10f1e0a0ed5b18cddcdd4c33e49144f5423a7f5d66046544106f6436af70da0b7e6e34888d5d936eecd87de3c0fb061c22e8a509274481f42f027621f36b082b
   languageName: node
   linkType: hard
 
@@ -7902,7 +7902,7 @@ __metadata:
     "@types/react": "npm:^18.2.48"
     "@types/react-dom": "npm:^18.2.18"
     "@types/showdown": "npm:^2.0.6"
-    "@vercel/analytics": "npm:^1.1.2"
+    "@vercel/analytics": "npm:^1.1.4"
     "@vercel/speed-insights": "npm:^1.0.8"
     autoprefixer: "npm:^10.4.17"
     cookies-next: "npm:^4.1.1"
