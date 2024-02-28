@@ -1472,12 +1472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.11":
-  version: 20.11.11
-  resolution: "@types/node@npm:20.11.11"
+"@types/node@npm:^20.11.22":
+  version: 20.11.22
+  resolution: "@types/node@npm:20.11.22"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 9df522ba278c34d7b37329f474369d485b93f0ef5c70be4ccdfce6c49cf61f4a9d39166c66ee5e7f550abda7b211bc4446df98a16ac2cf9f8aa13eae8d1def1b
+  checksum: 304a25607108cbc314417ba1cd0ca7061090cf9444c13f4a70c183164dc189d0e3f4cfda12619c85e5f0fc7a652e3b32501fd0e347b8425dbd5a66c3ec85c7a6
   languageName: node
   linkType: hard
 
@@ -7906,7 +7906,7 @@ __metadata:
     "@types/js-yaml": "npm:^4.0.9"
     "@types/mdx": "npm:^2.0.10"
     "@types/negotiator": "npm:^0.6.3"
-    "@types/node": "npm:^20.11.11"
+    "@types/node": "npm:^20.11.22"
     "@types/react": "npm:^18.2.56"
     "@types/react-dom": "npm:^18.2.18"
     "@types/showdown": "npm:^2.0.6"
