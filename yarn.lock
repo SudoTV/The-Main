@@ -6969,12 +6969,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-icons@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "react-icons@npm:5.1.0"
+"react-icons@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-icons@npm:5.2.1"
   peerDependencies:
     react: "*"
-  checksum: f01648bbf37854510a568c1ac4aeb1c23f734f2ff3a9e94d624bc039ff6291d83ea83281a1380e8105b3f1819bb359a6f34326a5cefbfbced1024b4b81493e01
+  checksum: 9d52b975afaf27dab07dcaefd50497ba43cc57076fc26ccac5142965e01c7fd0c503a62ea31c3bb710e0b2959a4620c2fed12c3c86960ad8ceb63de7f0085f3a
   languageName: node
   linkType: hard
 
@@ -7863,7 +7863,7 @@ __metadata:
     postcss: "npm:^8.4.33"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.2.0"
-    react-icons: "npm:^5.1.0"
+    react-icons: "npm:^5.2.1"
     rehype-parse: "npm:^9.0.0"
     rehype-react: "npm:^8.0.0"
     remark-gfm: "npm:^4.0.0"
