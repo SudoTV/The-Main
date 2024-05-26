@@ -1686,9 +1686,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/speed-insights@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "@vercel/speed-insights@npm:1.0.8"
+"@vercel/speed-insights@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@vercel/speed-insights@npm:1.0.11"
   peerDependencies:
     "@sveltejs/kit": ^1 || ^2
     next: ">= 13"
@@ -1709,7 +1709,7 @@ __metadata:
       optional: true
     vue-router:
       optional: true
-  checksum: c3de1cddea6cb56180586351b821edc00764c6aa7e070d7ed5b0d4713144cc31778277f87f7e7faa5219ef12af2c6ffae6a87d6a65e9b0af53af2df1b17d1d3d
+  checksum: 0366b7582b89ffd2458696d4112669219d2c493ffe4d05beb663a46503c80e883ac78006578b74fd71ae803161d455cc35002ac2e12718e3354b6d1dec03291d
   languageName: node
   linkType: hard
 
@@ -7849,7 +7849,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.23"
     "@types/showdown": "npm:^2.0.6"
     "@vercel/analytics": "npm:^1.2.2"
-    "@vercel/speed-insights": "npm:^1.0.8"
+    "@vercel/speed-insights": "npm:^1.0.11"
     autoprefixer: "npm:^10.4.19"
     cookies-next: "npm:^4.1.1"
     eslint: "npm:^9.0.0"
