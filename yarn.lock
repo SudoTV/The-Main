@@ -1485,13 +1485,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.10.2":
-  version: 16.18.66
-  resolution: "@types/node@npm:16.18.66"
-  checksum: c8b2dd7fb8a7951588a9cda0ad33e0d906b2f14dd1308c9add5decc57264880505d12714d83339def9a485b2ead02a82baa08de1b75bd11f103bfd072e070d15
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^20.12.12":
   version: 20.12.12
   resolution: "@types/node@npm:20.12.12"
@@ -2587,14 +2580,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookies-next@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "cookies-next@npm:4.1.1"
+"cookies-next@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "cookies-next@npm:4.2.1"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
-    "@types/node": "npm:^16.10.2"
     cookie: "npm:^0.6.0"
-  checksum: 6848fdbe2f29ee94194d323a0c7e8d71dddd0628bf2d26da2382854e43f05cae47acea8795cc12f3fbe7e4e679d30c362c6276e3ea0dcf2bf906ebc6f68bbb3b
+  checksum: b9401feeb5614ecdc7114ea179fe24fffce7c586ac7810e57d74509a496be3d8deffc66289f5fc0ec28f34edce8dbb88567076305583e5c31f44b4c72f38a965
   languageName: node
   linkType: hard
 
@@ -7851,7 +7843,7 @@ __metadata:
     "@vercel/analytics": "npm:^1.2.2"
     "@vercel/speed-insights": "npm:^1.0.11"
     autoprefixer: "npm:^10.4.19"
-    cookies-next: "npm:^4.1.1"
+    cookies-next: "npm:^4.2.1"
     eslint: "npm:^9.3.0"
     eslint-config-next: "npm:^14.2.3"
     jest: "npm:^29.7.0"
