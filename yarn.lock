@@ -930,9 +930,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/mdx@npm:^14.2.3":
-  version: 14.2.3
-  resolution: "@next/mdx@npm:14.2.3"
+"@next/mdx@npm:^14.2.6":
+  version: 14.2.6
+  resolution: "@next/mdx@npm:14.2.6"
   dependencies:
     source-map: "npm:^0.7.0"
   peerDependencies:
@@ -943,7 +943,7 @@ __metadata:
       optional: true
     "@mdx-js/react":
       optional: true
-  checksum: 92377ac8b616a5d1bb59ac04ab5f49e886384f52fb9a9d811e3eefbc58fb72cc3900f37fe57c9590ea530da2d5206ce9601485136e6426c889d2b52d38f3377e
+  checksum: 7e8c4aafeda1a98d7a22e61acb4fb39acbe935c00a59e1850b537a057234854fc7246eb9b381d5a0113a7b0ea6699df19b25ffc073d8193507b86d227025b7da
   languageName: node
   linkType: hard
 
@@ -7814,7 +7814,7 @@ __metadata:
     "@formatjs/intl-localematcher": "npm:^0.5.4"
     "@mdx-js/loader": "npm:^3.0.1"
     "@mdx-js/react": "npm:^3.0.0"
-    "@next/mdx": "npm:^14.2.3"
+    "@next/mdx": "npm:^14.2.6"
     "@octokit/graphql": "npm:^8.1.1"
     "@sudoo/internationalization": "npm:^2.0.0"
     "@sudoo/locale": "npm:^2.0.0"
