@@ -1468,12 +1468,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.4.0":
-  version: 22.4.0
-  resolution: "@types/node@npm:22.4.0"
+"@types/node@npm:^22.5.3":
+  version: 22.5.3
+  resolution: "@types/node@npm:22.5.3"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 84cd094b19a27e0db425f1d02614e4f7ac59b5eb3b21e288c8f8d4d0a4c9ad370107bc1a649d4c2b4e810cd133feea26e0bbf7e7c617f93e9e139d6d2568cf50
+  checksum: a068e31dd424a0eadfba7d9a5c5b415b76cfd729f3caa299674ad257f59df85c5fe77f1d0a343e811864c790baefb9003d7627618ee3cf85400af338481ba29f
   languageName: node
   linkType: hard
 
@@ -7829,7 +7829,7 @@ __metadata:
     "@types/js-yaml": "npm:^4.0.9"
     "@types/mdx": "npm:^2.0.13"
     "@types/negotiator": "npm:^0.6.3"
-    "@types/node": "npm:^22.4.0"
+    "@types/node": "npm:^22.5.3"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     "@types/showdown": "npm:^2.0.6"
