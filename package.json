@@ -15,7 +15,7 @@
     "@formatjs/intl-localematcher": "^0.5.4",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.0",
-    "@next/mdx": "^14.2.7",
+    "@next/mdx": "^14.2.14",
     "@octokit/graphql": "^8.1.1",
     "@sudoo/internationalization": "^2.0.0",
     "@sudoo/locale": "^2.0.0",
